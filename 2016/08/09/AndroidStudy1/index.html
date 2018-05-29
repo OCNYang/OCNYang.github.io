@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,Android教程系列," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、Android学习进度规划：第1周：【UI基础】 第1天： Android环境搭建 第2天： 常用UI布局及主要控件 第3天： 常用UI控件及事件处理 第4天： UI高级控件及Android资源 第5天： Ａctivity生命周期">
+<meta name="keywords" content="Android,Android教程系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android教学大纲">
+<meta property="og:url" content="http://ocnyang.com/2016/08/09/AndroidStudy1/index.html">
+<meta property="og:site_name" content="單純的癡">
+<meta property="og:description" content="一、Android学习进度规划：第1周：【UI基础】 第1天： Android环境搭建 第2天： 常用UI布局及主要控件 第3天： 常用UI控件及事件处理 第4天： UI高级控件及Android资源 第5天： Ａctivity生命周期">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-29T13:24:57.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android教学大纲">
+<meta name="twitter:description" content="一、Android学习进度规划：第1周：【UI基础】 第1天： Android环境搭建 第2天： 常用UI布局及主要控件 第3天： 常用UI控件及事件处理 第4天： UI高级控件及Android资源 第5天： Ａctivity生命周期">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'VNED6CUNXS',
+      apiKey: '6ddb8c50393c96385859316fefbe2320',
+      indexName: 'ocnyang',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ocnyang.com/2016/08/09/AndroidStudy1/"/>
+
+
+
+
+
+  <title>Android教学大纲 | 單純的癡</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?923326cdfba9134256dbbf5887c8ce38";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">單純的癡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">等不得，遇不见...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-circle-o-notch"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hourglass-start"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-efall">
+          <a href="/categories/还相信爱情/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-key"></i> <br />
+            
+            E.Fall
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ocnyang.com/2016/08/09/AndroidStudy1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="OCNYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ocnyang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="單純的癡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android教学大纲</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-09T10:03:15+08:00">
+                2016-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android教程系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Android教程系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/09/AndroidStudy1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/08/09/AndroidStudy1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/08/09/AndroidStudy1/" class="leancloud_visitors" data-flag-title="Android教学大纲">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,507
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、Android学习进度规划："><a href="#一、Android学习进度规划：" class="headerlink" title="一、Android学习进度规划："></a>一、Android学习进度规划：</h2><h3 id="第1周：【UI基础】"><a href="#第1周：【UI基础】" class="headerlink" title="第1周：【UI基础】"></a>第1周：【UI基础】</h3><ul>
+<li>第1天： Android环境搭建</li>
+<li>第2天： 常用UI布局及主要控件</li>
+<li>第3天： 常用UI控件及事件处理</li>
+<li>第4天： UI高级控件及Android资源</li>
+<li>第5天： Ａctivity生命周期</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>Android环境搭建及工程目录介绍（前期使用Eclipse，版本：SDK21及以上版本，四周后逐渐接触Android Studio）</li>
+<li>常用UI布局及主要控件<ul>
+<li>LinearLayout、RelativeLayout常用属性【重点讲解】</li>
+<li>FrameLayout、GridLayout常用属性</li>
+<li>TextView、EditText、Button、ImageView、Toast的基本用法</li>
+</ul>
+</li>
+<li>表单三大UI控件及相应控件的事件处理及部分特殊drawable资源（selector、shape）<ul>
+<li>RadioButton及RadioGroup的用法：【重点】单选、监听事件、利用selector实现选中与否、改变默认单选button的显示效果、修改topDrawable</li>
+<li>CheckBox的多选效果及监听。利用selector及shape修改多选框的显示效果</li>
+</ul>
+</li>
+<li>Spinner、AutoCompleteTextView、ScrollView及适配器简介、数组资源<ul>
+<li>Spinner的用法</li>
+<li>ArrayAdapter适配器的基本用法</li>
+<li>数组资源String Array</li>
+<li>AutoCompleteTextView、ScrollView的基本用法</li>
+<li>ProgressBar、SeekBar、RatingBar的基本用法及美化</li>
+</ul>
+</li>
+<li>Ａctivity生命周期</li>
+</ol>
+<h3 id="第2周："><a href="#第2周：" class="headerlink" title="第2周："></a>第2周：</h3><ul>
+<li>第6天： Activity管理及Intent七大属性</li>
+<li>第7天： AsyncTask异步任务</li>
+<li>第8天： ListView基本用法</li>
+<li>第9天： ListView分页及优化</li>
+<li>第10天： 图文混排+GridView</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>Activity页面跳转、生命周期及Intent七大属性</li>
+<li>AsyncTask异步任务</li>
+<li>ListView基本用法及适配器</li>
+<li>ListView分页及优化 + item多种布局的ListView</li>
+<li>GridView图文混排</li>
+</ol>
+<h3 id="第3周："><a href="#第3周：" class="headerlink" title="第3周："></a>第3周：</h3><ul>
+<li>第11天： Menu+Dialog+Toast</li>
+<li>第12天： Fragment</li>
+<li>第13天： SharedPreferences、SDCard及网络存储 + HttpURLConnection实现文件上传</li>
+<li>第14天： SQLite数据库 + WebView</li>
+<li>第15天： ContentProvider之ContentResolver</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>Menu（选项菜单、上下文菜单、PopupWindow自定义菜单）+Dialog+Toast</li>
+<li>Fragment基本用法、生命周期、Fragment间传值</li>
+<li>SharedPreferences、内部文件存储及外部文件存储SDCard</li>
+<li>SQLite数据库 + WebView</li>
+<li>ContentProvider之ContentResolver</li>
+</ol>
+<h3 id="第4周："><a href="#第4周：" class="headerlink" title="第4周："></a>第4周：</h3><ul>
+<li>第16天： 自定义ContentProvider</li>
+<li>第17天： Loader异步装载</li>
+<li>第18天： Handler与多线程</li>
+<li>第19天： ActionBar + LruCache + Bitmap二次采样</li>
+<li>第20天： ViewPager</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>自定义ContentProvider</li>
+<li>Loader异步装载器（CursorLoader及AsyncTaskLoader）</li>
+<li>Handler与多线程及源码分析</li>
+<li>ActionBar + 图片缓存（图片三层缓存策略、LruCache、Bitmap二次采样生成缩略图）</li>
+<li>ViewPager（制作欢迎引导页及加载网络图片的ViewPager及自动播放的ViewPager）</li>
+</ol>
+<h3 id="第5周："><a href="#第5周：" class="headerlink" title="第5周："></a>第5周：</h3><ul>
+<li>第21天： TAB书签导航</li>
+<li>第22天： BroadcastReceiver + Notification</li>
+<li>第23天： Service1</li>
+<li>第24天： Service2</li>
+<li>第25天： 百度地图1</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>TAB书签导航制作<ul>
+<li>FragmentTabHost制作TAB书签导航</li>
+<li>Fragment + RadioGroup制作TAB书签导航  </li>
+<li>Fragment + ViewPager  +  RadioGroup制作TAB书签导航</li>
+<li>Fragment + 带滑动导航条的ViewPager 制作TAB书签导航</li>
+<li>Fragment + ViewPager +  HorizontalScrollView自定义滑动导航条</li>
+<li>Fragment + ActionBar制作TAB书签导航</li>
+<li>Fragment + ActionBar + ViewPager制作TAB书签导航</li>
+</ul>
+</li>
+<li>BroadcastReceiver + 自定义广播 + Notification</li>
+<li>Service（一）（服务的概念及分类、被启动服务和被绑定服务实现音乐播放的用法）</li>
+<li>Service（二）（IntentService的用法及DownloadManager实现大文件下载）</li>
+<li>Service（三）（远程服务：AIDL及Messenger）</li>
+</ol>
+<h3 id="第6周："><a href="#第6周：" class="headerlink" title="第6周："></a>第6周：</h3><ul>
+<li>第26天： 百度地图 2</li>
+<li>第27天： 动画资源 + 样式、主题及drawable资源</li>
+<li>第28天： 屏幕适配</li>
+<li>第29天： 自定义View(上)</li>
+<li>第30天： 自定义View(下)</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>百度地图基本用法</li>
+<li>动画资源（帧动画、补间动画、属性动画基本用法）</li>
+<li>屏幕适配及UI美化（样式、主题及特殊的drawable资源：selector、shape、level-list、layer-list等）</li>
+<li>自定义View(继承于EditText、ListView)</li>
+<li>自定义View(继承于View、继承于ViewGroup)</li>
+</ol>
+<h3 id="第8周："><a href="#第8周：" class="headerlink" title="第8周："></a>第8周：</h3><ul>
+<li>第36天： Volley框架</li>
+<li>第37天： UIL框架</li>
+<li>第38天：  xUtils框架</li>
+<li>第39天：SlidingMenu及DrawerLayout + PullToRefresh等其他第三方技术</li>
+<li>第40天： 事件分发及消费机制</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>Volley框架</li>
+<li>UIL（Universal-Image-Loader）框架</li>
+<li>xUtils框架(ViewUtils \ HttpUtils \ BitmapUtils \ DBUtils)</li>
+<li>PullToRefresh（下拉刷新）+ 瀑布流及常用第三方菜单技术：SlidingMenu（侧滑菜单）、DrawerLayout （抽屉）、ResideMenu（驻留菜单）、SatelliteMenu（卫星菜单）</li>
+<li>事件分发及消费机制 （TouchEvent）</li>
+</ol>
+<h3 id="第9周："><a href="#第9周：" class="headerlink" title="第9周："></a>第9周：</h3><ul>
+<li>第41天：Gesture手势及 SurfaceView</li>
+<li>第42天：播放器及摄像头</li>
+<li>第43天： RecyclerView、CardView</li>
+<li>第44天：传感器、WiFi及蓝牙通讯</li>
+<li>第45天：ShareSDK一键分享及第三方登录 + 第三方支付 + JPush推送</li>
+</ul>
+<blockquote>
+<p>【知识点】</p>
+</blockquote>
+<ol>
+<li>Gesture手势 + SurfaceView</li>
+<li>播放器及摄像头(音乐播放、视频播放VideoView、摄像头)</li>
+<li>RecyclerView、CardView</li>
+<li>传感器、水印、QRCode二维码</li>
+<li>WiFi及蓝牙通讯、ShareSDK一键分享及第三方登录 + Alipay第三方支付 + JPush推送</li>
+</ol>
+<h2 id="二、常用框架技术"><a href="#二、常用框架技术" class="headerlink" title="二、常用框架技术"></a>二、常用框架技术</h2><ol>
+<li><p>网络访问框架</p>
+<ul>
+<li>okHttp框架、</li>
+<li>Retrofit（网络访问）</li>
+<li>AsyncHttpClient(【了解】)</li>
+<li>Volley框架 （StringRequest、JsonObjectRequest、JsonArrayRequest、ImageRequest、NetworkImageView）</li>
+</ul>
+</li>
+<li><p>反转注入框架</p>
+<ul>
+<li>ButterKnife、  </li>
+<li>Android Annotations</li>
+<li>xUtils框架(ViewUtils \ HttpUtils \ BitmapUtils \ DBUtils)</li>
+</ul>
+</li>
+<li><p>图片异步加载框架</p>
+<ul>
+<li>Picasso、</li>
+<li>Fresco、</li>
+<li>Glide、</li>
+<li>UIL（Universal-Image-Loader）框架</li>
+</ul>
+</li>
+<li><p>数据库ORM</p>
+<ul>
+<li>ORMLite、</li>
+<li>GreenDao、</li>
+<li>ActiveAndroid</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、考核内容"><a href="#三、考核内容" class="headerlink" title="三、考核内容"></a>三、考核内容</h2><h3 id="必选："><a href="#必选：" class="headerlink" title="必选："></a>必选：</h3><ol>
+<li>ListView、GridView、ScrollView、WebView</li>
+<li>assets及各种资源（selector、raw、string、color、dimens、style、array，必须采用软编码编程风格）</li>
+<li>动画资源（帧动画、补间动画）</li>
+<li>上下文菜单、PopupWindow、Dialog</li>
+<li>数据存储：SharedPreferences、内部文件存储、SD卡存储、SQLite数据库操作</li>
+<li>ContentResolver</li>
+<li>CursorLoader异步装载</li>
+<li>Handler与多线程或AsyncTask</li>
+<li>图片缓存</li>
+<li>屏幕自适应、版本自适应</li>
+<li>自定义View（至少三个）</li>
+<li>TAB导航（ViewPager、Fragment）</li>
+<li>广播、服务、通知</li>
+<li>DrawerLayout、SlidingMenu或其他第三方菜单</li>
+<li>PullToRefresh</li>
+</ol>
+<h3 id="项目阶段必选："><a href="#项目阶段必选：" class="headerlink" title="项目阶段必选："></a>项目阶段必选：</h3><ol start="16">
+<li>TouchEvent及手势</li>
+<li>Volley、xUtils、UIL框架或其他类似网络访问及异步加载图片的框架</li>
+<li>瀑布流</li>
+<li>混淆打包</li>
+</ol>
+<h3 id="可选："><a href="#可选：" class="headerlink" title="可选："></a>可选：</h3><ol>
+<li>SurfaceView</li>
+<li>音乐播放器或视频播放（自定义MediaController）</li>
+<li>二维码扫描及生成</li>
+<li>RecyclerView、CardView</li>
+<li>传感器</li>
+<li>ShareSDK一键分享及第三方登录</li>
+<li>JPush或其他推送技术</li>
+<li>Alipay或其他支付技术</li>
+<li>WiFi或蓝牙通讯</li>
+<li>文件加密及解密</li>
+<li>地图</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+    
+      <div>
+
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-bug"></i> 感谢阅读-------------</div>
+
+
+</div>
+
+  	
+    </div>
+
+    <div>
+    
+      
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2016/08/09/AndroidStudy1/">Android教学大纲</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
+  <p><span>发布时间:</span>2016年08月09日 - 10:08</p>
+  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>原始链接:</span><a href="/2016/08/09/AndroidStudy1/" title="Android教学大纲">http://ocnyang.com/2016/08/09/AndroidStudy1/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2016/08/09/AndroidStudy1/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+    
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持好文章的分享，您的支持将是对我最大的鼓励！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="OCNYang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt="OCNYang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/03/whenyouloseyouself/" rel="next" title="当你迷茫的时候">
+                <i class="fa fa-chevron-left"></i> 当你迷茫的时候
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/09/Android-EditText-YouShouldKnow/" rel="prev" title="EditText的使用及值得注意的地方">
+                EditText的使用及值得注意的地方 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/ocnyang.png"
+                alt="OCNYang" />
+            
+              <p class="site-author-name" itemprop="name">OCNYang</p>
+              <p class="site-description motion-element" itemprop="description">有过痛苦，方知众生痛苦，<br>有过执着，放下执着，<br>有过牵挂，了无牵挂，<br>这是一种境界，<br>而我，只是一个凡人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ocnyang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ocnyang@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/593a09f9fe88c2006a0034ea" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-pencil"></i>掘金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/shedoor" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shedoor.net/" title="个人" target="_blank">个人</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://love.shedoor.net" title="Meet you" target="_blank">Meet you</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Android学习进度规划："><span class="nav-number">1.</span> <span class="nav-text">一、Android学习进度规划：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第1周：【UI基础】"><span class="nav-number">1.1.</span> <span class="nav-text">第1周：【UI基础】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第2周："><span class="nav-number">1.2.</span> <span class="nav-text">第2周：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第3周："><span class="nav-number">1.3.</span> <span class="nav-text">第3周：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第4周："><span class="nav-number">1.4.</span> <span class="nav-text">第4周：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第5周："><span class="nav-number">1.5.</span> <span class="nav-text">第5周：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第6周："><span class="nav-number">1.6.</span> <span class="nav-text">第6周：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第8周："><span class="nav-number">1.7.</span> <span class="nav-text">第8周：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第9周："><span class="nav-number">1.8.</span> <span class="nav-text">第9周：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、常用框架技术"><span class="nav-number">2.</span> <span class="nav-text">二、常用框架技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、考核内容"><span class="nav-number">3.</span> <span class="nav-text">三、考核内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必选："><span class="nav-number">3.1.</span> <span class="nav-text">必选：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目阶段必选："><span class="nav-number">3.2.</span> <span class="nav-text">项目阶段必选：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可选："><span class="nav-number">3.3.</span> <span class="nav-text">可选：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OCNYang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 124.1k 字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://OCNYang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://ocnyang.com/2016/08/09/AndroidStudy1/';
+          this.page.identifier = '2016/08/09/AndroidStudy1/';
+          this.page.title = 'Android教学大纲';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://OCNYang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("gh3omnCzhrHskUI74veM8V99-gzGzoHsz", "S5X90d5uKqp25VMacYGLwL60");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

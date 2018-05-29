@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,第三方框架,xUtils3," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="xUtils 包含了很多实用的android工具. xUtils 支持超大文件(超过2G)上传，更全面的http请求协议支持(11种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响… xUtils 最低兼容Android 4.0 (api level 14). (Android 2.3?) xUtils3变化较多所以建立了新的项目不在旧版(github.com/wyouflf/xU">
+<meta name="keywords" content="Android,第三方框架,xUtils3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xUtils3简介">
+<meta property="og:url" content="http://ocnyang.com/2016/07/31/xUtils3/index.html">
+<meta property="og:site_name" content="單純的癡">
+<meta property="og:description" content="xUtils 包含了很多实用的android工具. xUtils 支持超大文件(超过2G)上传，更全面的http请求协议支持(11种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响… xUtils 最低兼容Android 4.0 (api level 14). (Android 2.3?) xUtils3变化较多所以建立了新的项目不在旧版(github.com/wyouflf/xU">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-28T14:46:58.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xUtils3简介">
+<meta name="twitter:description" content="xUtils 包含了很多实用的android工具. xUtils 支持超大文件(超过2G)上传，更全面的http请求协议支持(11种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响… xUtils 最低兼容Android 4.0 (api level 14). (Android 2.3?) xUtils3变化较多所以建立了新的项目不在旧版(github.com/wyouflf/xU">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'VNED6CUNXS',
+      apiKey: '6ddb8c50393c96385859316fefbe2320',
+      indexName: 'ocnyang',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ocnyang.com/2016/07/31/xUtils3/"/>
+
+
+
+
+
+  <title>xUtils3简介 | 單純的癡</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?923326cdfba9134256dbbf5887c8ce38";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">單純的癡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">等不得，遇不见...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-circle-o-notch"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hourglass-start"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-efall">
+          <a href="/categories/还相信爱情/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-key"></i> <br />
+            
+            E.Fall
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ocnyang.com/2016/07/31/xUtils3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="OCNYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ocnyang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="單純的癡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">xUtils3简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-31T13:03:15+08:00">
+                2016-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/第三方框架/" itemprop="url" rel="index">
+                    <span itemprop="name">第三方框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/31/xUtils3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/07/31/xUtils3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/07/31/xUtils3/" class="leancloud_visitors" data-flag-title="xUtils3简介">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,216
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>xUtils 包含了很多实用的android工具.</li>
+<li>xUtils 支持超大文件(超过2G)上传，更全面的http请求协议支持(11种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响…</li>
+<li>xUtils 最低兼容Android 4.0 (api level 14). (<a href="https://github.com/wyouflf/xUtils3/issues/8" target="_blank" rel="noopener">Android 2.3?</a>)</li>
+<li>xUtils3变化较多所以建立了新的项目不在旧版(github.com/wyouflf/xUtils)上继续维护, 相对于旧版本:<ol>
+<li>HTTP实现替换HttpClient为UrlConnection, 自动解析回调泛型, 更安全的断点续传策略.</li>
+<li>支持标准的Cookie策略, 区分domain, path…</li>
+<li>事件注解去除不常用的功能, 提高性能.</li>
+<li>数据库api简化提高性能, 达到和greenDao一致的性能.</li>
+<li>图片绑定支持gif(受系统兼容性影响, 部分gif文件只能静态显示), webp; 支持圆角, 圆形, 方形等裁剪, 支持自动旋转…</li>
+</ol>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="使用Gradle构建时添加一下依赖即可"><a href="#使用Gradle构建时添加一下依赖即可" class="headerlink" title="使用Gradle构建时添加一下依赖即可:"></a>使用Gradle构建时添加一下依赖即可:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.xutils:xutils:3.3.4'</span></span><br></pre></td></tr></table></figure>
+<h5 id="如果使用eclipse可以-点击这里下载aar文件-然后用zip解压-取出jar包和so文件"><a href="#如果使用eclipse可以-点击这里下载aar文件-然后用zip解压-取出jar包和so文件" class="headerlink" title="如果使用eclipse可以 点击这里下载aar文件, 然后用zip解压, 取出jar包和so文件."></a>如果使用eclipse可以 <a href="http://dl.bintray.com/wyouflf/maven/org/xutils/xutils/" target="_blank" rel="noopener">点击这里下载aar文件</a>, 然后用zip解压, 取出jar包和so文件.</h5><h5 id="混淆配置参考示例项目sample的配置"><a href="#混淆配置参考示例项目sample的配置" class="headerlink" title="混淆配置参考示例项目sample的配置"></a>混淆配置参考示例项目sample的配置</h5><h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题:"></a>常见问题:</h4><ol>
+<li>更好的管理图片缓存: <a href="https://github.com/wyouflf/xUtils3/issues/149" target="_blank" rel="noopener">https://github.com/wyouflf/xUtils3/issues/149</a></li>
+<li>Cookie的使用: <a href="https://github.com/wyouflf/xUtils3/issues/125" target="_blank" rel="noopener">https://github.com/wyouflf/xUtils3/issues/125</a></li>
+<li>关于query参数? http请求可以通过 header, url, body(请求体)传参; query参数是url中问号(?)后面的参数.</li>
+<li>关于body参数? body参数只有PUT, POST, PATCH, DELETE(老版本RFC2616文档没有明确指出它是否支持, 所以暂时支持)请求支持.</li>
+</ol>
+<h4 id="使用前配置"><a href="#使用前配置" class="headerlink" title="使用前配置"></a>使用前配置</h4><h5 id="需要的权限"><a href="#需要的权限" class="headerlink" title="需要的权限"></a>需要的权限</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在application的onCreate中初始化</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate();</span><br><span class="line">    x.Ext.init(<span class="keyword">this</span>);</span><br><span class="line">    x.Ext.setDebug(<span class="keyword">true</span>); <span class="comment">// 是否输出debug日志</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Event事件注解-ContentView-ViewInject等更多示例参考sample项目"><a href="#使用-Event事件注解-ContentView-ViewInject等更多示例参考sample项目" class="headerlink" title="使用@Event事件注解(@ContentView, @ViewInject等更多示例参考sample项目)"></a>使用@Event事件注解(@ContentView, @ViewInject等更多示例参考sample项目)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 1. 方法必须私有限定,</span></span><br><span class="line"><span class="comment"> * 2. 方法参数形式必须和type对应的Listener接口一致.</span></span><br><span class="line"><span class="comment"> * 3. 注解参数value支持数组: value=&#123;id1, id2, id3&#125;</span></span><br><span class="line"><span class="comment"> * 4. 其它参数说明见&#123;<span class="doctag">@link</span> org.xutils.event.annotation.Event&#125;类的说明.</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Event</span>(value = R.id.btn_test_baidu1,</span><br><span class="line">        type = View.OnClickListener.class<span class="comment">/*可选参数, 默认是View.OnClickListener.class*/</span>)</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onTestBaidu1Click</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="访问网络-更多示例参考sample项目"><a href="#访问网络-更多示例参考sample项目" class="headerlink" title="访问网络(更多示例参考sample项目)"></a>访问网络(更多示例参考sample项目)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义实体参数类请参考:</span></span><br><span class="line"><span class="comment"> * 请求注解 &#123;<span class="doctag">@link</span> org.xutils.http.annotation.HttpRequest&#125;</span></span><br><span class="line"><span class="comment"> * 请求注解处理模板接口 &#123;<span class="doctag">@link</span> org.xutils.http.app.ParamsBuilder&#125;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 需要自定义类型作为callback的泛型时, 参考:</span></span><br><span class="line"><span class="comment"> * 响应注解 &#123;<span class="doctag">@link</span> org.xutils.http.annotation.HttpResponse&#125;</span></span><br><span class="line"><span class="comment"> * 响应注解处理模板接口 &#123;<span class="doctag">@link</span> org.xutils.http.app.ResponseParser&#125;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 示例: 查看 org.xutils.sample.http 包里的代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">BaiduParams params = <span class="keyword">new</span> BaiduParams();</span><br><span class="line">params.wd = <span class="string">"xUtils"</span>;</span><br><span class="line"><span class="comment">// 有上传文件时使用multipart表单, 否则上传原始文件流.</span></span><br><span class="line"><span class="comment">// params.setMultipart(true);</span></span><br><span class="line"><span class="comment">// 上传文件方式 1</span></span><br><span class="line"><span class="comment">// params.uploadFile = new File("/sdcard/test.txt");</span></span><br><span class="line"><span class="comment">// 上传文件方式 2</span></span><br><span class="line"><span class="comment">// params.addBodyParameter("uploadFile", new File("/sdcard/test.txt"));</span></span><br><span class="line">Callback.Cancelable cancelable</span><br><span class="line">       = x.http().get(params,</span><br><span class="line">       <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 1. callback的泛型:</span></span><br><span class="line"><span class="comment">        * callback参数默认支持的泛型类型参见&#123;<span class="doctag">@link</span> org.xutils.http.loader.LoaderFactory&#125;,</span></span><br><span class="line"><span class="comment">        * 例如: 指定泛型为File则可实现文件下载, 使用params.setSaveFilePath(path)指定文件保存的全路径.</span></span><br><span class="line"><span class="comment">        * 默认支持断点续传(采用了文件锁和尾端校验续传文件的一致性).</span></span><br><span class="line"><span class="comment">        * 其他常用类型可以自己在LoaderFactory中注册,</span></span><br><span class="line"><span class="comment">        * 也可以使用&#123;<span class="doctag">@link</span> org.xutils.http.annotation.HttpResponse&#125;</span></span><br><span class="line"><span class="comment">        * 将注解HttpResponse加到自定义返回值类型上, 实现自定义ResponseParser接口来统一转换.</span></span><br><span class="line"><span class="comment">        * 如果返回值是json形式, 那么利用第三方的json工具将十分容易定义自己的ResponseParser.</span></span><br><span class="line"><span class="comment">        * 如示例代码&#123;<span class="doctag">@link</span> org.xutils.sample.http.BaiduResponse&#125;, 可直接使用BaiduResponse作为</span></span><br><span class="line"><span class="comment">        * callback的泛型.</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 2. callback的组合:</span></span><br><span class="line"><span class="comment">        * 可以用基类或接口组合个种类的Callback, 见&#123;<span class="doctag">@link</span> org.xutils.common.Callback&#125;.</span></span><br><span class="line"><span class="comment">        * 例如:</span></span><br><span class="line"><span class="comment">        * a. 组合使用CacheCallback将使请求检测缓存或将结果存入缓存(仅GET请求生效).</span></span><br><span class="line"><span class="comment">        * b. 组合使用PrepareCallback的prepare方法将为callback提供一次后台执行耗时任务的机会,</span></span><br><span class="line"><span class="comment">        * 然后将结果给onCache或onSuccess.</span></span><br><span class="line"><span class="comment">        * c. 组合使用ProgressCallback将提供进度回调.</span></span><br><span class="line"><span class="comment">        * ...(可参考&#123;<span class="doctag">@link</span> org.xutils.image.ImageLoader&#125;</span></span><br><span class="line"><span class="comment">        * 或 示例代码中的 &#123;<span class="doctag">@link</span> org.xutils.sample.download.DownloadCallback&#125;)</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 3. 请求过程拦截或记录日志: 参考 &#123;<span class="doctag">@link</span> org.xutils.http.app.RequestTracker&#125;</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 4. 请求Header获取: 参考 &#123;<span class="doctag">@link</span> org.xutils.http.app.RequestInterceptListener&#125;</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 5. 其他(线程池, 超时, 重定向, 重试, 代理等): 参考 &#123;<span class="doctag">@link</span> org.xutils.http.RequestParams&#125;</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        **/</span></span><br><span class="line">       <span class="keyword">new</span> Callback.CommonCallback&lt;String&gt;() &#123;</span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line">               Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable ex, <span class="keyword">boolean</span> isOnCallback)</span> </span>&#123;</span><br><span class="line">               <span class="comment">//Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();</span></span><br><span class="line">               <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> HttpException) &#123; <span class="comment">// 网络错误</span></span><br><span class="line">                   HttpException httpEx = (HttpException) ex;</span><br><span class="line">                   <span class="keyword">int</span> responseCode = httpEx.getCode();</span><br><span class="line">                   String responseMsg = httpEx.getMessage();</span><br><span class="line">                   String errorResult = httpEx.getResult();</span><br><span class="line">                   <span class="comment">// ...</span></span><br><span class="line">               &#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他错误</span></span><br><span class="line">                   <span class="comment">// ...</span></span><br><span class="line">               &#125;</span><br><span class="line">               Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(CancelledException cex)</span> </span>&#123;</span><br><span class="line">               Toast.makeText(x.app(), <span class="string">"cancelled"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinished</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// cancelable.cancel(); // 取消请求</span></span><br></pre></td></tr></table></figure>
+<h4 id="如果你只需要一个简单的版本"><a href="#如果你只需要一个简单的版本" class="headerlink" title="如果你只需要一个简单的版本:"></a>如果你只需要一个简单的版本:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Event</span>(value = R.id.btn_test_baidu2)</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onTestBaidu2Click</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    RequestParams params = <span class="keyword">new</span> RequestParams(<span class="string">"https://www.baidu.com/s"</span>);</span><br><span class="line">    params.setSslSocketFactory(...); <span class="comment">// 设置ssl</span></span><br><span class="line">    params.addQueryStringParameter(<span class="string">"wd"</span>, <span class="string">"xUtils"</span>);</span><br><span class="line">    x.http().get(params, <span class="keyword">new</span> Callback.CommonCallback&lt;String&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line">            Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable ex, <span class="keyword">boolean</span> isOnCallback)</span> </span>&#123;</span><br><span class="line">            Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(CancelledException cex)</span> </span>&#123;</span><br><span class="line">            Toast.makeText(x.app(), <span class="string">"cancelled"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinished</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h4 id="带有缓存的请求示例"><a href="#带有缓存的请求示例" class="headerlink" title="带有缓存的请求示例:"></a>带有缓存的请求示例:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">BaiduParams params = <span class="keyword">new</span> BaiduParams();</span><br><span class="line">params.wd = <span class="string">"xUtils"</span>;</span><br><span class="line"><span class="comment">// 默认缓存存活时间, 单位:毫秒.(如果服务没有返回有效的max-age或Expires)</span></span><br><span class="line">params.setCacheMaxAge(<span class="number">1000</span> * <span class="number">60</span>);</span><br><span class="line">Callback.Cancelable cancelable</span><br><span class="line"><span class="comment">// 使用CacheCallback, xUtils将为该请求缓存数据.</span></span><br><span class="line">= x.http().get(params, <span class="keyword">new</span> Callback.CacheCallback&lt;String&gt;() &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> hasError = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">private</span> String result = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCache</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 得到缓存数据, 缓存过期后不会进入这个方法.</span></span><br><span class="line"><span class="comment">// 如果服务端没有返回过期时间, 参考params.setCacheMaxAge(maxAge)方法.</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// * 客户端会根据服务端返回的 header 中 max-age 或 expires 来确定本地缓存是否给 onCache 方法.</span></span><br><span class="line">        <span class="comment">//   如果服务端没有返回 max-age 或 expires, 那么缓存将一直保存, 除非这里自己定义了返回false的</span></span><br><span class="line">        <span class="comment">//   逻辑, 那么xUtils将请求新数据, 来覆盖它.</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// * 如果信任该缓存返回 true, 将不再请求网络;</span></span><br><span class="line">        <span class="comment">//   返回 false 继续请求网络, 但会在请求头中加上ETag, Last-Modified等信息,</span></span><br><span class="line">        <span class="comment">//   如果服务端返回304, 则表示数据没有更新, 不继续加载数据.</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">this</span>.result = result;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// true: 信任缓存数据, 不在发起网络请求; false不信任缓存数据.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 注意: 如果服务返回304或 onCache 选择了信任缓存, 这里将不会被调用,</span></span><br><span class="line">        <span class="comment">// 但是 onFinished 总会被调用.</span></span><br><span class="line"><span class="keyword">this</span>.result = result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable ex, <span class="keyword">boolean</span> isOnCallback)</span> </span>&#123;</span><br><span class="line">hasError = <span class="keyword">true</span>;</span><br><span class="line">Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();</span><br><span class="line"><span class="keyword">if</span> (ex <span class="keyword">instanceof</span> HttpException) &#123; <span class="comment">// 网络错误</span></span><br><span class="line">HttpException httpEx = (HttpException) ex;</span><br><span class="line"><span class="keyword">int</span> responseCode = httpEx.getCode();</span><br><span class="line">String responseMsg = httpEx.getMessage();</span><br><span class="line">String errorResult = httpEx.getResult();</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他错误</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(CancelledException cex)</span> </span>&#123;</span><br><span class="line">Toast.makeText(x.app(), <span class="string">"cancelled"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinished</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (!hasError &amp;&amp; result != <span class="keyword">null</span>) &#123;</span><br><span class="line"><span class="comment">// 成功获取数据</span></span><br><span class="line">Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="使用数据库-更多示例参考sample项目"><a href="#使用数据库-更多示例参考sample项目" class="headerlink" title="使用数据库(更多示例参考sample项目)"></a>使用数据库(更多示例参考sample项目)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Parent test = db.selector(Parent.class).where(<span class="string">"id"</span>, <span class="string">"in"</span>, <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>&#125;).findFirst();</span><br><span class="line"><span class="keyword">long</span> count = db.selector(Parent.class).where(<span class="string">"name"</span>, <span class="string">"LIKE"</span>, <span class="string">"w%"</span>).and(<span class="string">"age"</span>, <span class="string">"&gt;"</span>, <span class="number">32</span>).count();</span><br><span class="line">List&lt;Parent&gt; testList = db.selector(Parent.class).where(<span class="string">"id"</span>, <span class="string">"between"</span>, <span class="keyword">new</span> String[]&#123;<span class="string">"1"</span>, <span class="string">"5"</span>&#125;).findAll();</span><br></pre></td></tr></table></figure>
+<h3 id="绑定图片-更多示例参考sample项目"><a href="#绑定图片-更多示例参考sample项目" class="headerlink" title="绑定图片(更多示例参考sample项目)"></a>绑定图片(更多示例参考sample项目)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">x.image().bind(imageView, url, imageOptions);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// assets file</span></span><br><span class="line">x.image().bind(imageView, <span class="string">"assets://test.gif"</span>, imageOptions);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// local file</span></span><br><span class="line">x.image().bind(imageView, <span class="keyword">new</span> File(<span class="string">"/sdcard/test.gif"</span>).toURI().toString(), imageOptions);</span><br><span class="line">x.image().bind(imageView, <span class="string">"/sdcard/test.gif"</span>, imageOptions);</span><br><span class="line">x.image().bind(imageView, <span class="string">"file:///sdcard/test.gif"</span>, imageOptions);</span><br><span class="line">x.image().bind(imageView, <span class="string">"file:/sdcard/test.gif"</span>, imageOptions);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x.image().bind(imageView, url, imageOptions, <span class="keyword">new</span> Callback.CommonCallback&lt;Drawable&gt;() &#123;...&#125;);</span><br><span class="line">x.image().loadDrawable(url, imageOptions, <span class="keyword">new</span> Callback.CommonCallback&lt;Drawable&gt;() &#123;...&#125;);</span><br><span class="line">x.image().loadFile(url, imageOptions, <span class="keyword">new</span> Callback.CommonCallback&lt;File&gt;() &#123;...&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="关于libwebpbackport"><a href="#关于libwebpbackport" class="headerlink" title="关于libwebpbackport"></a>关于libwebpbackport</h3><ul>
+<li>部分4.x的机型对webp格式的支持仍然有问题, 需要借助webp.</li>
+<li>webp来自:<a href="https://github.com/webmproject/libwebp" target="_blank" rel="noopener">https://github.com/webmproject/libwebp</a></li>
+<li>webpbackport来自:<a href="https://github.com/alexey-pelykh/webp-android-backport" target="_blank" rel="noopener">https://github.com/alexey-pelykh/webp-android-backport</a></li>
+<li>其中为webpbackport添加了nativeDecodeFile的实现, 并修复在Android 5.0以上系统存在bug:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// android_backport_webp.cpp</span></span><br><span class="line"><span class="comment">// 修改:</span></span><br><span class="line">jclassRef = jniEnv-&gt;FindClass(...);</span><br><span class="line"><span class="comment">// 为:</span></span><br><span class="line">jclass temp = jniEnv-&gt;FindClass(...);</span><br><span class="line">jclassRef = (jclass)jniEnv-&gt;NewGlobalRef(temp);</span><br><span class="line">jniEnv-&gt;DeleteLocalRef(temp);</span><br><span class="line"><span class="comment">// 其他jni代码修改见: http://my.oschina.net/u/1171837/blog/533153</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+    
+      <div>
+
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-bug"></i> 感谢阅读-------------</div>
+
+
+</div>
+
+  	
+    </div>
+
+    <div>
+    
+      
+
+    
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持好文章的分享，您的支持将是对我最大的鼓励！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="OCNYang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt="OCNYang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/第三方框架/" rel="tag"><i class="fa fa-tag"></i> 第三方框架</a>
+          
+            <a href="/tags/xUtils3/" rel="tag"><i class="fa fa-tag"></i> xUtils3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/24/thetime_youmeetme/" rel="next" title="你认识我的时候">
+                <i class="fa fa-chevron-left"></i> 你认识我的时候
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/03/whenyouloseyouself/" rel="prev" title="当你迷茫的时候">
+                当你迷茫的时候 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/ocnyang.png"
+                alt="OCNYang" />
+            
+              <p class="site-author-name" itemprop="name">OCNYang</p>
+              <p class="site-description motion-element" itemprop="description">有过痛苦，方知众生痛苦，<br>有过执着，放下执着，<br>有过牵挂，了无牵挂，<br>这是一种境界，<br>而我，只是一个凡人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ocnyang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ocnyang@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/593a09f9fe88c2006a0034ea" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-pencil"></i>掘金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/shedoor" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shedoor.net/" title="个人" target="_blank">个人</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://love.shedoor.net" title="Meet you" target="_blank">Meet you</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Gradle构建时添加一下依赖即可"><span class="nav-number">1.</span> <span class="nav-text">使用Gradle构建时添加一下依赖即可:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果使用eclipse可以-点击这里下载aar文件-然后用zip解压-取出jar包和so文件"><span class="nav-number">1.1.</span> <span class="nav-text">如果使用eclipse可以 点击这里下载aar文件, 然后用zip解压, 取出jar包和so文件.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#混淆配置参考示例项目sample的配置"><span class="nav-number">1.2.</span> <span class="nav-text">混淆配置参考示例项目sample的配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用前配置"><span class="nav-number">3.</span> <span class="nav-text">使用前配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#需要的权限"><span class="nav-number">3.1.</span> <span class="nav-text">需要的权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化"><span class="nav-number">3.2.</span> <span class="nav-text">初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Event事件注解-ContentView-ViewInject等更多示例参考sample项目"><span class="nav-number"></span> <span class="nav-text">使用@Event事件注解(@ContentView, @ViewInject等更多示例参考sample项目)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问网络-更多示例参考sample项目"><span class="nav-number"></span> <span class="nav-text">访问网络(更多示例参考sample项目)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你只需要一个简单的版本"><span class="nav-number">1.</span> <span class="nav-text">如果你只需要一个简单的版本:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带有缓存的请求示例"><span class="nav-number">2.</span> <span class="nav-text">带有缓存的请求示例:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用数据库-更多示例参考sample项目"><span class="nav-number"></span> <span class="nav-text">使用数据库(更多示例参考sample项目)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定图片-更多示例参考sample项目"><span class="nav-number"></span> <span class="nav-text">绑定图片(更多示例参考sample项目)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于libwebpbackport"><span class="nav-number"></span> <span class="nav-text">关于libwebpbackport</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OCNYang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共 124.1k 字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://OCNYang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://ocnyang.com/2016/07/31/xUtils3/';
+          this.page.identifier = '2016/07/31/xUtils3/';
+          this.page.title = 'xUtils3简介';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://OCNYang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("gh3omnCzhrHskUI74veM8V99-gzGzoHsz", "S5X90d5uKqp25VMacYGLwL60");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
