@@ -1994,7 +1994,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0b0979;
+  background: #ff1fd9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3179,6 +3179,6 @@ img.img-topic {
   margin: 10px 0 10px 0;
 }
 body {
-  background: url("/images/background.jpg");
+  background: url("/images/background.png");
   background-attachment: fixed;
 }
