@@ -1994,7 +1994,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c813ff;
+  background: #ff5c0d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2855,14 +2855,14 @@ pre .javascript .function {
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
     width: 100%;
-    padding: 3px;
+    padding: 1px;
     border-radius: initial;
   }
 }
 @media (max-width: 767px) {
   .content-wrap {
     width: 100%;
-    padding: 3px;
+    padding: 1px;
     min-height: auto;
     border-radius: initial;
   }
@@ -3171,4 +3171,7 @@ pre .javascript .function {
 }
 img.img-topic {
   width: 100%;
+}
+.posts-expand .post-meta {
+  margin: 10px 0 10px 0;
 }
