@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="一些Support库随着Android Lollipop的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Palette/20150827183303088.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Palette/20150827183359416.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Palette/tmpdir__16_6_28_18_41_09.gif">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Palette/cd389848270623564.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Palette/cd389848270623565.png">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.081Z">
+<meta property="og:image" content="http://img.shedoor.net/Palette/20150827183303088.png">
+<meta property="og:image" content="http://img.shedoor.net/Palette/20150827183359416.png">
+<meta property="og:image" content="http://img.shedoor.net/Palette/tmpdir__16_6_28_18_41_09.gif">
+<meta property="og:image" content="http://img.shedoor.net/Palette/cd389848270623564.png">
+<meta property="og:image" content="http://img.shedoor.net/Palette/cd389848270623565.png">
+<meta property="og:updated_time" content="2020-11-01T13:53:29.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Palette抽取Bitmap主色调">
 <meta name="twitter:description" content="一些Support库随着Android Lollipop的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/Palette/20150827183303088.png">
+<meta name="twitter:image" content="http://img.shedoor.net/Palette/20150827183303088.png">
 
 
 
@@ -484,7 +484,7 @@ Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() {
 <li>light muted(柔和色中的亮色)</li>
 </ul>
 <p>借一张别人的图，给大家一种更直观的感受。  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Palette/20150827183303088.png" alt="Palette解析六个主颜色">  </p>
+<p><img src="http://img.shedoor.net/Palette/20150827183303088.png" alt="Palette解析六个主颜色">  </p>
 <h3 id="获取提取的颜色"><a href="#获取提取的颜色" class="headerlink" title="获取提取的颜色"></a>获取提取的颜色</h3><p>你获取Palette对象之后，可以通过以下这些内置getter函数直接获取这六个颜色。你需要传入默认颜色防止Palette无法解析到指定颜色种类，返回的类型是24位RGB颜色数值。</p>
 <pre><code>Palette palette = Palette.generate(myBitmap);
 int vibrant = palette.getVibrantColor(0x000000);
@@ -521,7 +521,7 @@ getTitleTextColor(): 标题文本的颜色
 </code></pre><p>Palette只为六种主颜色种类Swatch提供了getter，如果你要使用其他颜色种类的Swatch（一共有16种颜色种类），你需要手动获取它。调用getSwatchs()会返回一个列表，里面有所有获取到的Swatch。</p>
 <pre><code>List&lt;Palette.Swatch&gt; swatches = palette.getSwatches();
 </code></pre><p>这里是一个Palette获取所有Swatch的例子，里面展示了它们分别在图像中所占的比例：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Palette/20150827183359416.png" alt="">  </p>
+<p><img src="http://img.shedoor.net/Palette/20150827183359416.png" alt="">  </p>
 <h3 id="关于颜色种类的值size"><a href="#关于颜色种类的值size" class="headerlink" title="关于颜色种类的值size"></a>关于颜色种类的值size</h3><p>在上面生成Palette的时候，你可能注意到了可以设置Palette的size。size越大，花费的时间越长，而越小，可以选择的色彩也越小。最佳的选择是根据image的用途：  </p>
 <ul>
 <li>头像之类的，size最好在24-32之间；  </li>
@@ -529,10 +529,10 @@ getTitleTextColor(): 标题文本的颜色
 <li>默认是16.  </li>
 </ul>
 <h2 id="Palette实例"><a href="#Palette实例" class="headerlink" title="Palette实例"></a>Palette实例</h2><p>Palette经常用于和ViewPager，Fragment搭配使用，当我们的Pager切换时伴随着Fragment的变化，而Fragment里的内容一般是不同的，所以每个Fragment里的一般视觉效果也是不同的，所以我们可以用Palette来去提取Fragment中的主色调，把这个主色调用于整体的UI风格。</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Palette/tmpdir__16_6_28_18_41_09.gif" alt="效果图">  </p>
+<p><img src="http://img.shedoor.net/Palette/tmpdir__16_6_28_18_41_09.gif" alt="效果图">  </p>
 <p>这个例子可以参考这篇博客：<a href="http://www.jianshu.com/p/9fcf316031ba" target="_blank" rel="noopener">http://www.jianshu.com/p/9fcf316031ba</a><br>Demo的地址：<a href="https://github.com/loonggg/MaterialDesignDemo" target="_blank" rel="noopener">https://github.com/loonggg/MaterialDesignDemo</a>  </p>
 <p>另外一个例子：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Palette/cd389848270623564.png" alt=""> <img src="http://obbu6r1mi.bkt.clouddn.com/Palette/cd389848270623565.png" alt="">  </p>
+<p><img src="http://img.shedoor.net/Palette/cd389848270623564.png" alt=""> <img src="http://img.shedoor.net/Palette/cd389848270623565.png" alt="">  </p>
 <p>详情参考这篇博客：<a href="http://www.itdadao.com/articles/c15a485862p0.html" target="_blank" rel="noopener">http://www.itdadao.com/articles/c15a485862p0.html</a><br>Demo下载地址：<a href="http://download.csdn.net/detail/breeze_wf/9273313" target="_blank" rel="noopener">http://download.csdn.net/detail/breeze_wf/9273313</a>  </p>
 <blockquote>
 <p>关于更多Palette的详细用法，可以查看<a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html" target="_blank" rel="noopener">官方API文档</a>。</p>
@@ -569,7 +569,7 @@ getTitleTextColor(): 标题文本的颜色
   <p><span>本文标题:</span><a href="/2016/11/11/Palette/">使用Palette抽取Bitmap主色调</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2016年11月11日 - 17:11</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/11/11/Palette/" title="使用Palette抽取Bitmap主色调">http://ocnyang.com/2016/11/11/Palette/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2016/11/11/Palette/"  aria-label="复制成功！"></i></span>
   </p>
@@ -871,7 +871,7 @@ getTitleTextColor(): 标题文本的颜色
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

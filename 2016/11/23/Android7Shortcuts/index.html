@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android教程系列,Android,Android7新特性," />
+  <meta name="keywords" content="Android,Android教程系列,Android7新特性," />
 
 
 
@@ -80,22 +80,22 @@
 
 
 <meta name="description" content="一、Shortcuts 介绍Android 7.1 允许 App 自定义 Shortcuts，类似 iOS 的 3D touch。通过在桌面长按 App 弹出 Shortcut 列表，点击某个 Shortcut 快速进入某项操作，同时 Shortcut 可以拖动到桌面进行固定，如下图：">
-<meta name="keywords" content="Android教程系列,Android,Android7新特性">
+<meta name="keywords" content="Android,Android教程系列,Android7新特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 7.1 新特性：快捷方式 Shortcuts">
 <meta property="og:url" content="http://ocnyang.com/2016/11/23/Android7Shortcuts/index.html">
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="一、Shortcuts 介绍Android 7.1 允许 App 自定义 Shortcuts，类似 iOS 的 3D touch。通过在桌面长按 App 弹出 Shortcut 列表，点击某个 Shortcut 快速进入某项操作，同时 Shortcut 可以拖动到桌面进行固定，如下图：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts-3.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts-4.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts-5.png">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.088Z">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts.jpg">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-3.jpg">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-4.jpg">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-5.png">
+<meta property="og:updated_time" content="2020-11-01T13:40:28.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 7.1 新特性：快捷方式 Shortcuts">
 <meta name="twitter:description" content="一、Shortcuts 介绍Android 7.1 允许 App 自定义 Shortcuts，类似 iOS 的 3D touch。通过在桌面长按 App 弹出 Shortcut 列表，点击某个 Shortcut 快速进入某项操作，同时 Shortcut 可以拖动到桌面进行固定，如下图：">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts.jpg">
+<meta name="twitter:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts.jpg">
 
 
 
@@ -433,7 +433,7 @@
 
       
         <h2 id="一、Shortcuts-介绍"><a href="#一、Shortcuts-介绍" class="headerlink" title="一、Shortcuts 介绍"></a>一、Shortcuts 介绍</h2><p>Android 7.1 允许 App 自定义 Shortcuts，类似 iOS 的 3D touch。通过在桌面长按 App 弹出 Shortcut 列表，点击某个 Shortcut 快速进入某项操作，同时 Shortcut 可以拖动到桌面进行固定，如下图：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts.jpg" alt="android-7.1-app-shortcuts">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts.jpg" alt="android-7.1-app-shortcuts">  </p>
 <a id="more"></a>
 <h3 id="1-Shortcuts-作用及分类"><a href="#1-Shortcuts-作用及分类" class="headerlink" title="1. Shortcuts 作用及分类"></a>1. Shortcuts 作用及分类</h3><p>Shortcuts 为 App 常用操作提供了快速访问的方式，如上面日历的新建提醒。  </p>
 <p>这个功能目前只能在 <a href="http://ocnyang.com/">Android 7.1</a> 系统桌面进行使用，这个依然保留着“应用抽屉”古老设计的产品国内应该没多少用户。三方桌面可以通过 API 接入这个功能。<br>目前支持 Shortcut 的应用主要还是 Google 的 App，看到有即刻的朋友说他们在 7.1 系统发布时快速支持了这个功能并上线，速度很赞。  </p>
@@ -531,7 +531,7 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 </blockquote>
 <h4 id="5-4-应用备份"><a href="#5-4-应用备份" class="headerlink" title="5.4 应用备份"></a>5.4 应用备份</h4><p>如果应用通过备份恢复到另外一台机器上，固定的 Shortcuts 是可以直接恢复的，不过启动器不保存这些 Shortcut 的 icon，所以应用内需要存在这些 icon 对应的资源以便启动器能找到。  </p>
 <p>静态 Shortcuts 需要应用重新安装、升级才能生效。<br>动态 Shortcuts 需要相应代码被执行过才能生效。</p>
-<h2 id="二、Shortcuts-一些实践-amp-问题"><a href="#二、Shortcuts-一些实践-amp-问题" class="headerlink" title="二、Shortcuts 一些实践&amp;问题"></a>二、Shortcuts 一些实践&amp;问题</h2><p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts-3.jpg" alt=""><br><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts-4.jpg" alt=""></p>
+<h2 id="二、Shortcuts-一些实践-amp-问题"><a href="#二、Shortcuts-一些实践-amp-问题" class="headerlink" title="二、Shortcuts 一些实践&amp;问题"></a>二、Shortcuts 一些实践&amp;问题</h2><p><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-3.jpg" alt=""><br><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-4.jpg" alt=""></p>
 <h3 id="6-最佳实践"><a href="#6-最佳实践" class="headerlink" title="6. 最佳实践"></a>6. 最佳实践</h3><p>这块官网已经给出了一部分建议，包括：  </p>
 <ol>
 <li>设计上和系统 App 的 Shortcuts 保持一致。</li>
@@ -552,7 +552,7 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 <li>后台 App 有频率限制<br>当应该完全退到后台(无 Activity 或 Service 在前台时)，其操作 Shortcut(包括添加、删除、修改) 的频率是受限的。可通过isRateLimitingActive()查询是否已受限，true表示已受限。<br>若已受限，可通过开发者选项中“重置 ShortcutManager 调用频率限制”或命令行<code>adb shell cmd shortcut reset-throttling [ --user USER-ID ]</code>解决。  </li>
 <li>Shortcut 个数限制<br>虽然官方文档介绍静态和动态 Shortcut 总和不能超过 5 个，通过getMaxShortcutCountPerActivity()得到的也是 5，但实际测试下来是不超过4个！即静态和动态shortcuts加起来总数最多是五个.<br>当我们尝试添加第六个shortcut时, 应用会抛出异常:<br> <code>java.lang.IllegalArgumentException: Max number of dynamic shortcuts exceeded.</code><br>虽然总数限制是5个, 但是当我正好有5个(2个静态 + 3个动态)的时候, 长按只显示了4个shortcuts.</li>
 </ol>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android-7.1-app-shortcuts-5.png" alt="android-7.1-app-shortcuts数量的限制">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-5.png" alt="android-7.1-app-shortcuts数量的限制">  </p>
 <h4 id="7-3-getIntents-有-Bug"><a href="#7-3-getIntents-有-Bug" class="headerlink" title="7.3 getIntents() 有 Bug"></a>7.3 getIntents() 有 Bug</h4><p>从 <a href="https://android.googlesource.com/platform/frameworks/base/+/android-7.1.0_r7/core/java/android/content/pm/ShortcutInfo.java#1170" target="_blank" rel="noopener">getIntents()</a> 实现 中可以看出未做mIntents是否为 null 及 empty 的判断，在 null 时会出现：  </p>
 <pre><code>java.lang.NullPointerException: Attempt to get length of null array
 </code></pre><p>的异常。</p>
@@ -598,7 +598,7 @@ java.lang.SecurityException: Caller can&apos;t access shortcut information
   <p><span>本文标题:</span><a href="/2016/11/23/Android7Shortcuts/">Android 7.1 新特性：快捷方式 Shortcuts</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2016年11月23日 - 16:11</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/11/23/Android7Shortcuts/" title="Android 7.1 新特性：快捷方式 Shortcuts">http://ocnyang.com/2016/11/23/Android7Shortcuts/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2016/11/23/Android7Shortcuts/"  aria-label="复制成功！"></i></span>
   </p>
@@ -661,9 +661,9 @@ java.lang.SecurityException: Caller can&apos;t access shortcut information
       
         <div class="post-tags">
           
-            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
-          
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
           
             <a href="/tags/Android7新特性/" rel="tag"><i class="fa fa-tag"></i> Android7新特性</a>
           
@@ -902,7 +902,7 @@ java.lang.SecurityException: Caller can&apos;t access shortcut information
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

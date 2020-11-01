@@ -87,9 +87,9 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="英文原文 Introduction to Glide, Image Loader Library for Android, recommended by Google摘录来自：Google推荐的图片加载库Glide介绍    在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 Glide 的图片加载库，作者是bumptech。这个库被广泛的运用在google的开源项目中，包括2014年goo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/glide1.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/glide2.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/glide3.png">
+<meta property="og:image" content="http://img.shedoor.net/glide1.png">
+<meta property="og:image" content="http://img.shedoor.net/glide2.jpg">
+<meta property="og:image" content="http://img.shedoor.net/glide3.png">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445294447874.jpg">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445294918728.png">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445294433243.png">
@@ -99,11 +99,11 @@
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445366503084.gif">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427453389115686.png">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427453390188737.png">
-<meta property="og:updated_time" content="2018-05-28T14:37:12.133Z">
+<meta property="og:updated_time" content="2020-11-01T13:49:59.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片加载库Glide介绍">
 <meta name="twitter:description" content="英文原文 Introduction to Glide, Image Loader Library for Android, recommended by Google摘录来自：Google推荐的图片加载库Glide介绍    在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 Glide 的图片加载库，作者是bumptech。这个库被广泛的运用在google的开源项目中，包括2014年goo">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/glide1.png">
+<meta name="twitter:image" content="http://img.shedoor.net/glide1.png">
 
 
 
@@ -461,8 +461,8 @@
 </code></pre><h3 id="Glide-1"><a href="#Glide-1" class="headerlink" title="Glide"></a>Glide</h3><pre><code>Glide.with(context)  
     .load(&quot;http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg&quot;)  
     .into(ivImg);  
-</code></pre><p>虽然两者看起来一样，但是Glide更易用，因为Glide的with方法不光接受Context，还接受Activity 和 Fragment，Context会自动的从他们获取。<br><img src="http://obbu6r1mi.bkt.clouddn.com/glide1.png" alt=""><br>同时将Activity/Fragment作为with()参数的好处是：图片加载会和Activity/Fragment的生命周期保持一致，比如Paused状态在暂停加载，在Resumed的时候又自动重新加载。所以我建议传参的时候传递Activity 和 Fragment给Glide，而不是Context。  </p>
-<h3 id="默认Bitmap格式是RGB-565"><a href="#默认Bitmap格式是RGB-565" class="headerlink" title="默认Bitmap格式是RGB_565"></a>默认Bitmap格式是RGB_565</h3><p>下面是加载图片时和Picasso的比较（1920x1080 像素的图片加载到768x432的ImageView中）<br><img src="http://obbu6r1mi.bkt.clouddn.com/glide2.jpg" alt=""><br>可以看到Glide加载的图片质量要差于Picasso（ps：我看不出来哈），为什么？这是因为Glide默认的Bitmap格式是RGB_565 ，比ARGB_8888格式的内存开销要小一半。下面是Picasso在ARGB8888下与Glide在RGB565下的内存开销图（应用自身占用了8m，因此以8为基准线比较）：<br><img src="http://obbu6r1mi.bkt.clouddn.com/glide3.png" alt=""><br>如果你对默认的RGB_565效果还比较满意，可以不做任何事，但是如果你觉得难以接受，可以创建一个新的GlideModule将Bitmap格式转换到ARGB_8888：  </p>
+</code></pre><p>虽然两者看起来一样，但是Glide更易用，因为Glide的with方法不光接受Context，还接受Activity 和 Fragment，Context会自动的从他们获取。<br><img src="http://img.shedoor.net/glide1.png" alt=""><br>同时将Activity/Fragment作为with()参数的好处是：图片加载会和Activity/Fragment的生命周期保持一致，比如Paused状态在暂停加载，在Resumed的时候又自动重新加载。所以我建议传参的时候传递Activity 和 Fragment给Glide，而不是Context。  </p>
+<h3 id="默认Bitmap格式是RGB-565"><a href="#默认Bitmap格式是RGB-565" class="headerlink" title="默认Bitmap格式是RGB_565"></a>默认Bitmap格式是RGB_565</h3><p>下面是加载图片时和Picasso的比较（1920x1080 像素的图片加载到768x432的ImageView中）<br><img src="http://img.shedoor.net/glide2.jpg" alt=""><br>可以看到Glide加载的图片质量要差于Picasso（ps：我看不出来哈），为什么？这是因为Glide默认的Bitmap格式是RGB_565 ，比ARGB_8888格式的内存开销要小一半。下面是Picasso在ARGB8888下与Glide在RGB565下的内存开销图（应用自身占用了8m，因此以8为基准线比较）：<br><img src="http://img.shedoor.net/glide3.png" alt=""><br>如果你对默认的RGB_565效果还比较满意，可以不做任何事，但是如果你觉得难以接受，可以创建一个新的GlideModule将Bitmap格式转换到ARGB_8888：  </p>
 <pre><code>public class GlideConfiguration implements GlideModule {  
 
     @Override  
@@ -792,7 +792,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

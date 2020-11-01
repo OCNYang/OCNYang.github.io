@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android教程系列,Android,Android6.0权限," />
+  <meta name="keywords" content="Android,Android教程系列,Android6.0权限," />
 
 
 
@@ -80,21 +80,21 @@
 
 
 <meta name="description" content="众所周知，Android 6.0 相比之前的Android版本有一个很大的不同点，就是动态获取权限。今天自己在做拨号功能时，正巧遇到这个问题， 顺手记录下在Android 6.0 上如何动态获取权限。">
-<meta name="keywords" content="Android教程系列,Android,Android6.0权限">
+<meta name="keywords" content="Android,Android教程系列,Android6.0权限">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Android 6.0 设备上动态获取权限">
 <meta property="og:url" content="http://ocnyang.com/2016/08/16/Android6Permission/index.html">
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="众所周知，Android 6.0 相比之前的Android版本有一个很大的不同点，就是动态获取权限。今天自己在做拨号功能时，正巧遇到这个问题， 顺手记录下在Android 6.0 上如何动态获取权限。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/android_m_install.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/android_m_sms.jpeg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/android_m_permission.jpeg">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.088Z">
+<meta property="og:image" content="http://img.shedoor.net/android_m_install.jpg">
+<meta property="og:image" content="http://img.shedoor.net/android_m_sms.jpeg">
+<meta property="og:image" content="http://img.shedoor.net/android_m_permission.jpeg">
+<meta property="og:updated_time" content="2020-11-01T13:39:43.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Android 6.0 设备上动态获取权限">
 <meta name="twitter:description" content="众所周知，Android 6.0 相比之前的Android版本有一个很大的不同点，就是动态获取权限。今天自己在做拨号功能时，正巧遇到这个问题， 顺手记录下在Android 6.0 上如何动态获取权限。">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/android_m_install.jpg">
+<meta name="twitter:image" content="http://img.shedoor.net/android_m_install.jpg">
 
 
 
@@ -447,13 +447,13 @@
 <p>此时你肯定想到了 如果 targetSdkVersion 值设置的小于23是不是就不会奔溃了，恩，确实如此， 此时即使使用Android6.0的设备，程序也不会奔溃，原因显而易见，Android 的权限机制是 Android M 后才加入的。从 Android M 开始 应用程序申请的权限是在运行时动态赋给用户的。</p>
 <p>关于动态分配权限，一些同学可能不是很清楚。这里稍稍提一下 Android 6.0 的权限动态分配。 如果你只对最终的解决方案感兴趣，可以跳过下面这节，直接去看解决方案</p>
 <h3 id="权限动态分配"><a href="#权限动态分配" class="headerlink" title="权限动态分配"></a>权限动态分配</h3><p>在 Android6.0 之前，下载好一个应用程序，点击安装我们看到的大都是像这样的界面。  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/android_m_install.jpg" alt="">  </p>
+<p><img src="http://img.shedoor.net/android_m_install.jpg" alt="">  </p>
 <p>上图分别是Nexus6和小米手机在安装软件时的界面。</p>
 <p>在安装时你会发现，手机操作系统会提示，这个软件会索要了你手机的那些权限，并且给用一个列表进行展示，但是这些提示只是在安装是提示，只要你点击接受或者安装， 表示你允许这个应用在可以获取它申明的所有权限。一般很少有人在安装时，会因为看到某个应用因为申请了某一个敏感权限而放弃安装应用。因为这个权限虽然敏感， 但是对于当前的用户是不可感知的，因为他现在并没有立即去查看你的最近通话、短信记录…</p>
 <p>说到这里，我们自然而然的会想到，其实最好的方式是，当这个应用在用户使用过程中，正准备使用某个权限时，比如说读取短信列表，系统能及时的弹出一个提示框，说这个应用要读取您的短信内容， 您是否允许。然后用户结合当前应用的执行动作，依据当前条件判断，是不是应该授予应用读取短信记录的权限。这绝对的最完美的。 因为在具体的使用过程中，用户可以结合当前应用的使用场景，去思考、判断是不是应该给这个应用相应的权限。不给能怎样，给了会怎样， 这样对用户而言，完全是主动的，相比安装时那种选择，这样的做法无疑是对用户莫大的尊重，同时这也保证了用户的个人隐私。</p>
 <p>说到这里，不得不插一句，其实 MIUI 早就实现了这个系统特性，在这一点上 MIUI 确实走到了 Android团队的前面，恩，给 MIUI 点个赞。</p>
 <p>然而直到 Android 6.0 这个版本开始，上面的假设终于得到了谷歌的实践，除了在应用安装时，操作系统会提示应用会获取那些权限，在运行过程中，当应用去真的获取一些敏感 权限时，系统还会弹出一个提示框，询问用户是不是授予应用相应的权限。如下图所示。  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/android_m_sms.jpeg" alt="">  </p>
+<p><img src="http://img.shedoor.net/android_m_sms.jpeg" alt="">  </p>
 <p>这就是 Android 6.0 的运行时权限检查机制。下面是Google官方对此的解释，只截取介绍部分</p>
 <blockquote>
 <p>Beginning in Android 6.0 (API level 23), users grant permissions to apps while the app is running, not when they install the app. This approach streamlines the app install process, since the user does not need to grant permissions when they install or update the app. It also gives the user more control over the app’s functionality; for example, a user could choose to give a camera app access to the camera but not to the device location. The user can revoke the permissions at any time, by going to the app’s Settings screen.</p>
@@ -479,7 +479,7 @@ public void onCall(String mobile){
        }
    }
 </code></pre><p>此时，如果一个Android6.0的用户触发拨号动作，执行上面的代码，那么他将会看到一个很好看的MaterialDialog，如下图所示。</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/android_m_permission.jpeg" alt=""></p>
+<p><img src="http://img.shedoor.net/android_m_permission.jpeg" alt=""></p>
 <p>那么用户点击拒绝或者允许，我们怎么才能拿到回调呢，如果能拿到回调，我们就可以根据用户的选择来执行不同的操作了。</p>
 <p>这里应该会看到在 ActivityCompat 的 requestPermissions 方法中，最后一个参数是一个requestCode，看到它自然而然想到了经常用到的onActivityResult， 这里当执行 ActivityCompat 的 requestPermissions 方法后有一个回调机制，需要我们在当前 Activity 中实现 onRequestPermissionsResult 这个方法，具体如下</p>
 <pre><code>@Override
@@ -540,7 +540,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions, in
   <p><span>本文标题:</span><a href="/2016/08/16/Android6Permission/">在Android 6.0 设备上动态获取权限</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2016年08月16日 - 08:08</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/08/16/Android6Permission/" title="在Android 6.0 设备上动态获取权限">http://ocnyang.com/2016/08/16/Android6Permission/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2016/08/16/Android6Permission/"  aria-label="复制成功！"></i></span>
   </p>
@@ -603,9 +603,9 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions, in
       
         <div class="post-tags">
           
-            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
-          
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
           
             <a href="/tags/Android6-0权限/" rel="tag"><i class="fa fa-tag"></i> Android6.0权限</a>
           
@@ -844,7 +844,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions, in
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

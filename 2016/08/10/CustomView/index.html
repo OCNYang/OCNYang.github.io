@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android教程系列,Android,自定义view," />
+  <meta name="keywords" content="Android,Android教程系列,自定义view," />
 
 
 
@@ -80,20 +80,20 @@
 
 
 <meta name="description" content="摘录来源：伯乐在线专栏作者 - 邵辉|CRR    对于我这样一个Android初级开发者来说，自定义View一直是一个遥不可及的东西，每次看到别人做的特别漂亮的控件，自己心里那个痒痒啊，可是又生性懒惰，自己不肯努力去看书，只能望而兴叹，每次做需求用到自定义控件，就直接去Github上找，找到合适的就用，找不到合适的，凑合也用，反正从来没想过要自己来做这样的东西，可是毕业以后到了新公司，为了自己">
-<meta name="keywords" content="Android教程系列,Android,自定义view">
+<meta name="keywords" content="Android,Android教程系列,自定义view">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义view详解">
 <meta property="og:url" content="http://ocnyang.com/2016/08/10/CustomView/index.html">
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="摘录来源：伯乐在线专栏作者 - 邵辉|CRR    对于我这样一个Android初级开发者来说，自定义View一直是一个遥不可及的东西，每次看到别人做的特别漂亮的控件，自己心里那个痒痒啊，可是又生性懒惰，自己不肯努力去看书，只能望而兴叹，每次做需求用到自定义控件，就直接去Github上找，找到合适的就用，找不到合适的，凑合也用，反正从来没想过要自己来做这样的东西，可是毕业以后到了新公司，为了自己">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/myview1.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/myview2.gif">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.123Z">
+<meta property="og:image" content="http://img.shedoor.net/myview1.png">
+<meta property="og:image" content="http://img.shedoor.net/myview2.gif">
+<meta property="og:updated_time" content="2020-11-01T13:47:52.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义view详解">
 <meta name="twitter:description" content="摘录来源：伯乐在线专栏作者 - 邵辉|CRR    对于我这样一个Android初级开发者来说，自定义View一直是一个遥不可及的东西，每次看到别人做的特别漂亮的控件，自己心里那个痒痒啊，可是又生性懒惰，自己不肯努力去看书，只能望而兴叹，每次做需求用到自定义控件，就直接去Github上找，找到合适的就用，找不到合适的，凑合也用，反正从来没想过要自己来做这样的东西，可是毕业以后到了新公司，为了自己">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/myview1.png">
+<meta name="twitter:image" content="http://img.shedoor.net/myview1.png">
 
 
 
@@ -509,7 +509,7 @@ setMeasuredDimension(measuredWidth, measuredHeight);
 
 }
 </code></pre><p>MeasureSpce的mode有三种：EXACTLY, AT_MOST，UNSPECIFIED，除却UNSPECIFIED不谈，其他两种mode：当父布局是EXACTLY时，子控件确定大小或者match_parent，mode都是EXACTLY，子控件是wrap_content时，mode为AT_MOST；当父布局是AT_MOST时，子控件确定大小，mode为EXACTLY，子控件wrap_content或者match_parent时，mode为AT_MOST。所以在确定控件大小时，需要判断MeasureSpec的mode，不能直接用MeasureSpec的size。在进行一些逻辑处理以后，调用setMeasureDimension()方法，将测量得到的宽高传进去供layout使用。  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/myview1.png" alt="">  </p>
+<p><img src="http://img.shedoor.net/myview1.png" alt="">  </p>
 <blockquote>
 <p>需要明白的一点是 ,测量所得的宽高不一定是最后展示的宽高，最后宽高确定是在onLayout方法里，layou（left，top，right，bottom），不过一般都是一样的。</p>
 </blockquote>
@@ -592,7 +592,7 @@ public void startAnimation() {
 }
 </code></pre><p>(只贴了核心代码，完整代码会在文章最后给链接)</p>
 <p>可以看到在onDraw()方法里，我调用了canvas的drawCircle方法画了一个圆，圆心的位置是又画布的位置决定的，位于画布的中心，width和height参数是在onLayout()方法里拿到的，在此之前取到的height和width都是不准确的，这点要注意。圆的半径是xml文件中定义的size*scale，而这个scale是通过一个ValueAnimator确定的，变化范围是从1到2，ValueAnimator的值发生改变会赋给scale同时调用postInvalidate()方法，这个方法的作用就是重绘，然后圆的半径就会发生改变，这样刷新就会实现动画的效果。  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/myview2.gif" alt="">  </p>
+<p><img src="http://img.shedoor.net/myview2.gif" alt="">  </p>
 <h3 id="requstLayout和invidious"><a href="#requstLayout和invidious" class="headerlink" title="requstLayout和invidious"></a>requstLayout和invidious</h3><p>在自定义view时，时常用到刷新view的方法，这时候就会有三个方法供我们选择：requestLayout()、invalidate()、postInvalidate()，其实invalidate和postInvalidate这两个方法作用是一样的，唯一不同的是invalidate用在主线程，而postInvalidate用在异步线程，下面对比一下requestLayout和invalidate的内部实现：</p>
 <pre><code>@Override
 public void requestLayout() {
@@ -661,7 +661,7 @@ void invalidate() {
   <p><span>本文标题:</span><a href="/2016/08/10/CustomView/">自定义view详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2016年08月10日 - 13:08</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/08/10/CustomView/" title="自定义view详解">http://ocnyang.com/2016/08/10/CustomView/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2016/08/10/CustomView/"  aria-label="复制成功！"></i></span>
   </p>
@@ -724,9 +724,9 @@ void invalidate() {
       
         <div class="post-tags">
           
-            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
-          
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
           
             <a href="/tags/自定义view/" rel="tag"><i class="fa fa-tag"></i> 自定义view</a>
           
@@ -965,7 +965,7 @@ void invalidate() {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

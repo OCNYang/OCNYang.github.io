@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="本次的主要内容：  TypeAdapter JsonSerializer与JsonDeserializer TypeAdapterFactory @JsonAdapter注解 TypeAdapter与 JsonSerializer、JsonDeserializer对比 TypeAdapter实例 结语">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide4_1.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide4_2.png">
-<meta property="og:updated_time" content="2018-05-28T14:40:50.686Z">
+<meta property="og:image" content="http://img.shedoor.net/gson/gson_guide4_1.png">
+<meta property="og:image" content="http://img.shedoor.net/gson/gson_guide4_2.png">
+<meta property="og:updated_time" content="2020-11-01T13:52:53.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gson使用指南（四）">
 <meta name="twitter:description" content="本次的主要内容：  TypeAdapter JsonSerializer与JsonDeserializer TypeAdapterFactory @JsonAdapter注解 TypeAdapter与 JsonSerializer、JsonDeserializer对比 TypeAdapter实例 结语">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide4_1.png">
+<meta name="twitter:image" content="http://img.shedoor.net/gson/gson_guide4_1.png">
 
 
 
@@ -558,7 +558,7 @@ System.out.println(gson.toJson(100.0f));//结果：&quot;100.0&quot;
 <p>注：registerTypeAdapter必须使用包装类型，所以int.class,long.class,float.class和double.class是行不通的。同时不能使用父类来替上面的子类型，这也是为什么要分别注册而不直接使用Number.class的原因。</p>
 </blockquote>
 <p>上面特别说明了registerTypeAdapter不行，那就是有其它方法可行咯?当然！换成registerTypeHierarchyAdapter 就可以使用Number.class而不用一个一个的当独注册啦！</p>
-<h3 id="registerTypeAdapter与registerTypeHierarchyAdapter的区别："><a href="#registerTypeAdapter与registerTypeHierarchyAdapter的区别：" class="headerlink" title="registerTypeAdapter与registerTypeHierarchyAdapter的区别："></a>registerTypeAdapter与registerTypeHierarchyAdapter的区别：</h3><p><img src="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide4_1.png" alt=""></p>
+<h3 id="registerTypeAdapter与registerTypeHierarchyAdapter的区别："><a href="#registerTypeAdapter与registerTypeHierarchyAdapter的区别：" class="headerlink" title="registerTypeAdapter与registerTypeHierarchyAdapter的区别："></a>registerTypeAdapter与registerTypeHierarchyAdapter的区别：</h3><p><img src="http://img.shedoor.net/gson/gson_guide4_1.png" alt=""></p>
 <p>注：如果一个被序列化的对象本身就带有泛型，且注册了相应的TypeAdapter，那么必须调用Gson.toJson(Object,Type)，明确告诉Gson对象的类型。</p>
 <pre><code>Type type = new TypeToken&lt;List&lt;User&gt;&gt;() {}.getType();
 TypeAdapter typeAdapter = new TypeAdapter&lt;List&lt;User&gt;&gt;() {
@@ -609,7 +609,7 @@ System.out.println(gson.toJson(user));
 //结果：{&quot;name&quot;:&quot;怪盗kidou&quot;,&quot;age&quot;:24,&quot;email&quot;:&quot;ikidou@example.com&quot;}
 //为区别结果，特意把email字段与@SerializedName注解中设置的不一样  
 </code></pre><p>注意：JsonAdapter的优先级比GsonBuilder.registerTypeAdapter的优先级更高。</p>
-<h2 id="五、TypeAdapter与-JsonSerializer、JsonDeserializer对比"><a href="#五、TypeAdapter与-JsonSerializer、JsonDeserializer对比" class="headerlink" title="五、TypeAdapter与 JsonSerializer、JsonDeserializer对比"></a>五、TypeAdapter与 JsonSerializer、JsonDeserializer对比</h2><p><img src="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide4_2.png" alt=""></p>
+<h2 id="五、TypeAdapter与-JsonSerializer、JsonDeserializer对比"><a href="#五、TypeAdapter与-JsonSerializer、JsonDeserializer对比" class="headerlink" title="五、TypeAdapter与 JsonSerializer、JsonDeserializer对比"></a>五、TypeAdapter与 JsonSerializer、JsonDeserializer对比</h2><p><img src="http://img.shedoor.net/gson/gson_guide4_2.png" alt=""></p>
 <h2 id="六、TypeAdapter实例"><a href="#六、TypeAdapter实例" class="headerlink" title="六、TypeAdapter实例"></a>六、TypeAdapter实例</h2><p>注：这里的TypeAdapter泛指TypeAdapter、JsonSerializer和JsonDeserializer。<br>这里的TypeAdapter 上面讲了一个自动将 字符串形式的数值转换成int型时可能出现 空字符串的问题，下面介绍一个其它读者的需求：</p>
 <blockquote>
 <p>服务器返回的数据中data字段类型不固定，比如请求成功data是一个List,不成功的时候是String类型，这样前端在使用泛型解析的时候，怎么去处理呢？  </p>
@@ -965,7 +965,7 @@ System.out.println(gson.toJson(user));
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

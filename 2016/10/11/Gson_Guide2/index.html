@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="本次的主要内容：  Gson的流式反序列化 Gson的流式序列化*　使用GsonBuilder导出null值、格式化输出、日期时间及其它小功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide2_1.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide2_2.png">
-<meta property="og:updated_time" content="2018-05-28T14:37:12.133Z">
+<meta property="og:image" content="http://img.shedoor.net/gson/gson_guide2_1.png">
+<meta property="og:image" content="http://img.shedoor.net/gson/gson_guide2_2.png">
+<meta property="og:updated_time" content="2020-11-01T13:51:16.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gson使用指南（二）">
 <meta name="twitter:description" content="本次的主要内容：  Gson的流式反序列化 Gson的流式序列化*　使用GsonBuilder导出null值、格式化输出、日期时间及其它小功能">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide2_1.png">
+<meta name="twitter:image" content="http://img.shedoor.net/gson/gson_guide2_1.png">
 
 
 
@@ -478,8 +478,8 @@ System.out.println(user.name);  // 怪盗kidou
 System.out.println(user.age);   // 24
 System.out.println(user.email); // ikidou@example.com  
 </code></pre><p>其实自动方式最终都是通过JsonReader来实现的，如果第一个参数是String类型，那么Gson会创建一个StringReader转换成流操作。</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide2_1.png" alt="Gson流式解析">  </p>
-<h2 id="二、Gson的流式序列化"><a href="#二、Gson的流式序列化" class="headerlink" title="二、Gson的流式序列化"></a>二、Gson的流式序列化</h2><h3 id="自动方式-1"><a href="#自动方式-1" class="headerlink" title="自动方式"></a>自动方式</h3><p><img src="http://obbu6r1mi.bkt.clouddn.com/gson/gson_guide2_2.png" alt="Gson.toJson方法列表">  </p>
+<p><img src="http://img.shedoor.net/gson/gson_guide2_1.png" alt="Gson流式解析">  </p>
+<h2 id="二、Gson的流式序列化"><a href="#二、Gson的流式序列化" class="headerlink" title="二、Gson的流式序列化"></a>二、Gson的流式序列化</h2><h3 id="自动方式-1"><a href="#自动方式-1" class="headerlink" title="自动方式"></a>自动方式</h3><p><img src="http://img.shedoor.net/gson/gson_guide2_2.png" alt="Gson.toJson方法列表">  </p>
 <p>所以啊，学会利用IDE的自动完成是多么重要这下知道了吧！<br>可以看出用红框选中的部分就是我们要找的东西。  </p>
 <p>提示：OutputStream和Writer都实现了Appendable接口。  </p>
 <pre><code>Gson gson = new Gson();
@@ -853,7 +853,7 @@ System.out.println(gson.toJson(user)); //{&quot;name&quot;:&quot;怪盗kidou&quo
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

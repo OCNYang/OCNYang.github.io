@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android教程系列,Android," />
+  <meta name="keywords" content="Android,Android教程系列," />
 
 
 
@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="今天我们来介绍一种用TextView代替并显示图片，以达到App优化及图标自适应的效果。当然，我们先来看一下效果：">
-<meta name="keywords" content="Android教程系列,Android">
+<meta name="keywords" content="Android,Android教程系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 图标自适应：用 TextView 来显示图片 &amp; 生成自己的字体库">
 <meta property="og:url" content="http://ocnyang.com/2016/12/06/IconFont/index.html">
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="今天我们来介绍一种用TextView代替并显示图片，以达到App优化及图标自适应的效果。当然，我们先来看一下效果：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_all.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_setect.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_cart.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_ttf.png">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.088Z">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_.png">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont.png">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_all.png">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_setect.png">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_cart.png">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_ttf.png">
+<meta property="og:updated_time" content="2020-11-01T13:52:00.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 图标自适应：用 TextView 来显示图片 &amp; 生成自己的字体库">
 <meta name="twitter:description" content="今天我们来介绍一种用TextView代替并显示图片，以达到App优化及图标自适应的效果。当然，我们先来看一下效果：">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_.png">
+<meta name="twitter:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_.png">
 
 
 
@@ -435,7 +435,7 @@
 
       
         <p>今天我们来介绍一种用TextView代替并显示图片，以达到App优化及图标自适应的效果。当然，我们先来看一下效果：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_.png" alt="这些真的只是TextView文本">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_.png" alt="这些真的只是TextView文本">  </p>
 <a id="more"></a>
 <blockquote>
 <p>如果你看到上面这张图片，第一反映你可能认为都是用ImageView去显示的，那你就错了，这些全都是用TextView实现的（当然更不可能是给 TextView 设置了背景图）。  </p>
@@ -571,18 +571,18 @@ protected void onCreate(Bundle savedInstanceState) {
 <h3 id="图标干货"><a href="#图标干货" class="headerlink" title="图标干货"></a>图标干货</h3><p>对于使用，最主要就是找到一些靠谱的素材站点了</p>
 <p><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">http://www.iconfont.cn/</a><br><a href="https://icomoon.io/app/#/select" target="_blank" rel="noopener">https://icomoon.io/app/#/select</a><br><a href="https://github.com/mikepenz/Android-Iconics" target="_blank" rel="noopener">https://github.com/mikepenz/Android-Iconics</a>  </p>
 <p>第一个站点是阿里提供的图标库，基本上可以搜索到需要的任何图标，非常方便，也支持颜色和大小的设置，足够满足我们的需求：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont.png" alt="阿里 iconfont 图标库">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont.png" alt="阿里 iconfont 图标库">  </p>
 <h3 id="自定义图标"><a href="#自定义图标" class="headerlink" title="自定义图标"></a>自定义图标</h3><p>无论上面这些网站提供的图标是多么的全，可能都无法满足贪心的你或者你们家追求完美（矫情）到极致的UI，那么如果App内的图标部分是自己制作的，再混杂着网络上已有的图标能打包到一个字体库么？<br>答案当然是肯定的，我们本来就是要制作属于自己的字体库嘛！比如你就可以依赖 <code>iconfont.com</code> 这个网站，自行上传svg图标，然后就可以自由选择了。  </p>
 <blockquote>
 <p>关于 iconfont 网站的用法可以参考官方手册(也可以跳过，直接跟着我学习怎么生成自己的字体库)：<br><a href="http://www.iconfont.cn/help/platform.html" target="_blank" rel="noopener">http://www.iconfont.cn/help/platform.html</a>  </p>
 </blockquote>
 <h3 id="按需生成自己的图标字体库"><a href="#按需生成自己的图标字体库" class="headerlink" title="按需生成自己的图标字体库"></a>按需生成自己的图标字体库</h3><p>我们以 iconfont 库为例，教大家<a href="http://ocnyang.com/">生成自己图片字体库的整个流程</a>（下面所有步骤，大家都无需注册账号，就可以直接使用）。  </p>
 <p>首先在 iconfont 网站上选择自己要生成到字体库的图标，可以选择网站字体库中选择，也可以在我的图标库中选择自己上传的图标。把这些图标添加到库（即添加到购物车）：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_all.png" alt="选择喜欢的图标">  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_setect.png" alt="添加到购物车">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_all.png" alt="选择喜欢的图标">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_setect.png" alt="添加到购物车">  </p>
 <p>当你想要生成的字体库的图标选择完成后，在网站右上角点击打开库（购物车），在库里可以看到自己选择的所有图标，确定后点击下载代码：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_cart.png" alt="打开库，下载代码会得到一个压缩包">  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/iconfont/iconfont_ttf.png" alt="解压缩后，可以看到生成的库">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_cart.png" alt="打开库，下载代码会得到一个压缩包">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_ttf.png" alt="解压缩后，可以看到生成的库">  </p>
 <p>在解压后的文件夹中，我们看到许多文件。其中以 <code>.ttf</code> 结尾的文件就是我们生成的自己的字体库，而 3 个 <code>.html</code> 文件对应的是不同平台使用时对应的编码。而我们在 Android 开发中要使用的编码是 <code>demo_unicode.html</code> 文件里对应的 <code>&amp;#xxxxx;</code> 形式的编码。  </p>
 <p>细心的你一定会发现，生成的字体库里虽然包含了很多图标，却只有小小的几 KB 的大小，更难能可贵的是无论设置多大的尺寸它依旧能够保存一样的清晰度，当然，你也可以把该方案看成apk瘦身的可选手段之一。</p>
 <p>本文Demo源代码下载地址：<strong><a href="https://github.com/OCNYang/FontTest" target="_blank" rel="noopener">https://github.com/OCNYang/FontTest</a></strong>  </p>
@@ -621,7 +621,7 @@ protected void onCreate(Bundle savedInstanceState) {
   <p><span>本文标题:</span><a href="/2016/12/06/IconFont/">Android 图标自适应：用 TextView 来显示图片 & 生成自己的字体库</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2016年12月06日 - 16:12</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/12/06/IconFont/" title="Android 图标自适应：用 TextView 来显示图片 & 生成自己的字体库">http://ocnyang.com/2016/12/06/IconFont/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2016/12/06/IconFont/"  aria-label="复制成功！"></i></span>
   </p>
@@ -684,9 +684,9 @@ protected void onCreate(Bundle savedInstanceState) {
       
         <div class="post-tags">
           
-            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
-          
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
           
         </div>
       
@@ -923,7 +923,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

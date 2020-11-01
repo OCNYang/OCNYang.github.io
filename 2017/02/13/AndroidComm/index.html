@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="一文详尽 Android 通信：四大组件之间 &amp;amp; 进程间 &amp;amp; 线程间 &amp;amp; 多个App间">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/androidcomm.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/intent-chooser.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/EventBus-Publish-Subscribe.png">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.090Z">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/androidcomm.jpg">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/intent-chooser.png">
+<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/EventBus-Publish-Subscribe.png">
+<meta property="og:updated_time" content="2020-11-01T13:43:17.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解 Android 通信">
 <meta name="twitter:description" content="一文详尽 Android 通信：四大组件之间 &amp;amp; 进程间 &amp;amp; 线程间 &amp;amp; 多个App间">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/androidcomm.jpg">
+<meta name="twitter:image" content="http://img.shedoor.net/ocnyang/android_comm/androidcomm.jpg">
 
 
 
@@ -436,7 +436,7 @@
         <blockquote>
 <p>一文详尽 Android 通信：四大组件之间 &amp; 进程间 &amp; 线程间 &amp; 多个App间</p>
 </blockquote>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/androidcomm.jpg" alt="">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android_comm/androidcomm.jpg" alt="">  </p>
 <a id="more"></a>
 <h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><p><strong>看完本文能收获什么？按目录索引，你可以学习到：</strong></p>
 <ol>
@@ -668,10 +668,10 @@ public class HeadlinesFragment extends ListFragment {
 }
 </code></pre><p>下面我写了一个实例来供大家理解：</p>
 <p>各个类的联系图：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg" alt="">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg" alt="">  </p>
 <p>这里写图片描述</p>
 <p>效果如下：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif" alt="">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif" alt="">  </p>
 <p>这里写图片描述</p>
 <p><a href="http://download.csdn.net/detail/chivalrousman/9545616" target="_blank" rel="noopener">Fragment 通信 Demo 实例</a>  </p>
 <h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="Service-与-Activity-通信"><a href="#Service-与-Activity-通信" class="headerlink" title="Service 与 Activity 通信"></a>Service 与 Activity 通信</h3><p>主要是如何获得Service实例的问题<br>总结来说两步：</p>
@@ -944,7 +944,7 @@ if (isIntentSafe) {
 }
 </code></pre><p><strong>4) 显示应用选择器</strong></p>
 <p>比如我们要完成 <strong>分享操作</strong>，用户可以使用多个App完成分享，我们应明确显示选择器对话框，如图</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/intent-chooser.png" alt="intent-chooser">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android_comm/intent-chooser.png" alt="intent-chooser">  </p>
 <p>要显示选择器，需要使用Intent的createChooser()方法 创建Intent，并将其传递至 startActivity()</p>
 <pre><code>Intent intent = new Intent(Intent.ACTION_SEND);
 ...
@@ -1054,7 +1054,7 @@ finish();
 <p>订阅者(Subscriber)：订阅某种事件类型的对象。当有发布者发布这类事件后，EventBus 会执行订阅者的 onEvent 函数，这个函数叫事件响应函数。订阅者通过 register 接口订阅某个事件类型，unregister 接口退订。订阅者存在优先级，优先级高的订阅者可以取消事件继续向优先级低的订阅者分发，默认所有订阅者优先级都为 0。</p>
 <p>发布者(Publisher)：发布某事件的对象，通过 post 接口发布事件。</p>
 <p>本项目较为简单，总体设计和流程图：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyang/android_comm/EventBus-Publish-Subscribe.png" alt="EventBus-Publish-Subscribe">  </p>
+<p><img src="http://img.shedoor.net/ocnyang/android_comm/EventBus-Publish-Subscribe.png" alt="EventBus-Publish-Subscribe">  </p>
 <p>使用方式：</p>
 <p>build.gradle 中加入依赖</p>
 <pre><code>compile &apos;org.greenrobot:eventbus:3.0.0&apos;
@@ -1148,7 +1148,7 @@ public void onStop() {
   <p><span>本文标题:</span><a href="/2017/02/13/AndroidComm/">详解 Android 通信</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2017年02月13日 - 22:02</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2017/02/13/AndroidComm/" title="详解 Android 通信">http://ocnyang.com/2017/02/13/AndroidComm/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2017/02/13/AndroidComm/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1448,7 +1448,7 @@ public void onStop() {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

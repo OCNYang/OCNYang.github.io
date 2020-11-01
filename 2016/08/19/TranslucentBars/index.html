@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android教程系列,Android," />
+  <meta name="keywords" content="Android,Android教程系列," />
 
 
 
@@ -80,28 +80,28 @@
 
 
 <meta name="description" content="一、概述近期注意到QQ新版使用了沉浸式状态栏，ok，先声明一下：本篇博客效果下图：">
-<meta name="keywords" content="Android教程系列,Android">
+<meta name="keywords" content="Android,Android教程系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="沉浸式状态栏攻略">
 <meta property="og:url" content="http://ocnyang.com/2016/08/19/TranslucentBars/index.html">
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="一、概述近期注意到QQ新版使用了沉浸式状态栏，ok，先声明一下：本篇博客效果下图：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/1.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/2.gif">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/3.gif">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/4.gif">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/5.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/6.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/7.jpg">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/8.png">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/9.gif">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/10.gif">
-<meta property="og:updated_time" content="2018-05-28T14:46:58.812Z">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/1.jpg">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/2.gif">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/3.gif">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/4.gif">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/5.jpg">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/6.jpg">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/7.jpg">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/8.png">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/9.gif">
+<meta property="og:image" content="http://img.shedoor.net/Immersivemenubar/10.gif">
+<meta property="og:updated_time" content="2020-11-01T14:00:19.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="沉浸式状态栏攻略">
 <meta name="twitter:description" content="一、概述近期注意到QQ新版使用了沉浸式状态栏，ok，先声明一下：本篇博客效果下图：">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/1.jpg">
+<meta name="twitter:image" content="http://img.shedoor.net/Immersivemenubar/1.jpg">
 
 
 
@@ -439,7 +439,7 @@
 
       
         <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>近期注意到QQ新版使用了沉浸式状态栏，ok，先声明一下：本篇博客效果下图：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/1.jpg" alt="">  </p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/1.jpg" alt="">  </p>
 <a id="more"></a>
 <p>关于这个状态栏变色到底叫「Immersive Mode」/「Translucent Bars」有兴趣可以去 <a href="http://www.zhihu.com/question/27040217" target="_blank" rel="noopener">为什么在国内会有很多用户把 ｢透明栏｣（Translucent Bars）称作 ｢沉浸式顶栏｣？</a>上面了解了解.</p>
 <p>恩，接下来正题。  </p>
@@ -454,13 +454,13 @@
 <ul>
 <li>4.4 模拟器</li>
 </ul>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/2.gif" alt="">  </p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/2.gif" alt="">  </p>
 <ul>
 <li>5.x 真机  </li>
 </ul>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/3.gif" alt="">  </p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/3.gif" alt="">  </p>
 <p>贴个如果顶部是图片的效果图，其实是一样的，为了方便我就放侧栏的顶部了。</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/4.gif" alt=""></p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/4.gif" alt=""></p>
 <p>ok，有了效果图之后就开始看实现了。</p>
 <h2 id="三、实现半透明状态栏"><a href="#三、实现半透明状态栏" class="headerlink" title="三、实现半透明状态栏"></a>三、实现半透明状态栏</h2><p>因为本例使用了NavigationView，所以布局代码稍多，当然如果你不需要，可以自己进行筛减。</p>
 <p>注意引入相关依赖：</p>
@@ -597,7 +597,7 @@
 </ul>
 <p>android:fitsSystemWindows这个属性，主要是通过调整当前设置这个属性的view的padding去为我们的status_bar留下空间。</p>
 <p>根据上面的解释，如果你不写，那么状态栏和Toolbar就会有挤一块的感觉了，类似会这样：</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/5.jpg" alt="">  </p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/5.jpg" alt="">  </p>
 <p>ok，最后看下代码。</p>
 <h3 id="（三）Activity的代码"><a href="#（三）Activity的代码" class="headerlink" title="（三）Activity的代码"></a>（三）Activity的代码</h3><pre><code>Java
 
@@ -626,15 +626,15 @@ public class MainActivity extends AppCompatActivity
 <ul>
 <li>那么现在4.4的效果图是：</li>
 </ul>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/6.jpg" alt="">  </p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/6.jpg" alt="">  </p>
 <p>其实还不错，有个渐变的效果。</p>
 <ul>
 <li>现在5.x的效果：</li>
 </ul>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/7.jpg" alt=""></p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/7.jpg" alt=""></p>
 <p>可以看到5.x默认并非是一个渐变的效果，类似是一个深一点的颜色。</p>
 <p>在看看我们md的规范</p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/8.png" alt=""></p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/8.png" alt=""></p>
 <p>状态栏应该是一个比Toolbar背景色，稍微深一点的颜色。</p>
 <p>这么看来，我们还是有必要去为4.4做点适配工作，让其竟可能和5.x显示效果一致，或者说尽可能符合md的规范。</p>
 <h2 id="四、调整4-4的显示方案"><a href="#四、调整4-4的显示方案" class="headerlink" title="四、调整4.4的显示方案"></a>四、调整4.4的显示方案</h2><p>那么问题来了？如何做呢？</p>
@@ -732,11 +732,11 @@ StatusBarCompat.compat(this, getResources().getColor(R.color.status_bar_color));
 <ul>
 <li>4.4 模拟器  </li>
 </ul>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/9.gif" alt=""></p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/9.gif" alt=""></p>
 <ul>
 <li>5.x 真机  </li>
 </ul>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/Immersivemenubar/10.gif" alt=""></p>
+<p><img src="http://img.shedoor.net/Immersivemenubar/10.gif" alt=""></p>
 <p>ok，这样就结束啦~~</p>
 <p>源码地址:<a href="https://github.com/hongyangAndroid/ColorfulStatusBar" target="_blank" rel="noopener">https://github.com/hongyangAndroid/ColorfulStatusBar</a></p>
 <p>参考</p>
@@ -815,9 +815,9 @@ StatusBarCompat.compat(this, getResources().getColor(R.color.status_bar_color));
       
         <div class="post-tags">
           
-            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
-          
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
           
         </div>
       
@@ -1054,7 +1054,7 @@ StatusBarCompat.compat(this, getResources().getColor(R.color.status_bar_color));
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

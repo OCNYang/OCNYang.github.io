@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="这次主要是把 RecyclerView 比较常用的基本的点，在这里集中整理一下。从这篇文章主要梳理以下几点：    优雅的实现：item 点击事件 &amp;amp; item 长点击事件 RecyclerView 添加 divider 的标准姿势 RecyclerView 实k现 item 的拖曳排序和滑动删除 拖曳排序时，限制首个 item 固定的实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_swipanddrag.gif?imageView2/2/w/300">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/onlydrag.gif?imageView2/2/w/300">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/firstguding.gif?imageView2/2/w/300">
-<meta property="og:updated_time" content="2018-05-29T13:24:57.087Z">
+<meta property="og:image" content="http://img.shedoor.net/github/recyclerviewevent/recy_swipanddrag.gif?imageView2/2/w/300">
+<meta property="og:image" content="http://img.shedoor.net/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300">
+<meta property="og:image" content="http://img.shedoor.net/github/recyclerviewevent/onlydrag.gif?imageView2/2/w/300">
+<meta property="og:image" content="http://img.shedoor.net/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300">
+<meta property="og:image" content="http://img.shedoor.net/github/recyclerviewevent/firstguding.gif?imageView2/2/w/300">
+<meta property="og:updated_time" content="2020-11-01T13:57:43.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView 梳理：点击&amp;长按事件、分割线、拖曳排序、滑动删除">
 <meta name="twitter:description" content="这次主要是把 RecyclerView 比较常用的基本的点，在这里集中整理一下。从这篇文章主要梳理以下几点：    优雅的实现：item 点击事件 &amp;amp; item 长点击事件 RecyclerView 添加 divider 的标准姿势 RecyclerView 实k现 item 的拖曳排序和滑动删除 拖曳排序时，限制首个 item 固定的实现">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_swipanddrag.gif?imageView2/2/w/300">
+<meta name="twitter:image" content="http://img.shedoor.net/github/recyclerviewevent/recy_swipanddrag.gif?imageView2/2/w/300">
 
 
 
@@ -442,7 +442,7 @@
 </ul>
 <a id="more"></a>
 <p>先看一下最终的效果图：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_swipanddrag.gif?imageView2/2/w/300" alt="swipe and drag"> <img src="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300" alt="drag">  </p>
+<p><img src="http://img.shedoor.net/github/recyclerviewevent/recy_swipanddrag.gif?imageView2/2/w/300" alt="swipe and drag"> <img src="http://img.shedoor.net/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300" alt="drag">  </p>
 <p>自从 RecyclerView 发布以来，由于其高度的可交互性被广泛使用。相信大家肯定对它的使用方法已经非常熟练了，今天主要是为大家总结一下较正常用法更加优雅的方式。  </p>
 <blockquote>
 <p>如果你想再回顾一下 RecyclerView 的基本使用方法，推荐鸿洋的这篇文章：<br><a href="http://blog.csdn.net/lmj623565791/article/details/45059587" target="_blank" rel="noopener">Android RecyclerView 使用完全解析 体验艺术般的控件</a>  </p>
@@ -820,7 +820,7 @@ public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHol
     return true;
 }
 </code></pre><p>只要重写完上面这两个方法，RecyclerView 就能实现拖曳的效果了。是不是很简单？但是虽然拖曳是没什么问题了，但是并不能达到下图的效果，因为你正在拖曳的 item 并没有阴影效果。  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/onlydrag.gif?imageView2/2/w/300" alt="拖曳 item">  </p>
+<p><img src="http://img.shedoor.net/github/recyclerviewevent/onlydrag.gif?imageView2/2/w/300" alt="拖曳 item">  </p>
 <p>那怎么才能实现被拖曳的 item 有背景颜色加深起到强调的视觉效果呢？这是需要重写下面两个方法：  </p>
 <pre><code>//当长按 item 刚开始拖曳的时候调用
 @Override
@@ -867,7 +867,7 @@ public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder v
 </code></pre><p>那目前你就能完美的实现拖曳排序和滑动删除了。  </p>
 <p><strong>拖曳排序，首个固定</strong>  </p>
 <p>有时我们希望首个 item 不能被拖曳排序。比如我们在新闻 App 中常见当我们进行新闻分类时，“热门”新闻这个分类总是第一个且不能被拖曳修改，类似下面的效果：  </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300" alt="首个固定不能被拖曳">  </p>
+<p><img src="http://img.shedoor.net/github/recyclerviewevent/recy_drag.gif?imageView2/2/w/300" alt="首个固定不能被拖曳">  </p>
 <p>那么怎么才能达到上面的效果呢？在上面我们的 Callback 类中有一个方法：  </p>
 <pre><code>public boolean isLongPressDragEnabled() {
     return true;
@@ -893,7 +893,7 @@ public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder v
     }
 });
 </code></pre><p><strong>第三步：</strong>如果你以为上面两步你就达到首个 item 固定不被拖曳的话，恭喜你，答对了！首个 item 确实固定不能被拖曳了，可是看看下图，就会令你大跌眼睛：   </p>
-<p><img src="http://obbu6r1mi.bkt.clouddn.com/github/recyclerviewevent/firstguding.gif?imageView2/2/w/300" alt="首个固定，不能被拖曳，却能被挤动">  </p>
+<p><img src="http://img.shedoor.net/github/recyclerviewevent/firstguding.gif?imageView2/2/w/300" alt="首个固定，不能被拖曳，却能被挤动">  </p>
 <p>虽然我们通过上面两步控制了首个 item 不能被长按拖曳，但是我们并没有处理，别的 item 被拖曳到首个 item 的情况。那么如何才能让首个 item 不被挤掉呢，这个也很简单，只需要在 Callback 的 onMove() 方法中处理首个 item 被当着目标 item 的情况就行了。  </p>
 <pre><code>@Override
 public boolean onMove（...) {
@@ -944,7 +944,7 @@ public boolean onMove（...) {
   <p><span>本文标题:</span><a href="/2017/08/03/Recycle/">RecyclerView 梳理：点击&长按事件、分割线、拖曳排序、滑动删除</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
   <p><span>发布时间:</span>2017年08月03日 - 11:08</p>
-  <p><span>最后更新:</span>2018年05月29日 - 21:05</p>
+  <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2017/08/03/Recycle/" title="RecyclerView 梳理：点击&长按事件、分割线、拖曳排序、滑动删除">http://ocnyang.com/2017/08/03/Recycle/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ocnyang.com/2017/08/03/Recycle/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1246,7 +1246,7 @@ public boolean onMove（...) {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

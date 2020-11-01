@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="單純的癡">
 <meta property="og:description" content="Effective Java 笔记摘录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyangcom/java_generic_terms.png">
-<meta property="og:updated_time" content="2018-05-28T14:37:12.132Z">
+<meta property="og:image" content="http://img.shedoor.net/ocnyangcom/java_generic_terms.png">
+<meta property="og:updated_time" content="2020-11-01T13:48:41.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Effective Java》笔记">
 <meta name="twitter:description" content="Effective Java 笔记摘录">
-<meta name="twitter:image" content="http://obbu6r1mi.bkt.clouddn.com/ocnyangcom/java_generic_terms.png">
+<meta name="twitter:image" content="http://img.shedoor.net/ocnyangcom/java_generic_terms.png">
 
 
 
@@ -432,7 +432,8 @@
         <p>Effective Java 笔记摘录  </p>
 <a id="more"></a>
 <h2 id="对象的创建与销毁"><a href="#对象的创建与销毁" class="headerlink" title="对象的创建与销毁"></a>对象的创建与销毁</h2><ul>
-<li>Item 1: 使用static工厂方法，而不是构造函数创建对象：仅仅是创建对象的方法，并非Factory Pattern<ul>
+<li><p>Item 1: 使用static工厂方法，而不是构造函数创建对象：仅仅是创建对象的方法，并非Factory Pattern</p>
+<ul>
 <li>优点<ul>
 <li>命名、接口理解更高效，通过工厂方法的函数名，而不是参数列表来表达其语义</li>
 <li>Instance control，并非每次调用都会创建新对象，可以使用预先创建好的对象，或者做对象缓存；便于实现单例；或不可实例化的类；对于immutable的对象来说，使得用<code>==</code>判等符合语义，且更高效；</li>
@@ -440,7 +441,8 @@
 <li>Read More: Service Provider Framework</li>
 </ul>
 </li>
-<li>缺点<ul>
+<li><p>缺点</p>
+<ul>
 <li>仅有static工厂方法，没有public/protected构造函数的类将无法被继承；见仁见智，这一方面也迫使开发者倾向于组合而非继承；</li>
 <li>Javadoc中不能和其他static方法区分开，没有构造函数的集中显示优点；但可以通过公约的命名规则来改善；</li>
 </ul>
@@ -805,14 +807,15 @@
 <li>如果<code>List&lt;?&gt;</code>的行为不能满足需求，可以考虑使用模板方法，或者<code>List&lt;E extends XXX&gt;</code>（bounded wildcard types）</li>
 </ul>
 </li>
-<li>You must use raw types in class literals.<ul>
+<li><p>You must use raw types in class literals.</p>
+<ul>
 <li><code>List.class</code>, <code>String[].class</code>, and <code>int.class</code> are all legal, but <code>List&lt;String&gt;.class</code> and <code>List&lt;?&gt;.class</code> are not.</li>
 </ul>
 </li>
 <li><p><code>instanceof</code>不支持泛型，以下用法是推荐的，但不应该将<code>o</code>强转为<code>List</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Legitimate use of raw type - instanceof operator</span></span><br><span class="line"><span class="keyword">if</span> (o <span class="keyword">instanceof</span> Set) &#123; <span class="comment">// Raw type</span></span><br><span class="line">  Set&lt;?&gt; m = (Set&lt;?&gt;) o; <span class="comment">// Wildcard type</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>相关术语汇总<br><img src="http://obbu6r1mi.bkt.clouddn.com/ocnyangcom/java_generic_terms.png" alt="java_generic_terms.png"></p>
+<li><p>相关术语汇总<br><img src="http://img.shedoor.net/ocnyangcom/java_generic_terms.png" alt="java_generic_terms.png"></p>
 </li>
 </ul>
 </li>
@@ -1248,7 +1251,8 @@
 <li>通常，如果一个方法会抛出checked exception，都可以将其拆分为两个方法，一个用于判断是否会抛出异常，另一部分用于处理正常情况，如果不符合约定，就抛出RuntimeException，这样使得API更易用，也更灵活；但是要考虑状态检查和执行之间，是否可能从外部其他线程修改对象的状态；</li>
 </ul>
 </li>
-<li>Item 60: Favor the use of standard exceptions<ul>
+<li><p>Item 60: Favor the use of standard exceptions</p>
+<ul>
 <li>IllegalArgumentException, IllegalStateException, NullPointerException, IndexOutOfBoundsException, ConcurrentModificationException, UnsupportedOperationException</li>
 </ul>
 </li>
@@ -1422,7 +1426,8 @@
 <li>线程优先级是Java平台中移植性最差的部分，所以也不要用</li>
 </ul>
 </li>
-<li>Item 73: Avoid thread groups<ul>
+<li><p>Item 73: Avoid thread groups</p>
+<ul>
 <li>如果设计的类需要处理一些逻辑上有关联的线程，应该考虑 thread pool executors</li>
 </ul>
 </li>
@@ -1783,7 +1788,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
