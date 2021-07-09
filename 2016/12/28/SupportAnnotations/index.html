@@ -80,13 +80,12 @@
 
 
 <meta name="description" content="前言：本片文章讲解怎么使用Support Annotations注解优化代码，比如使用 android特有的魔术变量注解替代Enum 等功能。不要看见使用注解就想到反射会影响性能之类，今天我们就来学习一下Android Support Annotations注解来优化我们的代码，增加可读性的同时，也让让更多的错误消灭在萌芽之中。">
-<meta name="keywords" content="Android,Android教程系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 Android 使用 Support Annotations 注解优化代码">
 <meta property="og:url" content="http://ocnyang.com/2016/12/28/SupportAnnotations/index.html">
-<meta property="og:site_name" content="單純的癡">
+<meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="前言：本片文章讲解怎么使用Support Annotations注解优化代码，比如使用 android特有的魔术变量注解替代Enum 等功能。不要看见使用注解就想到反射会影响性能之类，今天我们就来学习一下Android Support Annotations注解来优化我们的代码，增加可读性的同时，也让让更多的错误消灭在萌芽之中。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/nullable.png">
 <meta property="og:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/nonnull.png">
 <meta property="og:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/resourceType.png">
@@ -95,10 +94,12 @@
 <meta property="og:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/intRange.png">
 <meta property="og:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/callsuper.png">
 <meta property="og:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/checkResult.png">
-<meta property="og:updated_time" content="2020-11-01T13:59:08.056Z">
+<meta property="article:published_time" content="2016-12-28T07:03:15.000Z">
+<meta property="article:modified_time" content="2020-11-01T13:59:08.056Z">
+<meta property="article:author" content="OCN.Yang">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Android教程系列">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在 Android 使用 Support Annotations 注解优化代码">
-<meta name="twitter:description" content="前言：本片文章讲解怎么使用Support Annotations注解优化代码，比如使用 android特有的魔术变量注解替代Enum 等功能。不要看见使用注解就想到反射会影响性能之类，今天我们就来学习一下Android Support Annotations注解来优化我们的代码，增加可读性的同时，也让让更多的错误消灭在萌芽之中。">
 <meta name="twitter:image" content="http://img.shedoor.net/ocnyang/supportAnnotations/nullable.png">
 
 
@@ -106,7 +107,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -118,9 +119,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: 'VNED6CUNXS',
-      apiKey: '6ddb8c50393c96385859316fefbe2320',
-      indexName: 'ocnyang',
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -135,27 +136,17 @@
 
 
 
-  <title>在 Android 使用 Support Annotations 注解优化代码 | 單純的癡</title>
+  <title>在 Android 使用 Support Annotations 注解优化代码 | OCNYang の 博客</title>
   
 
 
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?923326cdfba9134256dbbf5887c8ce38";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
-
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -167,7 +158,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <a href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a target="_blank" rel="noopener" href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -177,12 +168,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">單純的癡</span>
+        <span class="site-title">OCNYang の 博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">等不得，遇不见...</p>
+        <p class="site-subtitle">ʕ•̫͡•ʕ̢·͡˔·ོɁ̡̣-̫͡-ʕ•͓͡•ʔ-̫͡-ʔ</p>
       
   </div>
 
@@ -203,7 +194,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-circle-o-notch"></i> <br />
             
@@ -213,7 +204,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
             
@@ -223,7 +214,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -233,7 +224,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
             
@@ -243,7 +234,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-hourglass-start"></i> <br />
             
@@ -253,7 +244,7 @@
       
         
         <li class="menu-item menu-item-efall">
-          <a href="/categories/还相信爱情/" rel="section">
+          <a href="/categories/%E8%BF%98%E7%9B%B8%E4%BF%A1%E7%88%B1%E6%83%85/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-key"></i> <br />
             
@@ -297,13 +288,13 @@
     <link itemprop="mainEntityOfPage" href="http://ocnyang.com/2016/12/28/SupportAnnotations/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="OCNYang">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ocnyang.png">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="單純的癡">
+      <meta itemprop="name" content="OCNYang の 博客">
     </span>
 
     
@@ -346,7 +337,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android教程系列/" itemprop="url" rel="index">
+                  <a href="/categories/Android%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
                     <span itemprop="name">Android教程系列</span>
                   </a>
                 </span>
@@ -399,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,646
+                  2.7k
                 </span>
               
 
@@ -437,63 +428,66 @@
 
       
         <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>本片文章讲解怎么使用Support Annotations注解优化代码，比如使用 <strong>android特有的魔术变量注解替代Enum</strong> 等功能。不要看见使用注解就想到反射会影响性能之类，今天我们就来学习一下Android Support Annotations注解来优化我们的代码，增加可读性的同时，也让让更多的错误消灭在萌芽之中。</p>
-<a id="more"></a>
+<span id="more"></span>
+
 <h3 id="Support-Annotations-简介："><a href="#Support-Annotations-简介：" class="headerlink" title="Support Annotations 简介："></a>Support Annotations 简介：</h3><p><code>Android support library</code> 不断地引入新的注解库，它包含很多有用的元注解，你能用它们修饰你的代码，帮助你发现<code>bug</code>。<code>Support library</code> 自己本身也用到了这些注解，所以作为 <code>support library</code> 的用户，<code>Android Studio</code>已经基于这些注解校验了你的代码并且标注其中潜在的问题。</p>
 <h3 id="Support-Annotations-如何引入："><a href="#Support-Annotations-如何引入：" class="headerlink" title="Support Annotations 如何引入："></a>Support Annotations 如何引入：</h3><p>注解默认是没有包含的；它被包装成一个独立的库，如果使用了appcompat库，那么 <code>Support Annotations</code> 就会自动引入进来，因为 <code>appcompat</code> 使用了 <code>Support Annotations</code>，如果没有则需要在 <code>build.gradle</code> 中添加如下配置：</p>
-<pre><code>dependencies {
-    compile &apos;com.android.support:support-annotations:23.4.0&apos;
-}
-</code></pre><blockquote>
+<pre><code>dependencies &#123;
+    compile &#39;com.android.support:support-annotations:23.4.0&#39;
+&#125;
+</code></pre>
+<blockquote>
 <p>如果你已经引入了 <code>appcompat v7</code> 则可能就没有必要再次引用 <code>support-annotations</code> ,因为 <code>appcompat</code> 默认包含了对其引用。</p>
 </blockquote>
 <h2 id="Support-Annotations分类："><a href="#Support-Annotations分类：" class="headerlink" title="Support Annotations分类："></a>Support Annotations分类：</h2><h3 id="Typedef-注解：IntDef-StringDef-Android特有的魔术变量注解替代Enum"><a href="#Typedef-注解：IntDef-StringDef-Android特有的魔术变量注解替代Enum" class="headerlink" title="Typedef 注解：IntDef / StringDef (Android特有的魔术变量注解替代Enum)"></a>Typedef 注解：IntDef / StringDef (Android特有的魔术变量注解替代Enum)</h3><p>Enum in Android 枚举Enum在java中是一个完整的类. 而枚举中的每一个值在枚举类中都是一个对象. 所以在我们使用时枚举的值将比整数常量消耗更多的内存. 当我们使用枚举在安卓应用中, 如果我们的程序本身内存消耗就比较大,或者是一个游戏的应用程序. 那么我们最好使用常量来替代枚举。可是使用了常量代替后又不能限制取值了。那有什么好的办法呢？   </p>
 <p>当然, Android 支持注解库中有一些好用的annotation helper 我们可以使用它们来解决我们之前的问题(在编译代码时期).<br>IntDef和StringDef 是两个魔术变量注解. 使用这个两个来替代之前使用的Enum. 它将帮助我们在编译代码时期像Enum那样选择变量的功能。 @IntDef和”typedef”作用非常类似，你可以创建另外一个注解，然后用@IntDef指定一个你期望的整型常量值列表，最后你就可以用这个定义好的注解修饰你的API了。接下来我们来使用IntDef来替换Enum看一下.</p>
-<pre><code>public class MainActivity extends Activity {
+<pre><code>public class MainActivity extends Activity &#123;
     public static final int SUNDAY = 0;
     public static final int MONDAY = 1;
-    {...省略部分}
+    &#123;...省略部分&#125;
 
-    @IntDef({SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY})
+    @IntDef(&#123;SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY&#125;)
     @Retention(RetentionPolicy.SOURCE)
-    public @interface WeekDays {
-    }
+    public @interface WeekDays &#123;
+    &#125;
 
     @WeekDays
     int currentDay = SUNDAY;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) &#123;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         setCurrentDay(WEDNESDAY);
 
         @WeekDays int today = getCurrentDay();
-        switch (today) {
+        switch (today) &#123;
             case SUNDAY:
                 break;
             case MONDAY:
                 break;
-            {...省略部分}
+            &#123;...省略部分&#125;
             default:
                 break;
-        }
-    }
+        &#125;
+    &#125;
 
     /**
      * 参数只能传入在声明范围内的整型，不然编译通不过
      * @param currentDay
      */
-    public void setCurrentDay(@WeekDays int currentDay) {
+    public void setCurrentDay(@WeekDays int currentDay) &#123;
         this.currentDay = currentDay;
-    }
+    &#125;
 
     @WeekDays
-    public int getCurrentDay() {
+    public int getCurrentDay() &#123;
         return currentDay;
-    }
-}
-</code></pre><blockquote>
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
 <p><strong>说明：</strong>  </p>
 </blockquote>
 <ol>
@@ -504,19 +498,21 @@
 </ol>
 <p>需要在调用时只能传入指定类型，如果传入类型不对，编译不通过。  </p>
 <p>我们也可以指定整型值作为标志位，也就是说这些整型值可以使用 ’｜’ 或者 ’&amp;’ 进行与或等操作。如果我们把@Flavour定义为如下标志位：</p>
-<pre><code>@IntDef(flag = true, value = {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY})
-public @interface Flavour {
-}
-</code></pre><p>那么可以如下调用：</p>
+<pre><code>@IntDef(flag = true, value = &#123;SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY&#125;)
+public @interface Flavour &#123;
+&#125;
+</code></pre>
+<p>那么可以如下调用：</p>
 <pre><code>setCurrentDay(SUNDAY &amp; WEDNESDAY);
-</code></pre><blockquote>
+</code></pre>
+<blockquote>
 <p>@StringDef用法和@IntDef基本差不多，只不过是针对String类型而已。</p>
 </blockquote>
 <h3 id="Nullness注解"><a href="#Nullness注解" class="headerlink" title="Nullness注解"></a>Nullness注解</h3><p>@Nullable注解可以用来标识特定的参数或者返回值可以为null。</p>
 <p><img src="http://img.shedoor.net/ocnyang/supportAnnotations/nullable.png" alt="@Nullable"></p>
 <p>@NonNull注解可以用来标识参数不能为null。</p>
 <p><img src="http://img.shedoor.net/ocnyang/supportAnnotations/nonnull.png" alt="@NonNull"></p>
-<h3 id="Resource-Type-注解"><a href="#Resource-Type-注解" class="headerlink" title="Resource Type 注解　　"></a>Resource Type 注解　　</h3><p>资源在Android中作为整型值来传递。这意味着希望获取一个drawable作为参数的代码很容易被传递了一个string类型的资源，因为他们资源id都是整型的，编译器很难区分。Resource Type注解在这种条件下可以提供类型检查，例如：</p>
+<h3 id="Resource-Type-注解"><a href="#Resource-Type-注解" class="headerlink" title="Resource Type 注解"></a>Resource Type 注解</h3><p>资源在Android中作为整型值来传递。这意味着希望获取一个drawable作为参数的代码很容易被传递了一个string类型的资源，因为他们资源id都是整型的，编译器很难区分。Resource Type注解在这种条件下可以提供类型检查，例如：</p>
 <p>如果类型指定错误，编译不会通过。</p>
 <p><img src="http://img.shedoor.net/ocnyang/supportAnnotations/resourceType.png" alt="Resource Type"></p>
 <p>常见的Resource Type注解,使用方式都是指定一个integer的参数、成员变量、或者方法，检查对应的资源类型。</p>
@@ -568,30 +564,36 @@ public @interface Flavour {
 <h3 id="Permissions-注解-RequiresPermission"><a href="#Permissions-注解-RequiresPermission" class="headerlink" title="Permissions 注解: @RequiresPermission"></a>Permissions 注解: @RequiresPermission</h3><p>有时我们的方法调用需要调用者拥有指定的权限，这时我们可以使用@RequiresPermission注解，</p>
 <pre><code>@RequiresPermission(Manifest.permission.SET_WALLPAPER)
 public abstract void setWallpaper(Bitmap bitmap) throws IOException;
-</code></pre><p>除了上面的单一使用方式，官方同时也给出了如下几种使用场景</p>
+</code></pre>
+<p>除了上面的单一使用方式，官方同时也给出了如下几种使用场景</p>
 <p><strong>（1）如果你至少需要权限集合中的一个，你可以使用anyOf属性</strong></p>
-<pre><code>@RequiresPermission(anyOf = {
+<pre><code>@RequiresPermission(anyOf = &#123;
     Manifest.permission.ACCESS_COARSE_LOCATION,
-    Manifest.permission.ACCESS_FINE_LOCATION})
+    Manifest.permission.ACCESS_FINE_LOCATION&#125;)
 public abstract Location getLastKnownLocation(String provider);
-</code></pre><p><strong>（2）如果你同时需要多个权限，你可以用allOf属性</strong></p>
-<pre><code>@RequiresPermission(allOf = {
+</code></pre>
+<p><strong>（2）如果你同时需要多个权限，你可以用allOf属性</strong></p>
+<pre><code>@RequiresPermission(allOf = &#123;
     Manifest.permission.READ_HISTORY_BOOKMARKS,
-    Manifest.permission.WRITE_HISTORY_BOOKMARKS})
+    Manifest.permission.WRITE_HISTORY_BOOKMARKS&#125;)
 public static final void updateVisitedHistory(ContentResolver cr, String url, boolean real) ;  
-</code></pre><p><strong>（3）对于intents的权限，可以直接在定义的intent常量字符串字段上标注权限需求(他们通常都已经被@SdkConstant注解标注过了)</strong></p>
+</code></pre>
+<p><strong>（3）对于intents的权限，可以直接在定义的intent常量字符串字段上标注权限需求(他们通常都已经被@SdkConstant注解标注过了)</strong></p>
 <pre><code>@RequiresPermission(android.Manifest.permission.BLUETOOTH)
 public static final String ACTION_REQUEST_DISCOVERABLE =
             &quot;android.bluetooth.adapter.action.REQUEST_DISCOVERABLE&quot;;
-</code></pre><p><strong>（4）对于content providers的权限，你可能需要单独的标注读和写的权限访问，所以可以用@Read或者@Write标注每一个权限需求</strong></p>
+</code></pre>
+<p><strong>（4）对于content providers的权限，你可能需要单独的标注读和写的权限访问，所以可以用@Read或者@Write标注每一个权限需求</strong></p>
 <pre><code>@RequiresPermission.Read(@RequiresPermission(READ_HISTORY_BOOKMARKS))
 @RequiresPermission.Write(@RequiresPermission(WRITE_HISTORY_BOOKMARKS))
 public static final Uri BOOKMARKS_URI = Uri.parse(&quot;content://browser/bookmarks&quot;);  
-</code></pre><h3 id="Overriding-Methods-注解-CallSuper"><a href="#Overriding-Methods-注解-CallSuper" class="headerlink" title="Overriding Methods 注解: @CallSuper"></a>Overriding Methods 注解: @CallSuper</h3><p>如果你的API允许使用者重写你的方法，但是呢，你又需要你自己的方法(父方法)在重写的时候也被调用，这时候你可以使用@CallSuper标注</p>
+</code></pre>
+<h3 id="Overriding-Methods-注解-CallSuper"><a href="#Overriding-Methods-注解-CallSuper" class="headerlink" title="Overriding Methods 注解: @CallSuper"></a>Overriding Methods 注解: @CallSuper</h3><p>如果你的API允许使用者重写你的方法，但是呢，你又需要你自己的方法(父方法)在重写的时候也被调用，这时候你可以使用@CallSuper标注</p>
 <p>例如：Activity的onCreate函数</p>
 <pre><code>@CallSuper
 protected void onCreate(@Nullable Bundle savedInstanceState)
-</code></pre><p>用了这个后，当重写的方法没有调用父方法时，工具就会给予标记提示</p>
+</code></pre>
+<p>用了这个后，当重写的方法没有调用父方法时，工具就会给予标记提示</p>
 <p><img src="http://img.shedoor.net/ocnyang/supportAnnotations/callsuper.png" alt="@CallSuper"></p>
 <h3 id="Return-Values注解-CheckResult"><a href="#Return-Values注解-CheckResult" class="headerlink" title="Return Values注解: @CheckResult"></a>Return Values注解: @CheckResult</h3><p>如果你的方法返回一个值，你期望调用者用这个值做些事情，那么你可以使用 <code>@CheckResult</code> 注解标注这个方法。</p>
 <p>这个在具体使用中用的比较少，除非特殊情况，比如在项目中对一个数据进行处理，这个处理比较耗时，我们希望调用该函数的调用者在不需要处理结果的时候，提示没有使用，酌情删除调用。</p>
@@ -604,18 +606,20 @@ protected void onCreate(@Nullable Bundle savedInstanceState)
 </ul>
 <p>但是出于某一些目的,我们需要不混淆某部分代码或者不删除某处代码,除了配置复杂的Proguard文件之外,我们还可以使用@Keep注解.</p>
 <pre><code>@Keep
-public static int getBitmapWidth(Bitmap bitmap) {
+public static int getBitmapWidth(Bitmap bitmap) &#123;
     return bitmap.getWidth();
-}
-</code></pre><h3 id="其他注解"><a href="#其他注解" class="headerlink" title="其他注解"></a>其他注解</h3><p>   <strong>VisibleForTesting</strong>：可注解一个类，方法，或变量，表示有更宽松的可见性，这样它能够有更宽泛的可见性，使代码可以被测试。</p>
+&#125;
+</code></pre>
+<h3 id="其他注解"><a href="#其他注解" class="headerlink" title="其他注解"></a>其他注解</h3><p>   <strong>VisibleForTesting</strong>：可注解一个类，方法，或变量，表示有更宽松的可见性，这样它能够有更宽泛的可见性，使代码可以被测试。</p>
 <h3 id="IntelliJ注解"><a href="#IntelliJ注解" class="headerlink" title="IntelliJ注解"></a>IntelliJ注解</h3><p><code>IntelliJ</code> ，Android Studio 就是基于它开发的， IntelliJ 有一套它自己的注解； IntDef 分析其实重用的是 MagicConstant 分析的代码，IntelliJ null 分析其实用的是一组配置好的 null 注解。如果你执行 Analyze &gt; Infer Nullity…，它会试图找出所有的 null 约束并添加他们。这个检查有时会插入 IntelliJ 注解。你可以通过搜索,替换为 Android 注解库的注解，或者你也可以直接用 IntelliJ 注解。在 build.gradle 里或者通过 Project Structure 对话框的 Dependencies 面板都可以添加如下依赖：</p>
-<pre><code>dependencies {
-    compile &apos;com.intellij:annotations:12.0&apos;
-}
-</code></pre><h2 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a>结尾：</h2><p>经过查阅资料和博客，系统了学习和总结了关于Support Annotations注解的内容，在编码中通过使用Support Annotations可以提高代码可读性，同时可以在类加载时就可以检查一些错误，同时不会对性能有任何影响，因为Support Annotations中的注解的生命周期全部是RetentionPolicy.class。在以后的编码中大家可以尝试用用。  </p>
+<pre><code>dependencies &#123;
+    compile &#39;com.intellij:annotations:12.0&#39;
+&#125;
+</code></pre>
+<h2 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a>结尾：</h2><p>经过查阅资料和博客，系统了学习和总结了关于Support Annotations注解的内容，在编码中通过使用Support Annotations可以提高代码可读性，同时可以在类加载时就可以检查一些错误，同时不会对性能有任何影响，因为Support Annotations中的注解的生命周期全部是RetentionPolicy.class。在以后的编码中大家可以尝试用用。  </p>
 <blockquote>
 <p><strong>参考文章（本编文章大多来自对下面几篇文章的总结）</strong>：  </p>
-<p><a href="http://droidyue.com/blog/2016/08/14/android-annnotation/index.html" target="_blank" rel="noopener">http://droidyue.com/blog/2016/08/14/android-annnotation/index.html</a><br><a href="http://www.cnblogs.com/whoislcj/p/5677917.html" target="_blank" rel="noopener">http://www.cnblogs.com/whoislcj/p/5677917.html</a><br><a href="https://asce1885.gitbooks.io/android-rd-senior-advanced/content/shen_ru_qian_chu_android_support_annotations.html" target="_blank" rel="noopener">https://asce1885.gitbooks.io/android-rd-senior-advanced/content/shen_ru_qian_chu_android_support_annotations.html</a><br><a href="https://noobcoderblog.wordpress.com/2015/04/12/java-enum-and-android-intdefstringdef-annotation/" target="_blank" rel="noopener">https://noobcoderblog.wordpress.com/2015/04/12/java-enum-and-android-intdefstringdef-annotation/</a><br><a href="http://szysky.com/2016/05/20/Android-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8annotion%E6%9B%BF%E4%BB%A3Enum/" target="_blank" rel="noopener">http://szysky.com/2016/05/20/Android-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8annotion%E6%9B%BF%E4%BB%A3Enum/</a><br><a href="http://anupcowkur.com/posts/a-look-at-android-support-annotations/" target="_blank" rel="noopener">http://anupcowkur.com/posts/a-look-at-android-support-annotations/</a>  </p>
+<p><a target="_blank" rel="noopener" href="http://droidyue.com/blog/2016/08/14/android-annnotation/index.html">http://droidyue.com/blog/2016/08/14/android-annnotation/index.html</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/whoislcj/p/5677917.html">http://www.cnblogs.com/whoislcj/p/5677917.html</a><br><a target="_blank" rel="noopener" href="https://asce1885.gitbooks.io/android-rd-senior-advanced/content/shen_ru_qian_chu_android_support_annotations.html">https://asce1885.gitbooks.io/android-rd-senior-advanced/content/shen_ru_qian_chu_android_support_annotations.html</a><br><a target="_blank" rel="noopener" href="https://noobcoderblog.wordpress.com/2015/04/12/java-enum-and-android-intdefstringdef-annotation/">https://noobcoderblog.wordpress.com/2015/04/12/java-enum-and-android-intdefstringdef-annotation/</a><br><a target="_blank" rel="noopener" href="http://szysky.com/2016/05/20/Android-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8annotion%E6%9B%BF%E4%BB%A3Enum/">http://szysky.com/2016/05/20/Android-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8annotion%E6%9B%BF%E4%BB%A3Enum/</a><br><a target="_blank" rel="noopener" href="http://anupcowkur.com/posts/a-look-at-android-support-annotations/">http://anupcowkur.com/posts/a-look-at-android-support-annotations/</a>  </p>
 </blockquote>
 
       
@@ -647,7 +651,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2016/12/28/SupportAnnotations/">在 Android 使用 Support Annotations 注解优化代码</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
   <p><span>发布时间:</span>2016年12月28日 - 15:12</p>
   <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/12/28/SupportAnnotations/" title="在 Android 使用 Support Annotations 注解优化代码">http://ocnyang.com/2016/12/28/SupportAnnotations/</a>
@@ -686,14 +690,14 @@ public static int getBitmapWidth(Bitmap bitmap) {
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="OCNYang 微信支付"/>
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt=" 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt="OCNYang 支付宝"/>
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt=" 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -714,7 +718,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
           
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           
-            <a href="/tags/Android教程系列/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
+            <a href="/tags/Android%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> Android教程系列</a>
           
         </div>
       
@@ -773,7 +777,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div>
@@ -815,12 +819,8 @@ public static int getBitmapWidth(Bitmap bitmap) {
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/ocnyang.png"
-                alt="OCNYang" />
-            
-              <p class="site-author-name" itemprop="name">OCNYang</p>
-              <p class="site-description motion-element" itemprop="description">有过痛苦，方知众生痛苦，<br>有过执着，放下执着，<br>有过牵挂，了无牵挂，<br>这是一种境界，<br>而我，只是一个凡人</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -828,9 +828,9 @@ public static int getBitmapWidth(Bitmap bitmap) {
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20hourglass-start">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -841,7 +841,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -852,7 +852,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -931,7 +931,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-Annotations-简介："><span class="nav-number">1.1.</span> <span class="nav-text">Support Annotations 简介：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-Annotations-如何引入："><span class="nav-number">1.2.</span> <span class="nav-text">Support Annotations 如何引入：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Annotations分类："><span class="nav-number">2.</span> <span class="nav-text">Support Annotations分类：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typedef-注解：IntDef-StringDef-Android特有的魔术变量注解替代Enum"><span class="nav-number">2.1.</span> <span class="nav-text">Typedef 注解：IntDef / StringDef (Android特有的魔术变量注解替代Enum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nullness注解"><span class="nav-number">2.2.</span> <span class="nav-text">Nullness注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-Type-注解"><span class="nav-number">2.3.</span> <span class="nav-text">Resource Type 注解　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Threading-注解"><span class="nav-number">2.4.</span> <span class="nav-text">Threading 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-Constraints-注解：-Size-IntRange-FloatRange"><span class="nav-number">2.5.</span> <span class="nav-text">Value Constraints 注解：@Size, @IntRange, @FloatRange</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permissions-注解-RequiresPermission"><span class="nav-number">2.6.</span> <span class="nav-text">Permissions 注解: @RequiresPermission</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding-Methods-注解-CallSuper"><span class="nav-number">2.7.</span> <span class="nav-text">Overriding Methods 注解: @CallSuper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Return-Values注解-CheckResult"><span class="nav-number">2.8.</span> <span class="nav-text">Return Values注解: @CheckResult</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keep-注解"><span class="nav-number">2.9.</span> <span class="nav-text">Keep 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他注解"><span class="nav-number">2.10.</span> <span class="nav-text">其他注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ注解"><span class="nav-number">2.11.</span> <span class="nav-text">IntelliJ注解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾："><span class="nav-number">3.</span> <span class="nav-text">结尾：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-Annotations-%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">Support Annotations 简介：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-Annotations-%E5%A6%82%E4%BD%95%E5%BC%95%E5%85%A5%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">Support Annotations 如何引入：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Annotations%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">Support Annotations分类：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typedef-%E6%B3%A8%E8%A7%A3%EF%BC%9AIntDef-StringDef-Android%E7%89%B9%E6%9C%89%E7%9A%84%E9%AD%94%E6%9C%AF%E5%8F%98%E9%87%8F%E6%B3%A8%E8%A7%A3%E6%9B%BF%E4%BB%A3Enum"><span class="nav-number">2.1.</span> <span class="nav-text">Typedef 注解：IntDef &#x2F; StringDef (Android特有的魔术变量注解替代Enum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nullness%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.2.</span> <span class="nav-text">Nullness注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-Type-%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.3.</span> <span class="nav-text">Resource Type 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Threading-%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.4.</span> <span class="nav-text">Threading 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-Constraints-%E6%B3%A8%E8%A7%A3%EF%BC%9A-Size-IntRange-FloatRange"><span class="nav-number">2.5.</span> <span class="nav-text">Value Constraints 注解：@Size, @IntRange, @FloatRange</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permissions-%E6%B3%A8%E8%A7%A3-RequiresPermission"><span class="nav-number">2.6.</span> <span class="nav-text">Permissions 注解: @RequiresPermission</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding-Methods-%E6%B3%A8%E8%A7%A3-CallSuper"><span class="nav-number">2.7.</span> <span class="nav-text">Overriding Methods 注解: @CallSuper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Return-Values%E6%B3%A8%E8%A7%A3-CheckResult"><span class="nav-number">2.8.</span> <span class="nav-text">Return Values注解: @CheckResult</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keep-%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.9.</span> <span class="nav-text">Keep 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.10.</span> <span class="nav-text">其他注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.11.</span> <span class="nav-text">IntelliJ注解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E5%B0%BE%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">结尾：</span></a></li></ol></div>
             
 
           </div>
@@ -951,7 +951,7 @@ public static int getBitmapWidth(Bitmap bitmap) {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -969,12 +969,12 @@ public static int getBitmapWidth(Bitmap bitmap) {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 135.0k 字</span>
+  <span class="post-count">博客全站共 157.3k 字</span>
 </div>
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -1134,6 +1134,14 @@ public static int getBitmapWidth(Bitmap bitmap) {
 
 
 
+
+	
+
+
+
+
+
+  
 
 
 

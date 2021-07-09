@@ -80,22 +80,23 @@
 
 
 <meta name="description" content="一些Support库随着Android Lollipop的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。">
-<meta name="keywords" content="Android,Palette">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Palette抽取Bitmap主色调">
 <meta property="og:url" content="http://ocnyang.com/2016/11/11/Palette/index.html">
-<meta property="og:site_name" content="單純的癡">
+<meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="一些Support库随着Android Lollipop的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://img.shedoor.net/Palette/20150827183303088.png">
 <meta property="og:image" content="http://img.shedoor.net/Palette/20150827183359416.png">
 <meta property="og:image" content="http://img.shedoor.net/Palette/tmpdir__16_6_28_18_41_09.gif">
 <meta property="og:image" content="http://img.shedoor.net/Palette/cd389848270623564.png">
 <meta property="og:image" content="http://img.shedoor.net/Palette/cd389848270623565.png">
-<meta property="og:updated_time" content="2020-11-01T13:53:29.468Z">
+<meta property="article:published_time" content="2016-11-11T09:03:15.000Z">
+<meta property="article:modified_time" content="2020-11-01T13:53:29.468Z">
+<meta property="article:author" content="OCN.Yang">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Palette">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Palette抽取Bitmap主色调">
-<meta name="twitter:description" content="一些Support库随着Android Lollipop的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。">
 <meta name="twitter:image" content="http://img.shedoor.net/Palette/20150827183303088.png">
 
 
@@ -103,7 +104,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -115,9 +116,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: 'VNED6CUNXS',
-      apiKey: '6ddb8c50393c96385859316fefbe2320',
-      indexName: 'ocnyang',
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -132,27 +133,17 @@
 
 
 
-  <title>使用Palette抽取Bitmap主色调 | 單純的癡</title>
+  <title>使用Palette抽取Bitmap主色调 | OCNYang の 博客</title>
   
 
 
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?923326cdfba9134256dbbf5887c8ce38";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
-
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -164,7 +155,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <a href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a target="_blank" rel="noopener" href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -174,12 +165,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">單純的癡</span>
+        <span class="site-title">OCNYang の 博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">等不得，遇不见...</p>
+        <p class="site-subtitle">ʕ•̫͡•ʕ̢·͡˔·ོɁ̡̣-̫͡-ʕ•͓͡•ʔ-̫͡-ʔ</p>
       
   </div>
 
@@ -200,7 +191,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-circle-o-notch"></i> <br />
             
@@ -210,7 +201,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
             
@@ -220,7 +211,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -230,7 +221,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
             
@@ -240,7 +231,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-hourglass-start"></i> <br />
             
@@ -250,7 +241,7 @@
       
         
         <li class="menu-item menu-item-efall">
-          <a href="/categories/还相信爱情/" rel="section">
+          <a href="/categories/%E8%BF%98%E7%9B%B8%E4%BF%A1%E7%88%B1%E6%83%85/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-key"></i> <br />
             
@@ -294,13 +285,13 @@
     <link itemprop="mainEntityOfPage" href="http://ocnyang.com/2016/11/11/Palette/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="OCNYang">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ocnyang.png">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="單純的癡">
+      <meta itemprop="name" content="OCNYang の 博客">
     </span>
 
     
@@ -343,7 +334,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android教程系列/" itemprop="url" rel="index">
+                  <a href="/categories/Android%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
                     <span itemprop="name">Android教程系列</span>
                   </a>
                 </span>
@@ -396,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,558
+                  1.6k
                 </span>
               
 
@@ -434,13 +425,15 @@
 
       
         <p>一些Support库随着<a href="http://ocnyang.com/">Android Lollipop</a>的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。  </p>
-<a id="more"></a>
+<span id="more"></span>
+
 <h2 id="关于Palette"><a href="#关于Palette" class="headerlink" title="关于Palette"></a>关于Palette</h2><p>Palette顾名思义调色板， Palette的作用是可以从图像中提取图片的颜色。我们可以把提取的颜色融入到App UI中，可以使UI风格更加美观融洽。有些时候Palette显得非常好用，比如我们可以提取到的突出的色值设置为Toolbar，标题，状态栏的颜色等，可以使我们的整个界面色调统一，效果非常好看。  </p>
 <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h3><p>你需要在工程下的build.gradle里添加依赖才可以使用Palette，像如下代码所示：  </p>
-<pre><code>dependencies {
-  compile &apos;com.android.support:palette-v7:21.0.0&apos;
-}
-</code></pre><h3 id="生成Palette"><a href="#生成Palette" class="headerlink" title="生成Palette"></a>生成Palette</h3><p>生成一幅图像的Palette有一下几种方法：  </p>
+<pre><code>dependencies &#123;
+  compile &#39;com.android.support:palette-v7:21.0.0&#39;
+&#125;
+</code></pre>
+<h3 id="生成Palette"><a href="#生成Palette" class="headerlink" title="生成Palette"></a>生成Palette</h3><p>生成一幅图像的Palette有一下几种方法：  </p>
 <pre><code>// Synchronous methods.同步方法--------------------------------
 // 这些应该在访问底层图像加载线程时使用。
 // 方法1：使用默认16种颜色种类的调色板大小。
@@ -452,29 +445,31 @@ Palette p = Palette.generate(bitmap, 24);
 // Asynchronous methods.异步方法--------------------------------
 // 这是快速的集成路径，在内部使用AsyncTask等，不一定是最好的方式。
 // 方法3：
-Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
+Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() &#123;
     @Override
-    public void onGenerated(Palette palette) {
-       // Here&apos;s your generated palette 这是你生成的调色板
-    }
-});
+    public void onGenerated(Palette palette) &#123;
+       // Here&#39;s your generated palette 这是你生成的调色板
+    &#125;
+&#125;);
 // 方法4：
-Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() {
+Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() &#123;
     @Override
-    public void onGenerated(Palette palette) {
-       // Here&apos;s your generated palette
-    }
-});  
-</code></pre><blockquote>
+    public void onGenerated(Palette palette) &#123;
+       // Here&#39;s your generated palette
+    &#125;
+&#125;);  
+</code></pre>
+<blockquote>
 <p><strong>同步方法</strong>。由于他们很可能会比较耗时（在分析大图片或者所需颜色较多时），所以它们不应该在主线程中执行。你应该先在别的线程中使用这两个函数进行解析，解析成功之后再使用。<br><strong>异步方法</strong>。有时候你不会在加载图片的线程（非主线程）中使用解析出的颜色，所以Palette提供了异步方法，他们与之前的函数的区别就是需要传入PaletteAsyncListener，提供在图片解析完成后的回调函数。  </p>
 </blockquote>
 <p><strong>PaletteAsyncListener的实现</strong>是非常简单的（参考下面这几行代码），它只要重写onGenerated就好了。如此一来你就可以在任何需要的时候使用这两个函数创建Palette。</p>
-<pre><code>Palette.PaletteAsyncListener listener = new Palette.PaletteAsyncListener() {
-  public void onGenerated(Palette palette) {
+<pre><code>Palette.PaletteAsyncListener listener = new Palette.PaletteAsyncListener() &#123;
+  public void onGenerated(Palette palette) &#123;
     // 使用Palette对象，获取解析出的颜色
-  }
-}
-</code></pre><h3 id="提取出的颜色"><a href="#提取出的颜色" class="headerlink" title="提取出的颜色"></a>提取出的颜色</h3><p>Palette默认会解析出图像的16种特征颜色种类，但是这六种颜色是你最经常用到的：  </p>
+  &#125;
+&#125;
+</code></pre>
+<h3 id="提取出的颜色"><a href="#提取出的颜色" class="headerlink" title="提取出的颜色"></a>提取出的颜色</h3><p>Palette默认会解析出图像的16种特征颜色种类，但是这六种颜色是你最经常用到的：  </p>
 <ul>
 <li>vibrant(鲜艳色)</li>
 <li>dark vibrant(鲜艳色中的暗色)</li>
@@ -497,7 +492,8 @@ int mutedDark = palette.getDarkMutedColor(0x000000);
 //独特的一种
 getDominantColor(int defaultColor)
 //返回从调色板中占主导地位的样本的颜色，为RGB包装INT。
-</code></pre><h3 id="获取Swatch"><a href="#获取Swatch" class="headerlink" title="获取Swatch"></a>获取Swatch</h3><p>你也可以选择先获取Swatch对象，然后再通过Swatch提供的方法获取颜色的相关信息：  </p>
+</code></pre>
+<h3 id="获取Swatch"><a href="#获取Swatch" class="headerlink" title="获取Swatch"></a>获取Swatch</h3><p>你也可以选择先获取Swatch对象，然后再通过Swatch提供的方法获取颜色的相关信息：  </p>
 <pre><code>Palette.Swatch s = p.getVibrantSwatch();       //获取到充满活力的这种色调
 Palette.Swatch s = p.getDarkVibrantSwatch();    //获取充满活力的黑
 Palette.Swatch s = p.getLightVibrantSwatch();   //获取充满活力的亮
@@ -508,8 +504,9 @@ Palette.Swatch s = p.getLightMutedSwatch();    //获取柔和的亮
 //独特的一种
 getDominantSwatch()
 //返回从调色板中占主导地位的样本。
-</code></pre><blockquote>
-<p>注意：<a href="http://ocnyang.com/">getVibrantSwatch()</a>可能会返回一个null值，所以在使用前检查一下是必须的。<code>if (swatch != null) {}</code>  </p>
+</code></pre>
+<blockquote>
+<p>注意：<a href="http://ocnyang.com/">getVibrantSwatch()</a>可能会返回一个null值，所以在使用前检查一下是必须的。<code>if (swatch != null) &#123;&#125;</code>  </p>
 </blockquote>
 <p>Palette解析出的颜色都来自于对应的Swatch，在Swatch里面含有很多关于对应颜色的有用信息。你可以从Swatch中获取RGB颜色值、HSL颜色向量、对应颜色在图像中所占的比例、与对应颜色搭配的标题字体颜色和正文字体颜色（这两个颜色和对应颜色的对比值是处理好的，你不必再去操心）。</p>
 <p><strong>swatch对象对应的颜色方法：</strong>  </p>
@@ -518,10 +515,12 @@ getRgb(): RGB颜色
 getHsl(): HSL颜色
 getBodyTextColor(): 用于内容正文文本的颜色
 getTitleTextColor(): 标题文本的颜色
-</code></pre><p>Palette只为六种主颜色种类Swatch提供了getter，如果你要使用其他颜色种类的Swatch（一共有16种颜色种类），你需要手动获取它。调用getSwatchs()会返回一个列表，里面有所有获取到的Swatch。</p>
+</code></pre>
+<p>Palette只为六种主颜色种类Swatch提供了getter，如果你要使用其他颜色种类的Swatch（一共有16种颜色种类），你需要手动获取它。调用getSwatchs()会返回一个列表，里面有所有获取到的Swatch。</p>
 <pre><code>List&lt;Palette.Swatch&gt; swatches = palette.getSwatches();
-</code></pre><p>这里是一个Palette获取所有Swatch的例子，里面展示了它们分别在图像中所占的比例：</p>
-<p><img src="http://img.shedoor.net/Palette/20150827183359416.png" alt="">  </p>
+</code></pre>
+<p>这里是一个Palette获取所有Swatch的例子，里面展示了它们分别在图像中所占的比例：</p>
+<p><img src="http://img.shedoor.net/Palette/20150827183359416.png">  </p>
 <h3 id="关于颜色种类的值size"><a href="#关于颜色种类的值size" class="headerlink" title="关于颜色种类的值size"></a>关于颜色种类的值size</h3><p>在上面生成Palette的时候，你可能注意到了可以设置Palette的size。size越大，花费的时间越长，而越小，可以选择的色彩也越小。最佳的选择是根据image的用途：  </p>
 <ul>
 <li>头像之类的，size最好在24-32之间；  </li>
@@ -530,12 +529,12 @@ getTitleTextColor(): 标题文本的颜色
 </ul>
 <h2 id="Palette实例"><a href="#Palette实例" class="headerlink" title="Palette实例"></a>Palette实例</h2><p>Palette经常用于和ViewPager，Fragment搭配使用，当我们的Pager切换时伴随着Fragment的变化，而Fragment里的内容一般是不同的，所以每个Fragment里的一般视觉效果也是不同的，所以我们可以用Palette来去提取Fragment中的主色调，把这个主色调用于整体的UI风格。</p>
 <p><img src="http://img.shedoor.net/Palette/tmpdir__16_6_28_18_41_09.gif" alt="效果图">  </p>
-<p>这个例子可以参考这篇博客：<a href="http://www.jianshu.com/p/9fcf316031ba" target="_blank" rel="noopener">http://www.jianshu.com/p/9fcf316031ba</a><br>Demo的地址：<a href="https://github.com/loonggg/MaterialDesignDemo" target="_blank" rel="noopener">https://github.com/loonggg/MaterialDesignDemo</a>  </p>
+<p>这个例子可以参考这篇博客：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/9fcf316031ba">http://www.jianshu.com/p/9fcf316031ba</a><br>Demo的地址：<a target="_blank" rel="noopener" href="https://github.com/loonggg/MaterialDesignDemo">https://github.com/loonggg/MaterialDesignDemo</a>  </p>
 <p>另外一个例子：  </p>
-<p><img src="http://img.shedoor.net/Palette/cd389848270623564.png" alt=""> <img src="http://img.shedoor.net/Palette/cd389848270623565.png" alt="">  </p>
-<p>详情参考这篇博客：<a href="http://www.itdadao.com/articles/c15a485862p0.html" target="_blank" rel="noopener">http://www.itdadao.com/articles/c15a485862p0.html</a><br>Demo下载地址：<a href="http://download.csdn.net/detail/breeze_wf/9273313" target="_blank" rel="noopener">http://download.csdn.net/detail/breeze_wf/9273313</a>  </p>
+<p><img src="http://img.shedoor.net/Palette/cd389848270623564.png"> <img src="http://img.shedoor.net/Palette/cd389848270623565.png">  </p>
+<p>详情参考这篇博客：<a target="_blank" rel="noopener" href="http://www.itdadao.com/articles/c15a485862p0.html">http://www.itdadao.com/articles/c15a485862p0.html</a><br>Demo下载地址：<a target="_blank" rel="noopener" href="http://download.csdn.net/detail/breeze_wf/9273313">http://download.csdn.net/detail/breeze_wf/9273313</a>  </p>
 <blockquote>
-<p>关于更多Palette的详细用法，可以查看<a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html" target="_blank" rel="noopener">官方API文档</a>。</p>
+<p>关于更多Palette的详细用法，可以查看<a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html">官方API文档</a>。</p>
 </blockquote>
 
       
@@ -567,7 +566,7 @@ getTitleTextColor(): 标题文本的颜色
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2016/11/11/Palette/">使用Palette抽取Bitmap主色调</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 OCNYang 的个人博客">OCNYang</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
   <p><span>发布时间:</span>2016年11月11日 - 17:11</p>
   <p><span>最后更新:</span>2020年11月01日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2016/11/11/Palette/" title="使用Palette抽取Bitmap主色调">http://ocnyang.com/2016/11/11/Palette/</a>
@@ -606,14 +605,14 @@ getTitleTextColor(): 标题文本的颜色
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="OCNYang 微信支付"/>
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt=" 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt="OCNYang 支付宝"/>
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt=" 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -693,7 +692,7 @@ getTitleTextColor(): 标题文本的颜色
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div>
@@ -735,12 +734,8 @@ getTitleTextColor(): 标题文本的颜色
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/ocnyang.png"
-                alt="OCNYang" />
-            
-              <p class="site-author-name" itemprop="name">OCNYang</p>
-              <p class="site-description motion-element" itemprop="description">有过痛苦，方知众生痛苦，<br>有过执着，放下执着，<br>有过牵挂，了无牵挂，<br>这是一种境界，<br>而我，只是一个凡人</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -748,9 +743,9 @@ getTitleTextColor(): 标题文本的颜色
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20hourglass-start">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -761,7 +756,7 @@ getTitleTextColor(): 标题文本的颜色
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -772,7 +767,7 @@ getTitleTextColor(): 标题文本的颜色
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -851,7 +846,7 @@ getTitleTextColor(): 标题文本的颜色
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Palette"><span class="nav-number">1.</span> <span class="nav-text">关于Palette</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始使用"><span class="nav-number">2.</span> <span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导包"><span class="nav-number">2.1.</span> <span class="nav-text">导包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成Palette"><span class="nav-number">2.2.</span> <span class="nav-text">生成Palette</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取出的颜色"><span class="nav-number">2.3.</span> <span class="nav-text">提取出的颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取提取的颜色"><span class="nav-number">2.4.</span> <span class="nav-text">获取提取的颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Swatch"><span class="nav-number">2.5.</span> <span class="nav-text">获取Swatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于颜色种类的值size"><span class="nav-number">2.6.</span> <span class="nav-text">关于颜色种类的值size</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Palette实例"><span class="nav-number">3.</span> <span class="nav-text">Palette实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EPalette"><span class="nav-number">1.</span> <span class="nav-text">关于Palette</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">导包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90Palette"><span class="nav-number">2.2.</span> <span class="nav-text">生成Palette</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%87%BA%E7%9A%84%E9%A2%9C%E8%89%B2"><span class="nav-number">2.3.</span> <span class="nav-text">提取出的颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8F%90%E5%8F%96%E7%9A%84%E9%A2%9C%E8%89%B2"><span class="nav-number">2.4.</span> <span class="nav-text">获取提取的颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96Swatch"><span class="nav-number">2.5.</span> <span class="nav-text">获取Swatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%A2%9C%E8%89%B2%E7%A7%8D%E7%B1%BB%E7%9A%84%E5%80%BCsize"><span class="nav-number">2.6.</span> <span class="nav-text">关于颜色种类的值size</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Palette%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">Palette实例</span></a></li></ol></div>
             
 
           </div>
@@ -871,7 +866,7 @@ getTitleTextColor(): 标题文本的颜色
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -889,12 +884,12 @@ getTitleTextColor(): 标题文本的颜色
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 135.0k 字</span>
+  <span class="post-count">博客全站共 157.3k 字</span>
 </div>
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -1054,6 +1049,14 @@ getTitleTextColor(): 标题文本的颜色
 
 
 
+
+	
+
+
+
+
+
+  
 
 
 

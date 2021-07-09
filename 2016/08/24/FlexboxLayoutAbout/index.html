@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android,Android控件,FlexboxLayout," />
+  <meta name="keywords" content="Android控件,Android,FlexboxLayout," />
 
 
 
@@ -80,22 +80,24 @@
 
 
 <meta name="description" content="Flexbox简介简单来说 Flexbox 是属于web前端领域CSS的一种布局方案，是2009年W3C提出了一种新的布局方案，可以简便、完整、响应式地实现各种页面布局，并且 React Native 也是使用的 Flex 布局。谷歌将其引入以提高复杂布局的能力。">
-<meta name="keywords" content="Android,Android控件,FlexboxLayout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android弹性布局-FlexboxLayout">
 <meta property="og:url" content="http://ocnyang.com/2016/08/24/FlexboxLayoutAbout/index.html">
-<meta property="og:site_name" content="單純的癡">
+<meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="Flexbox简介简单来说 Flexbox 是属于web前端领域CSS的一种布局方案，是2009年W3C提出了一种新的布局方案，可以简便、完整、响应式地实现各种页面布局，并且 React Native 也是使用的 Flex 布局。谷歌将其引入以提高复杂布局的能力。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/1.png">
 <meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/2.png">
 <meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/3.png">
 <meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/4.png">
 <meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/5.png">
-<meta property="og:updated_time" content="2020-11-01T13:48:58.129Z">
+<meta property="article:published_time" content="2016-08-24T07:03:15.000Z">
+<meta property="article:modified_time" content="2020-11-01T13:48:58.129Z">
+<meta property="article:author" content="OCN.Yang">
+<meta property="article:tag" content="Android控件">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="FlexboxLayout">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android弹性布局-FlexboxLayout">
-<meta name="twitter:description" content="Flexbox简介简单来说 Flexbox 是属于web前端领域CSS的一种布局方案，是2009年W3C提出了一种新的布局方案，可以简便、完整、响应式地实现各种页面布局，并且 React Native 也是使用的 Flex 布局。谷歌将其引入以提高复杂布局的能力。">
 <meta name="twitter:image" content="http://img.shedoor.net/flexBoxLayoutAbout/1.png">
 
 
@@ -103,7 +105,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -115,9 +117,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: 'VNED6CUNXS',
-      apiKey: '6ddb8c50393c96385859316fefbe2320',
-      indexName: 'ocnyang',
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -132,27 +134,17 @@
 
 
 
-  <title>Android弹性布局-FlexboxLayout | 單純的癡</title>
+  <title>Android弹性布局-FlexboxLayout | OCNYang の 博客</title>
   
 
 
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?923326cdfba9134256dbbf5887c8ce38";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
-
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -164,7 +156,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <a href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a target="_blank" rel="noopener" href="https://github.com/OCNYang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -174,12 +166,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">單純的癡</span>
+        <span class="site-title">OCNYang の 博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">等不得，遇不见...</p>
+        <p class="site-subtitle">ʕ•̫͡•ʕ̢·͡˔·ོɁ̡̣-̫͡-ʕ•͓͡•ʔ-̫͡-ʔ</p>
       
   </div>
 
@@ -200,7 +192,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-circle-o-notch"></i> <br />
             
@@ -210,7 +202,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
             
@@ -220,7 +212,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -230,7 +222,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
             
@@ -240,7 +232,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-hourglass-start"></i> <br />
             
@@ -250,7 +242,7 @@
       
         
         <li class="menu-item menu-item-efall">
-          <a href="/categories/还相信爱情/" rel="section">
+          <a href="/categories/%E8%BF%98%E7%9B%B8%E4%BF%A1%E7%88%B1%E6%83%85/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-key"></i> <br />
             
@@ -294,13 +286,13 @@
     <link itemprop="mainEntityOfPage" href="http://ocnyang.com/2016/08/24/FlexboxLayoutAbout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="OCNYang">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ocnyang.png">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="單純的癡">
+      <meta itemprop="name" content="OCNYang の 博客">
     </span>
 
     
@@ -343,7 +335,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android控件/" itemprop="url" rel="index">
+                  <a href="/categories/Android%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index">
                     <span itemprop="name">Android控件</span>
                   </a>
                 </span>
@@ -396,7 +388,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,483
+                  1.5k
                 </span>
               
 
@@ -434,9 +426,10 @@
 
       
         <h2 id="Flexbox简介"><a href="#Flexbox简介" class="headerlink" title="Flexbox简介"></a>Flexbox简介</h2><p>简单来说 Flexbox 是属于web前端领域CSS的一种布局方案，是2009年W3C提出了一种新的布局方案，可以简便、完整、响应式地实现各种页面布局，并且 React Native 也是使用的 Flex 布局。谷歌将其引入以提高复杂布局的能<br>力。  </p>
-<a id="more"></a>
-<p><a href="https://github.com/google/flexbox-layout" target="_blank" rel="noopener">Github 源码传送门</a></p>
-<h2 id="Flexbox的布局和相关名称"><a href="#Flexbox的布局和相关名称" class="headerlink" title="Flexbox的布局和相关名称"></a>Flexbox的布局和相关名称</h2><p><img src="http://img.shedoor.net/flexBoxLayoutAbout/1.png" alt="">  </p>
+<span id="more"></span>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/google/flexbox-layout">Github 源码传送门</a></p>
+<h2 id="Flexbox的布局和相关名称"><a href="#Flexbox的布局和相关名称" class="headerlink" title="Flexbox的布局和相关名称"></a>Flexbox的布局和相关名称</h2><p><img src="http://img.shedoor.net/flexBoxLayoutAbout/1.png">  </p>
 <p>上图模型中包含以下概念</p>
 <ol>
 <li>flex container 父容器，用来包含子元素，对应于FlexboxLayout类。</li>
@@ -481,7 +474,8 @@
         app:layout_alignSelf=&quot;flex_end&quot;
         /&gt;
 &lt;/com.google.android.flexbox.FlexboxLayout&gt;  
-</code></pre><p>或者代码</p>
+</code></pre>
+<p>或者代码</p>
 <pre><code>FlexboxLayout flexboxLayout = (FlexboxLayout) findViewById(R.id.flexbox_layout);
 flexboxLayout.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
 
@@ -490,7 +484,8 @@ FlexboxLayout.LayoutParams lp = (FlexboxLayout.LayoutParams) view.getLayoutParam
 lp.order = -1;
 lp.flexGrow = 2;
 view.setLayoutParams(lp);  
-</code></pre><h2 id="属性介绍"><a href="#属性介绍" class="headerlink" title="属性介绍"></a>属性介绍</h2><h3 id="Contatiner的属性"><a href="#Contatiner的属性" class="headerlink" title="Contatiner的属性"></a>Contatiner的属性</h3><h4 id="flexDirection"><a href="#flexDirection" class="headerlink" title="flexDirection"></a>flexDirection</h4><p>flexDirection 属性决定主轴的方向（即子元素的排列方向）。类似 LinearLayout 的 vertical 和 horizontal。决定主轴和副轴的方向，有以下四个值:  </p>
+</code></pre>
+<h2 id="属性介绍"><a href="#属性介绍" class="headerlink" title="属性介绍"></a>属性介绍</h2><h3 id="Contatiner的属性"><a href="#Contatiner的属性" class="headerlink" title="Contatiner的属性"></a>Contatiner的属性</h3><h4 id="flexDirection"><a href="#flexDirection" class="headerlink" title="flexDirection"></a>flexDirection</h4><p>flexDirection 属性决定主轴的方向（即子元素的排列方向）。类似 LinearLayout 的 vertical 和 horizontal。决定主轴和副轴的方向，有以下四个值:  </p>
 <ul>
 <li>row（默认值）：主轴为水平方向，起点在左端。</li>
 <li>row-reverse：主轴为水平方向，起点在右端。</li>
@@ -499,7 +494,7 @@ view.setLayoutParams(lp);
 </ul>
 <p>而副轴是和主轴垂直的方向，起点相同。  </p>
 <h4 id="flexWrap"><a href="#flexWrap" class="headerlink" title="flexWrap"></a>flexWrap</h4><p>控制单行和多行，以及副轴的方向。默认情况下 Flex 跟 LinearLayout 一样，都是不带换行排列的，但是flexWrap属性可以支持换行排列。这个也比 LinearLayout 吊啊有三个值：  </p>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/2.png" alt="">  </p>
+<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/2.png">  </p>
 <ul>
 <li>nowrap (default) 不换行</li>
 <li>wrap 换行</li>
@@ -521,7 +516,7 @@ view.setLayoutParams(lp);
 <li>center：交叉轴的中点对齐。</li>
 <li>baseline: 项目的第一行文字的基线对齐。</li>
 </ul>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/3.png" alt=""></p>
+<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/3.png"></p>
 <h4 id="alignContent"><a href="#alignContent" class="headerlink" title="alignContent"></a>alignContent</h4><p>alignContent属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。  </p>
 <ul>
 <li>stretch（default）：轴线占满整个交叉轴。</li>
@@ -532,9 +527,9 @@ view.setLayoutParams(lp);
 <li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。  </li>
 </ul>
 <h3 id="子元素的属性"><a href="#子元素的属性" class="headerlink" title="子元素的属性"></a>子元素的属性</h3><h4 id="layout-order"><a href="#layout-order" class="headerlink" title="layout_order"></a>layout_order</h4><p>控制子元素布局的顺序，默认值为1，顺序为XML中元素的顺序.默认情况下子元素的排列方式按照文档流的顺序依次排序，而order属性可以控制排列的顺序，负值在前，正值灾后，按照从小到大的顺序依次排列。  </p>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/4.png" alt=""></p>
+<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/4.png"></p>
 <h4 id="layout-flexGrow"><a href="#layout-flexGrow" class="headerlink" title="layout_flexGrow"></a>layout_flexGrow</h4><p>layout_flexGrow 属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。一张图看懂。跟 LinearLayout 中的weight属性一样。  </p>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/5.png" alt=""><br>如果所有项目的 layout_flexGrow  属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的 layout_flexGrow  属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。  </p>
+<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/5.png"><br>如果所有项目的 layout_flexGrow  属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的 layout_flexGrow  属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。  </p>
 <h4 id="layout-flexShrink"><a href="#layout-flexShrink" class="headerlink" title="layout_flexShrink"></a>layout_flexShrink</h4><p>layout_flexShrink  属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。  </p>
 <h4 id="layout-alignSelf"><a href="#layout-alignSelf" class="headerlink" title="layout_alignSelf"></a>layout_alignSelf</h4><p>允许单个元素有不一样的对齐方式，会覆盖align-item,除auto外，其他取值都和align-item的含义一致。<br>默认值为auto，表示继承父元素的 alignItems 属性，如果没有父元素，则等同于stretch。  </p>
 <ul>
@@ -552,10 +547,10 @@ view.setLayoutParams(lp);
 <li>不支持min-width和min-height：因为谷歌还没实现  </li>
 </ol>
 <blockquote>
-<p>相关链接：<br><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a><br><a href="https://github.com/google/flexbox-layout/wiki" target="_blank" rel="noopener">https://github.com/google/flexbox-layout/wiki</a><br><a href="https://blog.stylingandroid.com/flexboxlayout-part-1/" target="_blank" rel="noopener">https://blog.stylingandroid.com/flexboxlayout-part-1/</a></p>
+<p>相关链接：<br><a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a><br><a target="_blank" rel="noopener" href="https://github.com/google/flexbox-layout/wiki">https://github.com/google/flexbox-layout/wiki</a><br><a target="_blank" rel="noopener" href="https://blog.stylingandroid.com/flexboxlayout-part-1/">https://blog.stylingandroid.com/flexboxlayout-part-1/</a></p>
 </blockquote>
 <blockquote>
-<p>文章来源：<br><a href="http://www.jianshu.com/p/6ab9808488f6" target="_blank" rel="noopener">简书</a><br><a href="">AndroidDeveloper微信公众号-stormzhang</a></p>
+<p>文章来源：<br><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/6ab9808488f6">简书</a><br><a href="">AndroidDeveloper微信公众号-stormzhang</a></p>
 </blockquote>
 
       
@@ -597,14 +592,14 @@ view.setLayoutParams(lp);
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="OCNYang 微信支付"/>
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt=" 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt="OCNYang 支付宝"/>
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.jpg" alt=" 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -623,9 +618,9 @@ view.setLayoutParams(lp);
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+            <a href="/tags/Android%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> Android控件</a>
           
-            <a href="/tags/Android控件/" rel="tag"><i class="fa fa-tag"></i> Android控件</a>
+            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           
             <a href="/tags/FlexboxLayout/" rel="tag"><i class="fa fa-tag"></i> FlexboxLayout</a>
           
@@ -686,7 +681,7 @@ view.setLayoutParams(lp);
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
     </div>
@@ -728,12 +723,8 @@ view.setLayoutParams(lp);
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/ocnyang.png"
-                alt="OCNYang" />
-            
-              <p class="site-author-name" itemprop="name">OCNYang</p>
-              <p class="site-description motion-element" itemprop="description">有过痛苦，方知众生痛苦，<br>有过执着，放下执着，<br>有过牵挂，了无牵挂，<br>这是一种境界，<br>而我，只是一个凡人</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -741,9 +732,9 @@ view.setLayoutParams(lp);
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20hourglass-start">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -754,7 +745,7 @@ view.setLayoutParams(lp);
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -765,7 +756,7 @@ view.setLayoutParams(lp);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -844,7 +835,7 @@ view.setLayoutParams(lp);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox简介"><span class="nav-number">1.</span> <span class="nav-text">Flexbox简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox的布局和相关名称"><span class="nav-number">2.</span> <span class="nav-text">Flexbox的布局和相关名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方式"><span class="nav-number">3.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性介绍"><span class="nav-number">4.</span> <span class="nav-text">属性介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Contatiner的属性"><span class="nav-number">4.1.</span> <span class="nav-text">Contatiner的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flexDirection"><span class="nav-number">4.1.1.</span> <span class="nav-text">flexDirection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flexWrap"><span class="nav-number">4.1.2.</span> <span class="nav-text">flexWrap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#justifyContent"><span class="nav-number">4.1.3.</span> <span class="nav-text">justifyContent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alignItems"><span class="nav-number">4.1.4.</span> <span class="nav-text">alignItems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alignContent"><span class="nav-number">4.1.5.</span> <span class="nav-text">alignContent</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素的属性"><span class="nav-number">4.2.</span> <span class="nav-text">子元素的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-order"><span class="nav-number">4.2.1.</span> <span class="nav-text">layout_order</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-flexGrow"><span class="nav-number">4.2.2.</span> <span class="nav-text">layout_flexGrow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-flexShrink"><span class="nav-number">4.2.3.</span> <span class="nav-text">layout_flexShrink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-alignSelf"><span class="nav-number">4.2.4.</span> <span class="nav-text">layout_alignSelf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-flexBasisPercent"><span class="nav-number">4.2.5.</span> <span class="nav-text">layout_flexBasisPercent</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与传统CSS弹性布局不同之处"><span class="nav-number">5.</span> <span class="nav-text">与传统CSS弹性布局不同之处</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Flexbox简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox%E7%9A%84%E5%B8%83%E5%B1%80%E5%92%8C%E7%9B%B8%E5%85%B3%E5%90%8D%E7%A7%B0"><span class="nav-number">2.</span> <span class="nav-text">Flexbox的布局和相关名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.</span> <span class="nav-text">属性介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Contatiner%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">Contatiner的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flexDirection"><span class="nav-number">4.1.1.</span> <span class="nav-text">flexDirection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flexWrap"><span class="nav-number">4.1.2.</span> <span class="nav-text">flexWrap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#justifyContent"><span class="nav-number">4.1.3.</span> <span class="nav-text">justifyContent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alignItems"><span class="nav-number">4.1.4.</span> <span class="nav-text">alignItems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alignContent"><span class="nav-number">4.1.5.</span> <span class="nav-text">alignContent</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">4.2.</span> <span class="nav-text">子元素的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-order"><span class="nav-number">4.2.1.</span> <span class="nav-text">layout_order</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-flexGrow"><span class="nav-number">4.2.2.</span> <span class="nav-text">layout_flexGrow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-flexShrink"><span class="nav-number">4.2.3.</span> <span class="nav-text">layout_flexShrink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-alignSelf"><span class="nav-number">4.2.4.</span> <span class="nav-text">layout_alignSelf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-flexBasisPercent"><span class="nav-number">4.2.5.</span> <span class="nav-text">layout_flexBasisPercent</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9FCSS%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84"><span class="nav-number">5.</span> <span class="nav-text">与传统CSS弹性布局不同之处</span></a></li></ol></div>
             
 
           </div>
@@ -864,7 +855,7 @@ view.setLayoutParams(lp);
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -882,12 +873,12 @@ view.setLayoutParams(lp);
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共 135.0k 字</span>
+  <span class="post-count">博客全站共 157.3k 字</span>
 </div>
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -1047,6 +1038,14 @@ view.setLayoutParams(lp);
 
 
 
+
+	
+
+
+
+
+
+  
 
 
 
