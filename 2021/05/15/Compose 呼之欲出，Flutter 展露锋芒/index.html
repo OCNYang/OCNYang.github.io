@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/ media="defer" onload="this.media='all'">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ocnyang.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="新技术层出不穷，作为开发者，一入此门中，从此不是在学习中，就是去学习的路上。而最近一年呼声最高的莫如 Flutter 和 Jetpack-Compose 了，今天就聊一聊它们，没有特定的思路，想到哪就聊哪吧。另外，整篇文章个人观点性比较强，又限于自己技术格局，可能会有很多不当甚至错误的地方，不喜勿喷，有错请纠。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Compose 呼之欲出，Flutter 展露锋芒">
+<meta property="og:url" content="http://ocnyang.com/2021/05/15/Compose%20%E5%91%BC%E4%B9%8B%E6%AC%B2%E5%87%BA%EF%BC%8CFlutter%20%E5%B1%95%E9%9C%B2%E9%94%8B%E8%8A%92/index.html">
+<meta property="og:site_name" content="OCNYang の 博客">
+<meta property="og:description" content="新技术层出不穷，作为开发者，一入此门中，从此不是在学习中，就是去学习的路上。而最近一年呼声最高的莫如 Flutter 和 Jetpack-Compose 了，今天就聊一聊它们，没有特定的思路，想到哪就聊哪吧。另外，整篇文章个人观点性比较强，又限于自己技术格局，可能会有很多不当甚至错误的地方，不喜勿喷，有错请纠。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_bt/0/12961135686/641">
+<meta property="og:image" content="http://img.shedoor.net/ui-equals-function-of-state.png">
+<meta property="og:image" content="http://img.shedoor.net/flutter_compose.png">
+<meta property="article:published_time" content="2021-05-15T11:03:15.000Z">
+<meta property="article:modified_time" content="2022-01-19T06:49:39.406Z">
+<meta property="article:author" content="OCNYang">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Flutter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_bt/0/12961135686/641">
+
+<link rel="canonical" href="http://ocnyang.com/2021/05/15/Compose%20%E5%91%BC%E4%B9%8B%E6%AC%B2%E5%87%BA%EF%BC%8CFlutter%20%E5%B1%95%E9%9C%B2%E9%94%8B%E8%8A%92/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Compose 呼之欲出，Flutter 展露锋芒 | OCNYang の 博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+<script defer src="/live2d-widget/autoload.js"></script>
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">OCNYang の 博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Android 开发者，亦涉猎 Flutter</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user-astronaut fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-heartbeat">
+
+    <a href="/categories/%E8%BF%98%E7%9B%B8%E4%BF%A1%E7%88%B1%E6%83%85/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>故事</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/ocnyang" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ocnyang.com/2021/05/15/Compose%20%E5%91%BC%E4%B9%8B%E6%AC%B2%E5%87%BA%EF%BC%8CFlutter%20%E5%B1%95%E9%9C%B2%E9%94%8B%E8%8A%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="OCNYang">
+      <meta itemprop="description" content="Dancing my fingers across my keyboard.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OCNYang の 博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Compose 呼之欲出，Flutter 展露锋芒
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-15 11:03:15" itemprop="dateCreated datePublished" datetime="2021-05-15T11:03:15+00:00">2021-05-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-19 06:49:39" itemprop="dateModified" datetime="2022-01-19T06:49:39+00:00">2022-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flutter/" itemprop="url" rel="index"><span itemprop="name">Flutter</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://inews.gtimg.com/newsapp_bt/0/12961135686/641" alt="扶我起来，我还能学"></p>
+<p>新技术层出不穷，作为开发者，一入此门中，从此不是在学习中，就是去学习的路上。<br>而最近一年呼声最高的莫如 Flutter 和 Jetpack-Compose 了，今天就聊一聊它们，没有特定的思路，想到哪就聊哪吧。另外，整篇文章个人观点性比较强，又限于自己技术格局，可能会有很多不当甚至错误的地方，不喜勿喷，有错请纠。</p>
+<span id="more"></span>
+
+<h2 id="要不要学新技术，有时候真的不是选择题！"><a href="#要不要学新技术，有时候真的不是选择题！" class="headerlink" title="要不要学新技术，有时候真的不是选择题！"></a>要不要学新技术，有时候真的不是选择题！</h2><p>每当有新鲜技术出炉，会有很多人感到迷茫，所以你经常会在技术社区看到：Kotlin 要不要学？Flutter 怎么样值不值学？有没有必要上 MVVM？Jetpack 坑多不多？</p>
+<p>对于新技术 <strong>学</strong> 与 <strong>不学</strong> 看上去似乎是个选择题，总有一天你回头时就会发现，有时候它们真的不是选择题。只要你还在开发的这条道路上，它总在某个路口等着你。学，是个必然的选择，而你能选择的只是学的时间节点而已。</p>
+<p>拿 Kotlin 来说，前两年可能还有很多摇摆的声音。而现在来看，官方推出很多最新框架，基本上已经是全用 Kotlin 来写的了，对于 LiveData、ViewModel 来说，可能你还能反抗一下继续使用 Java 来写，其实你也能发现后面的很多新特性新写法更多的是和 Kotlin 的特性（比如协程）结合在一起的。而对于稳定版呼之欲出的 Compose UI 套件来说，Kotlin 已经成了你的唯一选项。所以，当初 Google 将 Kotlin 推到 Android 开发的第一阵营时，从不是多给了你一个新选项，给你的只是学习它的时间。</p>
+<p>而本文主要是为了聊 Compose 和 Flutter，后面的部分主要在它们之间从各个方面来做分析对比。</p>
+<h2 id="Compose-和-Flutter-是不是选择题？"><a href="#Compose-和-Flutter-是不是选择题？" class="headerlink" title="Compose 和 Flutter 是不是选择题？"></a>Compose 和 Flutter 是不是选择题？</h2><p>对于 Flutter 来说，虽不好说它究竟能走多远，但就目前形势来看，它已经成功了。对于各种跨平台技术来看，Flutter 做为一个后来者，现在俨然有成为跨平台中最好的选项的趋势。而在国内的发展趋势也是如火如荼，各家大厂都在研究并应用在自家应用当中，对于初创公司很多甚至用它作为主开发，毕竟跨平台的优点不言自明。</p>
+<p>而对于 Compose 来说，连稳定版尚未出炉，却是众人翘首以待。</p>
+<p>那它们是不是选择题？（这里的选择不是指，它们之间哪个好，要学哪一个，而是都单独的来说，是不是要学）现在这个答案虽没人敢给你下一个定论，但能明确告诉你的，它们已经后面的趋势所向，而也必然是后面热门的点，至于能不能成为主流，且不好说。</p>
+<p>个人观点：其实能不能成为主流不是重点，作为一个热门的趋势就已经值得你去学了；对于 Compose 可以姑且等等（也只是等等），毕竟还不能用在生成环境，且有待实际验证。而 Flutter 来说，哪怕此刻开始学，已经略迟于人，还在犹犹豫豫的可以投入学习了，哪怕单纯从技术理论上来说，就值得你尝试一下。</p>
+<h2 id="编程思想的变化"><a href="#编程思想的变化" class="headerlink" title="编程思想的变化"></a>编程思想的变化</h2><p>从 Win32 到 Web 再到 Android 和 iOS，框架通常使用一种命令式的编程风格来完成 UI 编程，这可能是多数人最熟悉的风格。随着 UI 框架的发展，声明式 UI 编程已经成为潮流。而 Flutter 和 Compose 都作为新推出的 UI ，都自然而然的采用的是声明式编程这种形式。</p>
+<p>推出 Flutter 的意义是一种跨平台方案，而在 Android 当前 XML-UI 编程体系十分完善的情况下，而 Compose 被推出的意义又在哪呢？先给出个人不负责任的结论：就是为了在 Android 上推行声明式 UI。若仅仅为此，大费周章、费时费力的如此做何必呢？如果你试着从谷歌的角度去思考和解读，就很容易明白了。<br>Android 开发的趋势终将是：整个开发体系趋于统一，而以响应式编程+声明式UI为主线。假设上面猜想是正确的，那整个技术框架就很明朗了：Kotlin + LiveData + Compose + （其他 JetPack 功能性组件如 Room 等）。<br>一直以来 Android 的开发是很混乱的，各种 MVC、MVP、MVVM，且具体到某种架构上也是不统一的，比如你的 MVP 和我的 MVP 可能完全不同，因为大家对具体框架上的理解也是不同的。而到具体到代码上，亦是如此，你用的 <code>findViewById()</code>、他用的 <code>Butterknife</code>，她用的 <code>Kotlin 拓展</code>，又来个人用的 <code>android:onClick=&quot;onClickXXX&quot;</code>，而官方好心救火推出 <code>ViewBinding</code> 确更像好心办坏事火上浇油。而无论哪种方式，都多有不便，赋值时总要通过 id 和 xml 布局文件去对应，而定位错时更是麻烦，要先确定是代码的问题还是布局的问题，而代码中有可能多个地方对同一个 View 做了改变，甚至 View 可能被传到其他地方被做了改变。<br>JetPack 框架一方面是为开发中的一些点提供更方便更强大也更简单的解决方法；另一方面就是为了统一整个开发体系。而 Compose 是这里面最重要也是最难的一环，说难有两个方面，一个是对于谷歌来说，为此做的工作很繁重也难，一方面要寻找好的解决方案，其实完全也可以把 DataBinding 看成响应式的一种形式，但 DataBinding 没有脱离 xml 这种布局方式，为此有很多天然局限性，而为了解决这些局限性就要做出很多妥协性的方式，从而又相应的增加了使用上的难度，更不要说 DataBinding 本身也会造成一些性能上的损耗更是得不偿失。另一方面对谷歌来说推行一个全新的 UI 库也是很难的，毕竟对于开发者来说长期以来已经熟悉固有的形式，很难去接受一个不熟悉的东西，在这方面也能看出谷歌做了很大努力，在稳定版未推出之前，已经有很多布道者。现在还没有全面接触和深入研究过 Compose 的实现原理，但无论怎样就 声明式 UI 而言，在 Flutter 面前它还只是个小学生。</p>
+<p>那到底什么是 声明式 UI，它究竟有何魅力，这个大概聊一下。<br>先从说一下熟悉的命令式，它是指以一条条命令的形式告诉计算机每一步要做什么，已达到想要的结果。反应到 UI 上就是，在不同的时刻通过手动的方式去调用或设置每个控件的属性做出改变来表现当前想要的状态。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> textView = findViewById&lt;TextView&gt;(R.id.tvHelloWorld)</span><br><span class="line"></span><br><span class="line">textView.setTextColor(<span class="number">0x123456</span>)</span><br><span class="line">textView.setText(statusStr)</span><br><span class="line">textView.setOnClickListener &#123; </span><br><span class="line">    textView.setTextColor(<span class="number">0x654321</span>)</span><br><span class="line">    textView.setText(<span class="string">&quot;clicked status&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类似上面这样，根据场景的不同以命令的形式，给控件设置不同的属性来做出改变。对于我们长时间这样写不会感觉有什么问题，但其实会存在很多问题，繁琐且致命：</p>
+<ul>
+<li>学习成本高，要记住两套知识：xml 定义属性时一套，代码动态设置属性一套，因为多数情况下名字相同不会有感觉，但有时候如果不百度你很难想起来怎么动态设置一些属性（比如 margin，比如给 svg 图标换个颜色）；</li>
+<li>繁琐重复且低效：xml 中控件需要在代码中 findViewById 一一对应到变量，且使用时，还要费力去找具体的控件变量名，同时控件变量可以在多个角落被改变；</li>
+<li>有致命隐患：对于控件变量来说，findViewById 的 id 可能布局中不存在，或者绑定到其他布局中的控件 id，这种错误会停留到运行到这个页面时才能暴露；同时控件变量可以在任何地方任何时候在不知情的情况下被置空而在运行时有空指针的危险。为此，有很多对运行时安全要求较高的公司，要求对控件做调用时，每次都要做判空；</li>
+<li>造成代码逻辑混乱：这么多架构就是为了解决这个问题</li>
+</ul>
+<p>那 声明式 又是什么意思呢？它的思想是只描述或告诉想要的结果，然后机器自己摸索过程。反应到 UI 上就是你只需要把想要的界面给 声明 出来，而不需要手动更新。那不手动更新，那界面怎么更新呢？使用时，我们一般是根据数据来显示界面，而数据就相当于我们想要的界面声明，而机器只需要根据数据渲染出我们想要的效果就行了。而更新时，只需要改变数据就行了，改变数据就相当于改变了界面声明，而界面此时会随着数据的改变自动更新。</p>
+<p><img src="http://img.shedoor.net/ui-equals-function-of-state.png" alt="声明式 UI 图解"><br>这张图很好的描述了声明式 UI 的核心思想，简单来说就是通过 state 作为入参根据已经写好的构建 func 就能得到我们想要的 UI 效果。<br>我们用 Flutter 代码实现一个很上面一样的界面例子：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">StatusBean statusBean = ...;</span><br><span class="line"></span><br><span class="line"><span class="meta">@override</span></span><br><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line"><span class="keyword">return</span> TextButton(</span><br><span class="line">    child: Text(</span><br><span class="line">      <span class="string">&quot;<span class="subst">$statusBean</span>&quot;</span>,</span><br><span class="line">      style:</span><br><span class="line">          TextStyle(color: statusBean.isClick ? Colors.red : Colors.white),</span><br><span class="line">    ),</span><br><span class="line">    onPressed: () &#123;</span><br><span class="line">      setState(() &#123;</span><br><span class="line">        statusBean.statusStr = <span class="string">&quot;clicked status&quot;</span>;</span><br><span class="line">        statusBean.isClick = <span class="keyword">true</span>;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析上面的代码，可以看出，界面的展示是根据数据 statusBean 的来展示的，statusBean 就相当于想要的界面声明，而点击回调里的 <code>setState(() &#123;&#125;</code> 就是改变数据后告诉程序重新绘制的，而界面的会根据数据的改变自动更新。<br>而从上面的代码也能看出，原来 xml 布局存在的那些问题都不存在了。而声明式在代码上更多的工作是考虑控件的拆解和拼装，还有就是状态的管理。所以从 Flutter 开源框架上就知道，多数都是在研究状态的管理的。</p>
+<h2 id="殊途同归"><a href="#殊途同归" class="headerlink" title="殊途同归"></a>殊途同归</h2><p>虽然 Flutter 和 Compose 的出发点完全不同，目前的目标也不相同，但它们的趋势有可能归到一个点。</p>
+<p>先来说说它们之间有多相似，先看看刚刚说过的都采用 声明式 UI：</p>
+<p><img src="http://img.shedoor.net/flutter_compose.png" alt="flutter vs compose"><br>能看出上面的代码有多相似吗？很多控件无论从命名还是从属性都完全一样。基本上你学会其中一个，另外一个也会一多半了。</p>
+<p>而开发语言上虽然完全不同，但 Kotlin 和 Dart 都在谷歌的掌控下，Flutter 更是左右了 Dart 的更新方向，两种在 <code>框架</code> 和 <code>语言</code> 之间都深入融入。而两种语言之间在使用形式上也多有相似之处，Kotlin 推出的协程和 Dart 的 async-await，Kotlin 推出的 Flow 和 Dart 的事件流，在使用形式你会发现异曲同工。而今年 Dart 的更新中采用了和 Kotlin 完全一样的形式来支持了 null 安全，在使用上也是完全一样。<br>提到这些再聊点更题外的话，很多人一直诟病 Flutter 选择 Dart 作为开发语言，而真正了解后，你会发现这个语言不容小觑，这语言潜力上更是巨大。从上面和 Kotlin 的对比上说到的异步和事件流，这些是 Dart 语言级别提供的支持，而 Dart 虽然是单线程语言，但提供了 isolate 天然性支持并发编程。最近看到了一个关于语言测评的系列文章，感觉比平时的编程语言排行榜有价值，有兴趣的也可看一下<a target="_blank" rel="noopener" href="https://36kr.com/p/1019306003661576">《现代编程语言终极测评》</a>（这里的链接是翻译后的链接，英文原文地址没去找）</p>
+<p>而对于未来的目标，它们也肯定是一致的，Compose 的也在向跨平台方向发展，<a target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/lp/compose/">Compose for Desktop</a> 桌面应用的 UI 开发的支持已经被推出，目前处于 Alpha 阶段。<br>再从技术层面去分析这个问题，Compose 不能单单看成一个 Jetpack 的一个 UI 组件库，它设计的理念和架构本身就带有跨平台支持的能力的，并且从介绍看它也是和 Flutter 一样采用的 Skia 渲染，而 Skia 正是 Flutter 能够跨平台的基石。而再从开发语言的技术层面去分析，Dart 在布局能力上自不用说，而 Kotlin DSL 是完全支持以编程方式构建图形的，通过在代码中以声明方式构建图形，这些已经在 JetPack 的 Navigation 上也得到了使用。而目前来说 <code>Compose for Desktop</code> 是已经推出的，而下一个我认为极有可能是 <code>for Web</code>，理由当然也是从 Kotlin 的语言能力分析。去研究过 Dart 的人知道，当初 Dart 的设计目的就是为了用来取代 JavaScript 的，而 Flutter for Web 是将 Dart 直接编译成了 JavaScript，界面上部分转换成标准的 HTML 标签，部分转换成通过 Canvas 绘制的自定义标签，最终构成一个 dom 树。而<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/js-overview.html"> Kotlin 也同样是有转换成 JavaScript </a>的能力的，这个也是前期 Kotlin 推广时一个喙头的。</p>
+<blockquote>
+<p><strong>ps</strong>: 这篇文章在写的当时 Compose for web 还没有推出，结果一周后官方就推出了 <a target="_blank" rel="noopener" href="https://compose-web.ui.pages.jetbrains.team/">预览版</a>，上面的文词还是当时写的时候的场景。</p>
+</blockquote>
+<h2 id="最后的选择"><a href="#最后的选择" class="headerlink" title="最后的选择"></a>最后的选择</h2><!--对于开发语言，总在层出不穷。没有最强大的语言，选用语言时只有合适不合适。虽然有时候一种语言长久不衰，并不一定是它本身是有多优秀，这些是多种因素造成的。当在它解决不了的问题场景中，它自然而然就会被代替掉。
+而对于开发框架来说，更是不断有优秀而更优秀的框架被推出，因为同一个问题，总有不同的答案，那就有更好的解法被推出。
+甚至对于系统平台而言，亦是如此。无论 iOS 还是 Android，无论 Window 还是 macOS，当它不在满足或适用我们的发展需求时，总有一天会被更好的系统而代替。
+
+而对于我们开发者来说，这些只是我们开发时的工具，当有新的更趁手效率更高的工具时，我们自然会去尝试使用。因此，我们不能把困于或执拗于某种语言或某种框架，一方面我们根据需要选择更适合的，另一方面按照效率选择更优秀的。而我们要做的是做好基本功力，同时多接触和了解不同的编程思想，去思考大环境下技术趋向的原因。-->
+
+<p>本文没有什么条理，总算也是围绕 Flutter 和 Compose 这两个当下比较热度且相似的 UI 库来说的吧。那就最后做个总结吧，无论是 Flutter 还是 Compose ，更或是其他优秀的新技术，它们都相当于我们开发中使用的武器，你只要选择适合自己的用着随手的就行。但新技术之所以能流行被大家接受，总有它的强大之处，我们自己也不能一直固守偏执于特定的框架和语言，当你还在使用小米加步枪时，别人早已经换成加特林了，想象一下。</p>
+<p>多去尝试新的东西，不要去纠结这个新事物后期会怎么样，哪怕你后面用不到，但至少你能从新事物中学习到一些解决问题的新思路，让自己了解更多编程的思维。所以，有时候甚至可以跳出工作需要，去学一些和自己目前技术栈差别比较大的技术或语言，以冲击自己的思维禁锢。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>OCNYang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://ocnyang.com/2021/05/15/Compose%20%E5%91%BC%E4%B9%8B%E6%AC%B2%E5%87%BA%EF%BC%8CFlutter%20%E5%B1%95%E9%9C%B2%E9%94%8B%E8%8A%92/" title="Compose 呼之欲出，Flutter 展露锋芒">http://ocnyang.com/2021/05/15/Compose 呼之欲出，Flutter 展露锋芒/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Flutter/" rel="tag"><i class="fa fa-tag"></i> Flutter</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/09/ConstraintLayout%20%E5%85%A8%E9%9D%A2%E6%80%BB%E7%BB%93/" rel="prev" title="ConstraintLayout 全面总结">
+      <i class="fa fa-chevron-left"></i> ConstraintLayout 全面总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/18/Android%20%E6%B3%A8%E8%A7%A3%E7%9F%A5%E5%A4%9A%E5%B0%91/" rel="next" title="Android 注解知多少">
+      Android 注解知多少 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%81%E4%B8%8D%E8%A6%81%E5%AD%A6%E6%96%B0%E6%8A%80%E6%9C%AF%EF%BC%8C%E6%9C%89%E6%97%B6%E5%80%99%E7%9C%9F%E7%9A%84%E4%B8%8D%E6%98%AF%E9%80%89%E6%8B%A9%E9%A2%98%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">要不要学新技术，有时候真的不是选择题！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compose-%E5%92%8C-Flutter-%E6%98%AF%E4%B8%8D%E6%98%AF%E9%80%89%E6%8B%A9%E9%A2%98%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Compose 和 Flutter 是不是选择题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">编程思想的变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%8A%E9%80%94%E5%90%8C%E5%BD%92"><span class="nav-number">4.</span> <span class="nav-text">殊途同归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">5.</span> <span class="nav-text">最后的选择</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">OCNYang</p>
+  <div class="site-description" itemprop="description">Dancing my fingers across my keyboard.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ocnyang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ocnyang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ocnyang@gmail.com" title="E-Mail → mailto:ocnyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <div></div>
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=28757267&auto=1&height=32"></iframe>
+      </iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OCNYang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">425k</span>
+</div>
+
+<!---->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/22/2014 20:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '',
+      clientSecret: '',
+      repo        : '',
+      owner       : '',
+      admin       : [''],
+      id          : 'f660c3ab7ad37f78f281d64d33690686',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  
+</body>
+</html>

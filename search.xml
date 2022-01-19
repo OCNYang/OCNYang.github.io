@@ -1007,6 +1007,63 @@ android:adjustViewBounds=”true”
       </tags>
   </entry>
   <entry>
+    <title>Compose 呼之欲出，Flutter 展露锋芒</title>
+    <url>/2021/05/15/Compose%20%E5%91%BC%E4%B9%8B%E6%AC%B2%E5%87%BA%EF%BC%8CFlutter%20%E5%B1%95%E9%9C%B2%E9%94%8B%E8%8A%92/</url>
+    <content><![CDATA[<p><img src="https://inews.gtimg.com/newsapp_bt/0/12961135686/641" alt="扶我起来，我还能学"></p>
+<p>新技术层出不穷，作为开发者，一入此门中，从此不是在学习中，就是去学习的路上。<br>而最近一年呼声最高的莫如 Flutter 和 Jetpack-Compose 了，今天就聊一聊它们，没有特定的思路，想到哪就聊哪吧。另外，整篇文章个人观点性比较强，又限于自己技术格局，可能会有很多不当甚至错误的地方，不喜勿喷，有错请纠。</p>
+<span id="more"></span>
+
+<h2 id="要不要学新技术，有时候真的不是选择题！"><a href="#要不要学新技术，有时候真的不是选择题！" class="headerlink" title="要不要学新技术，有时候真的不是选择题！"></a>要不要学新技术，有时候真的不是选择题！</h2><p>每当有新鲜技术出炉，会有很多人感到迷茫，所以你经常会在技术社区看到：Kotlin 要不要学？Flutter 怎么样值不值学？有没有必要上 MVVM？Jetpack 坑多不多？</p>
+<p>对于新技术 <strong>学</strong> 与 <strong>不学</strong> 看上去似乎是个选择题，总有一天你回头时就会发现，有时候它们真的不是选择题。只要你还在开发的这条道路上，它总在某个路口等着你。学，是个必然的选择，而你能选择的只是学的时间节点而已。</p>
+<p>拿 Kotlin 来说，前两年可能还有很多摇摆的声音。而现在来看，官方推出很多最新框架，基本上已经是全用 Kotlin 来写的了，对于 LiveData、ViewModel 来说，可能你还能反抗一下继续使用 Java 来写，其实你也能发现后面的很多新特性新写法更多的是和 Kotlin 的特性（比如协程）结合在一起的。而对于稳定版呼之欲出的 Compose UI 套件来说，Kotlin 已经成了你的唯一选项。所以，当初 Google 将 Kotlin 推到 Android 开发的第一阵营时，从不是多给了你一个新选项，给你的只是学习它的时间。</p>
+<p>而本文主要是为了聊 Compose 和 Flutter，后面的部分主要在它们之间从各个方面来做分析对比。</p>
+<h2 id="Compose-和-Flutter-是不是选择题？"><a href="#Compose-和-Flutter-是不是选择题？" class="headerlink" title="Compose 和 Flutter 是不是选择题？"></a>Compose 和 Flutter 是不是选择题？</h2><p>对于 Flutter 来说，虽不好说它究竟能走多远，但就目前形势来看，它已经成功了。对于各种跨平台技术来看，Flutter 做为一个后来者，现在俨然有成为跨平台中最好的选项的趋势。而在国内的发展趋势也是如火如荼，各家大厂都在研究并应用在自家应用当中，对于初创公司很多甚至用它作为主开发，毕竟跨平台的优点不言自明。</p>
+<p>而对于 Compose 来说，连稳定版尚未出炉，却是众人翘首以待。</p>
+<p>那它们是不是选择题？（这里的选择不是指，它们之间哪个好，要学哪一个，而是都单独的来说，是不是要学）现在这个答案虽没人敢给你下一个定论，但能明确告诉你的，它们已经后面的趋势所向，而也必然是后面热门的点，至于能不能成为主流，且不好说。</p>
+<p>个人观点：其实能不能成为主流不是重点，作为一个热门的趋势就已经值得你去学了；对于 Compose 可以姑且等等（也只是等等），毕竟还不能用在生成环境，且有待实际验证。而 Flutter 来说，哪怕此刻开始学，已经略迟于人，还在犹犹豫豫的可以投入学习了，哪怕单纯从技术理论上来说，就值得你尝试一下。</p>
+<h2 id="编程思想的变化"><a href="#编程思想的变化" class="headerlink" title="编程思想的变化"></a>编程思想的变化</h2><p>从 Win32 到 Web 再到 Android 和 iOS，框架通常使用一种命令式的编程风格来完成 UI 编程，这可能是多数人最熟悉的风格。随着 UI 框架的发展，声明式 UI 编程已经成为潮流。而 Flutter 和 Compose 都作为新推出的 UI ，都自然而然的采用的是声明式编程这种形式。</p>
+<p>推出 Flutter 的意义是一种跨平台方案，而在 Android 当前 XML-UI 编程体系十分完善的情况下，而 Compose 被推出的意义又在哪呢？先给出个人不负责任的结论：就是为了在 Android 上推行声明式 UI。若仅仅为此，大费周章、费时费力的如此做何必呢？如果你试着从谷歌的角度去思考和解读，就很容易明白了。<br>Android 开发的趋势终将是：整个开发体系趋于统一，而以响应式编程+声明式UI为主线。假设上面猜想是正确的，那整个技术框架就很明朗了：Kotlin + LiveData + Compose + （其他 JetPack 功能性组件如 Room 等）。<br>一直以来 Android 的开发是很混乱的，各种 MVC、MVP、MVVM，且具体到某种架构上也是不统一的，比如你的 MVP 和我的 MVP 可能完全不同，因为大家对具体框架上的理解也是不同的。而到具体到代码上，亦是如此，你用的 <code>findViewById()</code>、他用的 <code>Butterknife</code>，她用的 <code>Kotlin 拓展</code>，又来个人用的 <code>android:onClick=&quot;onClickXXX&quot;</code>，而官方好心救火推出 <code>ViewBinding</code> 确更像好心办坏事火上浇油。而无论哪种方式，都多有不便，赋值时总要通过 id 和 xml 布局文件去对应，而定位错时更是麻烦，要先确定是代码的问题还是布局的问题，而代码中有可能多个地方对同一个 View 做了改变，甚至 View 可能被传到其他地方被做了改变。<br>JetPack 框架一方面是为开发中的一些点提供更方便更强大也更简单的解决方法；另一方面就是为了统一整个开发体系。而 Compose 是这里面最重要也是最难的一环，说难有两个方面，一个是对于谷歌来说，为此做的工作很繁重也难，一方面要寻找好的解决方案，其实完全也可以把 DataBinding 看成响应式的一种形式，但 DataBinding 没有脱离 xml 这种布局方式，为此有很多天然局限性，而为了解决这些局限性就要做出很多妥协性的方式，从而又相应的增加了使用上的难度，更不要说 DataBinding 本身也会造成一些性能上的损耗更是得不偿失。另一方面对谷歌来说推行一个全新的 UI 库也是很难的，毕竟对于开发者来说长期以来已经熟悉固有的形式，很难去接受一个不熟悉的东西，在这方面也能看出谷歌做了很大努力，在稳定版未推出之前，已经有很多布道者。现在还没有全面接触和深入研究过 Compose 的实现原理，但无论怎样就 声明式 UI 而言，在 Flutter 面前它还只是个小学生。</p>
+<p>那到底什么是 声明式 UI，它究竟有何魅力，这个大概聊一下。<br>先从说一下熟悉的命令式，它是指以一条条命令的形式告诉计算机每一步要做什么，已达到想要的结果。反应到 UI 上就是，在不同的时刻通过手动的方式去调用或设置每个控件的属性做出改变来表现当前想要的状态。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> textView = findViewById&lt;TextView&gt;(R.id.tvHelloWorld)</span><br><span class="line"></span><br><span class="line">textView.setTextColor(<span class="number">0x123456</span>)</span><br><span class="line">textView.setText(statusStr)</span><br><span class="line">textView.setOnClickListener &#123; </span><br><span class="line">    textView.setTextColor(<span class="number">0x654321</span>)</span><br><span class="line">    textView.setText(<span class="string">&quot;clicked status&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类似上面这样，根据场景的不同以命令的形式，给控件设置不同的属性来做出改变。对于我们长时间这样写不会感觉有什么问题，但其实会存在很多问题，繁琐且致命：</p>
+<ul>
+<li>学习成本高，要记住两套知识：xml 定义属性时一套，代码动态设置属性一套，因为多数情况下名字相同不会有感觉，但有时候如果不百度你很难想起来怎么动态设置一些属性（比如 margin，比如给 svg 图标换个颜色）；</li>
+<li>繁琐重复且低效：xml 中控件需要在代码中 findViewById 一一对应到变量，且使用时，还要费力去找具体的控件变量名，同时控件变量可以在多个角落被改变；</li>
+<li>有致命隐患：对于控件变量来说，findViewById 的 id 可能布局中不存在，或者绑定到其他布局中的控件 id，这种错误会停留到运行到这个页面时才能暴露；同时控件变量可以在任何地方任何时候在不知情的情况下被置空而在运行时有空指针的危险。为此，有很多对运行时安全要求较高的公司，要求对控件做调用时，每次都要做判空；</li>
+<li>造成代码逻辑混乱：这么多架构就是为了解决这个问题</li>
+</ul>
+<p>那 声明式 又是什么意思呢？它的思想是只描述或告诉想要的结果，然后机器自己摸索过程。反应到 UI 上就是你只需要把想要的界面给 声明 出来，而不需要手动更新。那不手动更新，那界面怎么更新呢？使用时，我们一般是根据数据来显示界面，而数据就相当于我们想要的界面声明，而机器只需要根据数据渲染出我们想要的效果就行了。而更新时，只需要改变数据就行了，改变数据就相当于改变了界面声明，而界面此时会随着数据的改变自动更新。</p>
+<p><img src="http://img.shedoor.net/ui-equals-function-of-state.png" alt="声明式 UI 图解"><br>这张图很好的描述了声明式 UI 的核心思想，简单来说就是通过 state 作为入参根据已经写好的构建 func 就能得到我们想要的 UI 效果。<br>我们用 Flutter 代码实现一个很上面一样的界面例子：</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">StatusBean statusBean = ...;</span><br><span class="line"></span><br><span class="line"><span class="meta">@override</span></span><br><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line"><span class="keyword">return</span> TextButton(</span><br><span class="line">    child: Text(</span><br><span class="line">      <span class="string">&quot;<span class="subst">$statusBean</span>&quot;</span>,</span><br><span class="line">      style:</span><br><span class="line">          TextStyle(color: statusBean.isClick ? Colors.red : Colors.white),</span><br><span class="line">    ),</span><br><span class="line">    onPressed: () &#123;</span><br><span class="line">      setState(() &#123;</span><br><span class="line">        statusBean.statusStr = <span class="string">&quot;clicked status&quot;</span>;</span><br><span class="line">        statusBean.isClick = <span class="keyword">true</span>;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析上面的代码，可以看出，界面的展示是根据数据 statusBean 的来展示的，statusBean 就相当于想要的界面声明，而点击回调里的 <code>setState(() &#123;&#125;</code> 就是改变数据后告诉程序重新绘制的，而界面的会根据数据的改变自动更新。<br>而从上面的代码也能看出，原来 xml 布局存在的那些问题都不存在了。而声明式在代码上更多的工作是考虑控件的拆解和拼装，还有就是状态的管理。所以从 Flutter 开源框架上就知道，多数都是在研究状态的管理的。</p>
+<h2 id="殊途同归"><a href="#殊途同归" class="headerlink" title="殊途同归"></a>殊途同归</h2><p>虽然 Flutter 和 Compose 的出发点完全不同，目前的目标也不相同，但它们的趋势有可能归到一个点。</p>
+<p>先来说说它们之间有多相似，先看看刚刚说过的都采用 声明式 UI：</p>
+<p><img src="http://img.shedoor.net/flutter_compose.png" alt="flutter vs compose"><br>能看出上面的代码有多相似吗？很多控件无论从命名还是从属性都完全一样。基本上你学会其中一个，另外一个也会一多半了。</p>
+<p>而开发语言上虽然完全不同，但 Kotlin 和 Dart 都在谷歌的掌控下，Flutter 更是左右了 Dart 的更新方向，两种在 <code>框架</code> 和 <code>语言</code> 之间都深入融入。而两种语言之间在使用形式上也多有相似之处，Kotlin 推出的协程和 Dart 的 async-await，Kotlin 推出的 Flow 和 Dart 的事件流，在使用形式你会发现异曲同工。而今年 Dart 的更新中采用了和 Kotlin 完全一样的形式来支持了 null 安全，在使用上也是完全一样。<br>提到这些再聊点更题外的话，很多人一直诟病 Flutter 选择 Dart 作为开发语言，而真正了解后，你会发现这个语言不容小觑，这语言潜力上更是巨大。从上面和 Kotlin 的对比上说到的异步和事件流，这些是 Dart 语言级别提供的支持，而 Dart 虽然是单线程语言，但提供了 isolate 天然性支持并发编程。最近看到了一个关于语言测评的系列文章，感觉比平时的编程语言排行榜有价值，有兴趣的也可看一下<a href="https://36kr.com/p/1019306003661576">《现代编程语言终极测评》</a>（这里的链接是翻译后的链接，英文原文地址没去找）</p>
+<p>而对于未来的目标，它们也肯定是一致的，Compose 的也在向跨平台方向发展，<a href="https://www.jetbrains.com/zh-cn/lp/compose/">Compose for Desktop</a> 桌面应用的 UI 开发的支持已经被推出，目前处于 Alpha 阶段。<br>再从技术层面去分析这个问题，Compose 不能单单看成一个 Jetpack 的一个 UI 组件库，它设计的理念和架构本身就带有跨平台支持的能力的，并且从介绍看它也是和 Flutter 一样采用的 Skia 渲染，而 Skia 正是 Flutter 能够跨平台的基石。而再从开发语言的技术层面去分析，Dart 在布局能力上自不用说，而 Kotlin DSL 是完全支持以编程方式构建图形的，通过在代码中以声明方式构建图形，这些已经在 JetPack 的 Navigation 上也得到了使用。而目前来说 <code>Compose for Desktop</code> 是已经推出的，而下一个我认为极有可能是 <code>for Web</code>，理由当然也是从 Kotlin 的语言能力分析。去研究过 Dart 的人知道，当初 Dart 的设计目的就是为了用来取代 JavaScript 的，而 Flutter for Web 是将 Dart 直接编译成了 JavaScript，界面上部分转换成标准的 HTML 标签，部分转换成通过 Canvas 绘制的自定义标签，最终构成一个 dom 树。而<a href="https://kotlinlang.org/docs/js-overview.html"> Kotlin 也同样是有转换成 JavaScript </a>的能力的，这个也是前期 Kotlin 推广时一个喙头的。</p>
+<blockquote>
+<p><strong>ps</strong>: 这篇文章在写的当时 Compose for web 还没有推出，结果一周后官方就推出了 <a href="https://compose-web.ui.pages.jetbrains.team/">预览版</a>，上面的文词还是当时写的时候的场景。</p>
+</blockquote>
+<h2 id="最后的选择"><a href="#最后的选择" class="headerlink" title="最后的选择"></a>最后的选择</h2><!--对于开发语言，总在层出不穷。没有最强大的语言，选用语言时只有合适不合适。虽然有时候一种语言长久不衰，并不一定是它本身是有多优秀，这些是多种因素造成的。当在它解决不了的问题场景中，它自然而然就会被代替掉。
+而对于开发框架来说，更是不断有优秀而更优秀的框架被推出，因为同一个问题，总有不同的答案，那就有更好的解法被推出。
+甚至对于系统平台而言，亦是如此。无论 iOS 还是 Android，无论 Window 还是 macOS，当它不在满足或适用我们的发展需求时，总有一天会被更好的系统而代替。
+
+而对于我们开发者来说，这些只是我们开发时的工具，当有新的更趁手效率更高的工具时，我们自然会去尝试使用。因此，我们不能把困于或执拗于某种语言或某种框架，一方面我们根据需要选择更适合的，另一方面按照效率选择更优秀的。而我们要做的是做好基本功力，同时多接触和了解不同的编程思想，去思考大环境下技术趋向的原因。-->
+
+<p>本文没有什么条理，总算也是围绕 Flutter 和 Compose 这两个当下比较热度且相似的 UI 库来说的吧。那就最后做个总结吧，无论是 Flutter 还是 Compose ，更或是其他优秀的新技术，它们都相当于我们开发中使用的武器，你只要选择适合自己的用着随手的就行。但新技术之所以能流行被大家接受，总有它的强大之处，我们自己也不能一直固守偏执于特定的框架和语言，当你还在使用小米加步枪时，别人早已经换成加特林了，想象一下。</p>
+<p>多去尝试新的东西，不要去纠结这个新事物后期会怎么样，哪怕你后面用不到，但至少你能从新事物中学习到一些解决问题的新思路，让自己了解更多编程的思维。所以，有时候甚至可以跳出工作需要，去学一些和自己目前技术栈差别比较大的技术或语言，以冲击自己的思维禁锢。</p>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自定义 View：用贝塞尔曲线绘制酷炫轮廓背景</title>
     <url>/2017/09/01/ContourView/</url>
     <content><![CDATA[<p><img src="http://img.shedoor.net/github/contourview/reference.png" alt="ContourView">  </p>
@@ -1673,6 +1730,37 @@ view.setLayoutParams(lp);
         <tag>Android控件</tag>
         <tag>Android</tag>
         <tag>FlexboxLayout</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flutter 教程之 ListTile 以及 CheckboxListTile 等类似控件详解</title>
+    <url>/2020/05/15/Flutter%20%E6%95%99%E7%A8%8B%E4%B9%8B%20ListTile%20%E4%BB%A5%E5%8F%8A%20CheckboxListTile%20%E7%AD%89%E7%B1%BB%E4%BC%BC%E6%8E%A7%E4%BB%B6%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>本文仓库在 <a href="https://github.com/OCNYang/flutter_widgets/tree/ocnyang_widgets">GitHub/flutter_widgets</a> ，更多 Flutter 教程欢迎查看。</p>
+<p><strong>描述：</strong>固定高度的单个行，通常包含一些文本以及头部图像和尾部图标。<br><strong>用处：</strong>从它的名字就可以看出来，一般是用来充当 ListView 的 Item。或用在 Column、Drawer 中。   </p>
+<p><strong>示意图：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e16937fda82b4dce9f58cc9d7cea4208~tplv-k3u1fbpfcp-zoom-1.image" alt="list_tile_atts"></p>
+<span id="more"></span>
+
+<p><strong>属性及描述：</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const ListTile(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    Widget leading, //头部图片（显示在标题前）</span><br><span class="line">    Widget title, //标题</span><br><span class="line">    Widget subtitle, //副标题</span><br><span class="line">    Widget trailing, //尾部图标</span><br><span class="line">    bool isThreeLine = false, //是否 3 行显示</span><br><span class="line">    bool dense, //是否显示为紧凑模式（开启时整体条目会显示的更小）</span><br><span class="line">    VisualDensity visualDensity, //组件的视觉密度，通过调整它可以使得标准 Material 组件之间更加紧凑或疏远。例如：VisualDensity(horizontal: -4, vertical: -4)</span><br><span class="line">    EdgeInsetsGeometry contentPadding, //内边距</span><br><span class="line">    bool enabled = true, //是否可用（禁用点击事件）</span><br><span class="line">    GestureTapCallback onTap, //点击事件</span><br><span class="line">    GestureLongPressCallback onLongPress, //长按事件</span><br><span class="line">    bool selected = false, //选中状态（被选中后字体颜色与主题色一致，即 title、subtitle、secondary 是否采用 activeColor 的颜色）</span><br><span class="line">    Color focusColor,</span><br><span class="line">    Color hoverColor,</span><br><span class="line">    FocusNode focusNode, //焦点管理</span><br><span class="line">    bool autofocus = false, //自动获取焦点</span><br><span class="line">  &#125;)</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">&gt; **提示：**</span><br><span class="line">&gt; * leading 通常是个 Icon 或 CircleAvatar；title/subtitle 通常是 Text；trailing 通常是 Icon；</span><br><span class="line">&gt; * 上面都是通常的用法，实际使用中 leading/title/subtitle/trailing 都可以是任何 widget，但建议采用通常的用法</span><br><span class="line">&gt; * title 只可单行显示，subtitle 根据 isThreeLine 决定；当不设置 subtitle 时（且 isThreeLine = false），整体条目会单行显示。</span><br><span class="line">&gt; * leading/trailing 小部件的高度会受到整体条目固定高度的限制，宽度不受限制。（整体条目的高度会根据 [是否有subtitle、isThreeLine、dense] 固定为 [48.0、56.0；64.0、72.0；76.0、88.0] 中的某固定值）</span><br><span class="line"></span><br><span class="line">各种实际的展示效果：  </span><br><span class="line">![list_tile](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25867b94b6664f32bebe5b4a4c0a7fbb~tplv-k3u1fbpfcp-zoom-1.image)</span><br><span class="line"></span><br><span class="line">更多使用方法可以查看[代码]()</span><br><span class="line"></span><br><span class="line">## 其他类似部件  </span><br><span class="line">除 ListTile 之外，还有几种和它比较类似，有着各自独特展示效果和用处的控件，比如：SwitchListTile、RadioListTile、CheckboxListTile、AboutListTile。  </span><br><span class="line">另外需要注意的是，这些类似控件和 ListTile 并非继承关系，你可以把它们看成构成关系。比如 SwitchListTile 是由一个 Switch 和 一个ListTile 构成的；其实 SwitchListTile 内部 `build` 方法返回的就是一个 ‘用 Switch 做为 trailing 的 ListTile’。  </span><br><span class="line"></span><br><span class="line">&gt; 为什么不是 SwitchListTile 等控件和 ListTile 不是继承关系？  </span><br><span class="line">&gt; 这里不直接解释具体原因，把 Flutter 中的一个关于 Widget 概念引用过来，我想大概就可以解释上面的问题了。  </span><br><span class="line">&gt; **在 Flutter 中，Widget 的功能是 “描述一个 UI 元素的配置数据”，它就是说，Widget 其实并不是表示最终绘制在设备屏幕上的显示元素，而它只是描述显示元素的一个配置数据。 实际上，Flutter 中真正代表屏幕上显示元素的类是 Element，也就是说 Widget 只是描述 Element 的配置数据！**  </span><br><span class="line">&gt; 所以 SwitchListTile 和 ListTile 只是两张不同的参数配置表，作为配置表完全没必要继承另外一张配置表：</span><br><span class="line">&gt; 1. 这样你以后完全可以拿着这张配置表，根据这些配置参数，构建成自己想要的展示效果（即重写 `build` 方法，返回一个自己实现的想要的布局）。</span><br><span class="line">&gt; 2. 另外当并非继承关系时，你可以添加一些特有的事件或方法，同时可以屏蔽原有配置表中不再使用的方法事件和配置。</span><br><span class="line"></span><br><span class="line">### SwitchListTile</span><br><span class="line"></span><br><span class="line">**描述：**带有 Switch 的 ListTile。</span><br><span class="line"></span><br><span class="line">**属性及描述：**  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>const SwitchListTile({<br>    Key key,<br>    @required this.value, //当前 switch 的状态 true or false<br>    @required this.onChanged, //switch 开关变化时回调<br>    this.activeColor, //设定该 Tile 的主色，默认 title、subtitle、icon 等都显示该颜色<br>    this.activeTrackColor, //打开时，switch 左边尾部的颜色<br>    this.inactiveThumbColor, //关闭时，圆的颜色<br>    this.inactiveTrackColor, //关闭时 switch 右边的颜色<br>    this.activeThumbImage, //打开时，也可以给圆设置一个 image<br>    this.inactiveThumbImage, //关闭时，可以给圆设置一个 image<br>    this.title,<br>    this.subtitle,<br>    this.isThreeLine = false,<br>    this.dense,<br>    this.contentPadding,<br>    this.secondary, //左侧顶部的 widget，一般是个 Icon，也可以定义成其他（类似 ListTile.leading）<br>    this.selected = false,<br>    this.autofocus = false,<br>  })</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">![switchlisttile](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86477c422f3c41e7a97a878278aae009~tplv-k3u1fbpfcp-zoom-1.image)  </span><br><span class="line"></span><br><span class="line">从上面属性中你可以看出，这些属性基本上就是把 ListTile 和 Switch 两个控件的属性合在了一起。这里不做太多介绍。</span><br><span class="line"></span><br><span class="line">### CheckboxListTile</span><br><span class="line"></span><br><span class="line">**描述：**带有一个 复选框 的 ListTile。  </span><br><span class="line">**属性及描述：**  </span><br></pre></td></tr></table></figure>
+<p>const CheckboxListTile({<br>    Key key,<br>    @required this.value, //当前选中的状态 true or false<br>    @required this.onChanged, //选中状态变化时回调<br>    this.activeColor, //设定该 Tile 的主色，默认 title、subtitle、icon 等都显示该颜色<br>    this.checkColor, //选中时的颜色<br>    this.title,<br>    this.subtitle,<br>    this.isThreeLine = false,<br>    this.dense,<br>    this.secondary, //类似 ListTile.leading 或 ListTile.trailing<br>    this.selected = false,<br>    this.controlAffinity = ListTileControlAffinity.platform, //文字、图标、复选框的排列顺序<br>    this.autofocus = false,<br>  })</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">![checkboxlisttile](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b71312e8ffa4ecaac8a5a3a14c59e04~tplv-k3u1fbpfcp-zoom-1.image)  </span><br><span class="line"></span><br><span class="line">这里的属性也都是 Checkbox 和 ListTile 合并的配置表，都能一看就懂。  </span><br><span class="line">&gt; **提示：**  </span><br><span class="line">&gt; 这里值得注意的是，对比 CheckBox 这里缺少一个属性 tristate，（这个属性决定了 CheckBox 有几种选中状态。当它的值为 true 时，CheckBox 会有 3 种状态 [true、null、false]）</span><br><span class="line">&gt; controlAffinity 属性的值决定了 Checkbox 在 ListTile 中的位置，`ListTileControlAffinity`是个枚举类，它有 3 种类型：</span><br><span class="line">&gt; * leading 把 Checkbox 放到 ListTile.leading 所在的位置，而secondary 部件放到条目的另一端</span><br><span class="line">&gt; * trailing 同理</span><br><span class="line">&gt; * platform 根据当前手机系统平台决定 Checkbox 的位置，而secondary 部件放到条目的另一端</span><br><span class="line"></span><br><span class="line">### RadioListTile</span><br><span class="line"></span><br><span class="line">**描述：**带有 单选框 的 ListTile。  </span><br><span class="line">**属性及描述：**  </span><br></pre></td></tr></table></figure>
+<p>const RadioListTile({<br>    Key key,<br>    @required this.value, //当前 item 所代表的值，<br>    @required this.groupValue, //radio 所在组的值，如果value==groupValue 则为  选中状态<br>    @required this.onChanged, //选中该 radio 时，回调该方法<br>    this.toggleable = false, //是否可以切换<br>    this.activeColor, //选中后，单选框的颜色<br>    this.title,<br>    this.subtitle,<br>    this.isThreeLine = false,<br>    this.dense,<br>    this.secondary, //类似 ListTile.leading 或 ListTile.trailing<br>    this.selected = false,<br>    this.controlAffinity = ListTileControlAffinity.platform, //文字、图标、单选框的排列顺序<br>    this.autofocus = false,<br>  })</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">![radiolisttile](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/814623623c4b4f0abbc38da1b139de8f~tplv-k3u1fbpfcp-zoom-1.image)  </span><br><span class="line"></span><br><span class="line">大多数属性应该都能理解，可以参看上面几个同名的属性介绍。  </span><br><span class="line">&gt; **注意点：**</span><br><span class="line">&gt; * 和 Radio 的属性一样，当 value 的值（可以是任何类型值）和 groupValue 的值相同时，Radio 就是选中状态。</span><br><span class="line">&gt; * 多个 RadioListTile 条目的 value 值的**类型相同**时，那么就可以理解为它们属于同一组的。</span><br><span class="line">&gt; * value 和 groupValue 是以 == 比较是否相同的，所以如果是把自定义类作为 value 类型，记得重写 == 。</span><br><span class="line"></span><br><span class="line">### AboutListTile</span><br><span class="line">这是几个控件中的一个略另类的一种。</span><br><span class="line"></span><br><span class="line">**描述：**以 ListTile 的布局显示 App 相关信息。自带点击事件，点击后弹出弹窗。通常在 Drawer 中使用。  </span><br><span class="line">**属性及描述：**  </span><br></pre></td></tr></table></figure>
+<p>const AboutListTile({<br>    Key key,<br>    Widget icon,  //等于 ListTile.leading<br>    Widget child, //等于 ListTile.title，如果不设置，将显示 applicationName<br>    String applicationName, //弹窗的标题<br>    String applicationVersion, //弹窗的版本号<br>    Widget applicationIcon, //弹窗的应用图标<br>    String applicationLegalese, //弹窗的法律信息<br>    List<Widget> aboutBoxChildren, //弹窗中的 children<br>    bool dense,<br>  })</p>
+<pre><code>
+AboutListTile 默认有一个点击事件，点击后会调用 showAboutDialog(...）方法，弹出一个展示 App 相关信息的弹窗。
+**弹窗效果及说明：**  
+![aboutlisttile](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90e2a4c42ecd4588b935d6c39e81b296~tplv-k3u1fbpfcp-zoom-1.image)    
+
+</code></pre>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
       </tags>
   </entry>
   <entry>
@@ -3314,6 +3402,109 @@ protected void onCreate(Bundle savedInstanceState) &#123;
       </tags>
   </entry>
   <entry>
+    <title>JetPack 查漏补缺</title>
+    <url>/2020/09/17/JetPack%20%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/</url>
+    <content><![CDATA[<p>本文只介绍 JetPack 学习中你可能需要注意或者你注意不到的知识点，需要你需要你有一定的 JetPack 基础。</p>
+<span id="more"></span>
+
+<h2 id="LifeCycle-相关"><a href="#LifeCycle-相关" class="headerlink" title="LifeCycle 相关"></a>LifeCycle 相关</h2><p>LifeCycle 组件主要用于自定义组件对页面的生命周期的感知，同时又与页面解耦。所有具有生命周期的组件都能够使用 LifeCycle，而具有生命周期的系统组件不仅仅包括 Activity、Fragment，还有 Service 和 Application，自然 LifeCycle 中也对他们俩提供了相关的支持。</p>
+<h3 id="LifecycleService"><a href="#LifecycleService" class="headerlink" title="LifecycleService"></a>LifecycleService</h3><p>为了对 Service 生命周期的监听，同时达到解耦 Service 与组件的目的，Jetpack 中提供了一个名为 LifecycleService 的类。它直接继承自 Service（使用起来与普通Service没有差别），并实现了 LifecycleOwner 接口。与 Activity、Fragment 类似，它也提供了一个名为 getLifecycle() 的方法供我们使用。</p>
+<p>具体使用：<br><strong>1.</strong> 自定义 LifecycleObserver 来监听 Service 生命周期不同状态的变化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class ServiceLifecycleObserver : LifecycleObserver &#123;</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)</span><br><span class="line">    fun onServiceCreate() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;Service is create.&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)</span><br><span class="line">    fun onServiceDestroy() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;Service is destroy.&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.</strong> 在 Service 中绑定</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class TestLifecycleService : LifecycleService() &#123;</span><br><span class="line"></span><br><span class="line">    private val serviceLifecycleObserver = ServiceLifecycleObserver()</span><br><span class="line"></span><br><span class="line">    init &#123;</span><br><span class="line">        lifecycle.addObserver(serviceLifecycleObserver)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ProcessLifecycleOwner"><a href="#ProcessLifecycleOwner" class="headerlink" title="ProcessLifecycleOwner"></a>ProcessLifecycleOwner</h3><p>LifeCycle 中提供的 ProcessLifecycleOwner 类，用来感知整个应用的生命周期。应用当前状态是处在前台还是后台，或者应用从后台回到前台时状态的切换，我们都能够轻易感知到。</p>
+<p>具体使用：<br><strong>1.</strong> 自定义 LifecycleObserver 来监听应用不同状态的变化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class ApplicationLifecycleObserver : LifecycleObserver &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 在应用程序的整个生命周期中只会被调用一次</span><br><span class="line">     */</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)</span><br><span class="line">    fun onCreate() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;ApplicationLifecycleObserver.onCreate()&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 当应用程序在前台出现时被调用</span><br><span class="line">     */</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_START)</span><br><span class="line">    fun onStart() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;ApplicationLifecycleObserver.onStart()&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 当应用程序在前台出现时被调用</span><br><span class="line">     */</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)</span><br><span class="line">    fun onResume() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;ApplicationLifecycleObserver.onResume()&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 当应用程序退出到后台时被调用</span><br><span class="line">     */</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)</span><br><span class="line">    fun onPause() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;ApplicationLifecycleObserver.onPause()&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 当应用程序退出到后台时被调用</span><br><span class="line">     */</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)</span><br><span class="line">    fun onStop() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;ApplicationLifecycleObserver.onStop()&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 永远不会调用，系统不会分发调用 ON_DESTROY 事件</span><br><span class="line">     */</span><br><span class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)</span><br><span class="line">    fun onDestroy() &#123;</span><br><span class="line">        Log.e(javaClass.name, &quot;ApplicationLifecycleObserver.onDestroy()&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.</strong> 自定义 Application 进行绑定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class MyApplication : Application() &#123;</span><br><span class="line">    override fun onCreate() &#123;</span><br><span class="line">        super.onCreate()</span><br><span class="line">        ProcessLifecycleOwner.get().lifecycle.addObserver(ApplicationLifecycleObserver())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>使用方法如上，非常简单。使用时有以下几点值得注意：</p>
+<ol>
+<li>ProcessLifecycleOwner 是针对整个应用程序的监听，与 Activity 数量无关，你有一个 Activity 或多个 Activity，对ProcessLifecycleOwner 来说是没有区别的。</li>
+<li>Lifecycle.Event.ON_CREATE 只会被调用一次，而Lifecycle.Event.ON_DESTROY 永远不会被调用。</li>
+<li>当应用程序从后台回到前台，或者应用程序被首次打开时，会依次调用 Lifecycle.Event.ON_START 和 Lifecycle.Event.ON_RESUME。</li>
+<li>当应用程序从前台退到后台（用户按下 Home 键或任务菜单键），会依次调用 Lifecycle.Event.ON_PAUSE 和 Lifecycle.Event.ON_STOP。需要注意的是，这两个方法的调用会有一定的延后。这是因为系统需要为“屏幕旋转，由于配置发生变化而导致 Activity 重新创建”的情况预留一些时间。也就是说，系统需要保证当设备出现这种情况时，这两个事件不会被调用。因为当旋转屏幕时，你的应用程序并没有退到后台，它只是进入了横/竖屏模式而已。</li>
+</ol>
+<h2 id="Navigation-相关"><a href="#Navigation-相关" class="headerlink" title="Navigation 相关"></a>Navigation 相关</h2><h3 id="NavigationUI"><a href="#NavigationUI" class="headerlink" title="NavigationUI"></a>NavigationUI</h3><p>在实际的开发中，不同的页面（这里的页面是 fragment）常常有着不同的顶部标题栏和对应不同的 menu 菜单。为了方便管理，Jetpack 引入了 NavigationUI 组件，使顶部标题栏中的按钮和菜单能够与导航图（res/navigation/navigation_xxx.xml）中的页面关联起来。</p>
+<p>其实就算没有 NavigationUI，我们也有多种以往的方法来实现切换 fragment 时对应不同的标题栏。<br>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 方式一：</span><br><span class="line">override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState)</span><br><span class="line">    setHasOptionsMenu(true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">override fun onCreateView(...): View? &#123;</span><br><span class="line">   val inflaterView =  inflater.inflate(R.layout.fragment_XXX, container, false)</span><br><span class="line">   (activity as AppCompatActivity).setSupportActionBar(inflaterView.findViewById(R.id.toolbar))</span><br><span class="line">   // (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)</span><br><span class="line">   // (activity as AppCompatActivity).supportActionBar?.setHomeButtonEnabled(true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方式二：</span><br><span class="line">override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState)</span><br><span class="line">    setHasOptionsMenu(true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) &#123;</span><br><span class="line">    inflater.inflate(R.menu.menu_xxx, menu)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;</span><br><span class="line">    when (item.itemId) &#123;</span><br><span class="line">        R.id.xxx -&gt; &#123;</span><br><span class="line">            ...</span><br><span class="line">            return true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return super.onOptionsItemSelected(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而 NavigationUI 有着独特的方式对 App bar 和页面切换进行管理。由于这方面的内容繁多，非少量篇幅能够讲解的。这里推荐两篇教程可以详细学习：  </p>
+<ul>
+<li><a href="https://developer.android.google.cn/guide/navigation/navigation-ui">官方文档：使用 NavigationUI 更新界面组件（无需翻墙）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/69653419">NavigationUI 的使用 (参考Demo)</a></li>
+</ul>
+<h3 id="DeepLink"><a href="#DeepLink" class="headerlink" title="DeepLink"></a>DeepLink</h3><p>Navigation 组件还有一个非常重要和实用的特性 DeepLink，即深层链接。通过该特性，我们可以利用 PendingIntent 或一个真实的 URL 链接，直接跳转到应用程序中的某个页面（Activity/Fragment）。平时用的 <code>Navigation.findNavController().navigate(...)</code> 只是应用内页面按流程的切换跳转。  </p>
+<p>DeepLink 常见的两种应用场景如下：</p>
+<ul>
+<li>PendingIntent 的方式。当应用程序接收到某个通知推送，你希望用户在单击该通知时，能够直接跳转到展示该通知内容的页面，那么可以通过PendingIntent 来完成此操作。</li>
+<li>URL 的方式。当用户通过手机浏览器浏览网站上的某个页面时，可以在网页上放置一个类似于“在应用内打开”的按钮。如果用户的手机安装有我们的应用程序，那么通过 DeepLink 就能打开相应的页面；如果没有安装，那么网站可以导航到应用程序的下载页面，从而引导用户安装应用程序。</li>
+</ul>
+<p><strong>PendingIntent 方式</strong><br>我们通过 <code>sendNotification()</code> 发送一个通知栏消息，然后这个通知栏消息的点击事件我们设置为跳转到 Navigation 导航图中的某 fragment 页面并传递参数。  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">btn.setOnClickListener &#123;</span><br><span class="line">    ...</span><br><span class="line">    val notificationBuilder = NotificationCompat</span><br><span class="line">            .Builder(this,CHANNEL_ID)</span><br><span class="line">            .setContentIntent(getPendingIntent())</span><br><span class="line">            ...</span><br><span class="line">    ...</span><br><span class="line">    NotificationManagerCompat.from(this)</span><br><span class="line">            .notify(1,notificationBuilder.build())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private fun getPendingIntent() = Navigation</span><br><span class="line">        .findNavController(this, R.id.XXX)</span><br><span class="line">        .createDeepLink()</span><br><span class="line">        .setGraph(R.navigation.xxx_navigation)</span><br><span class="line">        .setDestination(R.id.xxxNavigationFragment)</span><br><span class="line">        .setArguments(bundleOf(&quot;params&quot; to &quot;xxx&quot;))</span><br><span class="line">        .createPendingIntent()</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>另外一种创建的方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">val pendingIntent = NavDeepLinkBuilder(context)</span><br><span class="line">    .setGraph(R.navigation.nav_graph)</span><br><span class="line">    .setDestination(R.id.android)</span><br><span class="line">    .setArguments(args)</span><br><span class="line">    .createPendingIntent()</span><br></pre></td></tr></table></figure>
+
+<p><strong>URL 方式</strong>  </p>
+<p><strong>1.</strong> 在导航图中为页面添加 <code>&lt;deepLink/&gt;</code> 标签。在 app:uri 属性中填入的是你的网站的相应 Web 页面地址，后面的参数会通过 Bundle 对象传递到页面中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 导航图文件：res/navigation/nav_graph.xml</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;navigation  ...&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;fragment ...&gt;</span><br><span class="line">        &lt;deepLink app:uri=&quot;https://www.ocnyang.com/&#123;placeholder_name&#125;&quot; /&gt;</span><br><span class="line">    &lt;/fragment&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;navigation&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.</strong> 您还必须向应用的 <code>manifest.xml</code> 文件中添加内容。将一个 <code>&lt;nav-graph&gt;</code> 元素添加到指向现有导航图的 Activity，这样当用户在 Web 页面中访问你的网站时，应用程序便能得到监听。如下例所示：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    package=&quot;com.example.myapplication&quot;&gt;</span><br><span class="line">    &lt;application ... &gt;</span><br><span class="line">        &lt;activity name=&quot;.MainActivity&quot; ...&gt;</span><br><span class="line">            ...</span><br><span class="line">            &lt;nav-graph android:value=&quot;@navigation/nav_graph&quot; /&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/activity&gt;</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.</strong> 测试</p>
+<p>方式一：直接使用命令行在 adb 中测试：<br><code>adb shell am start -W -a android.intent.action.VIEW -d &quot;https://www.ocnyang.com/about&quot;</code></p>
+<p>方式二：在网页文件中点击 deeplink 链接：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt; ... &lt;/head&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;点击打开 Deeplink&quot; onclick=&quot;javascrtpt:window.location.href=&#x27;https://www.ocnyang.com/about&#x27;&quot;&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里介绍的两种方式都是为了实现，能够直接跳转到导航图 Navigation 中某一页面。但对于 PendingIntent 和 DeepLink 都是两个独立的知识点，更详细的内容大家可以自行搜索教程学习。</p>
+</blockquote>
+<h2 id="ViewModel-相关"><a href="#ViewModel-相关" class="headerlink" title="ViewModel 相关"></a>ViewModel 相关</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e54d961df819413a8f6b8fb72e5bc3c2~tplv-k3u1fbpfcp-zoom-1.image" alt="ViewModel"></p>
+<p>使用者通过工具类（ViewModelProvider）在拥有者（ViewModelStoreOwner，例如：Fragment，FragmentActivity）中获取数据中心（ViewModelStore，简单说就是一个 Map）中的某个数据（ViewModel）。如果数据中心没有，会通过工厂（Factory）创建，最常用的工厂是 AndroidViewModelFactory，它创建的数据包含 Application。</p>
+<p><strong>注意：</strong><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25e6a139ec274226949465c61c1209b0~tplv-k3u1fbpfcp-zoom-1.image" alt="ViewModel 生命周期图">  </p>
+<ul>
+<li>由上图可知，ViewModel 生命周期长，存在于所属对象（Activity，Fragment）的全部生命周期，因此不要向 ViewModel 中传入任何类型的 Context 或带有 Context 引用的对象，这可能会导致页面无法被销毁，从而引发内存泄漏。</li>
+<li>横竖屏切换，Activity 重建，所对应的 ViewModel 是同一个，它并没有被销毁，它所持有的数据也一直都存在着。</li>
+</ul>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p><strong>无参实例化</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">val viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)</span><br></pre></td></tr></table></figure>
+
+<p><strong>构造器有参实例化</strong><br>当 ViewModel 的构造器需要穿参数的时候，就不能像上面一样进行实例化了。而需要借助于 ViewModelProvider 的 Fatory 来进行构造。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class SharedViewModel(sharedName: String) : ViewModel() &#123;</span><br><span class="line">    var sharedName: MutableLiveData&lt;String&gt; = MutableLiveData()</span><br><span class="line"></span><br><span class="line">    init &#123;</span><br><span class="line">        this.sharedName.value = sharedName</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class SharedViewModelFactory(private val sharedName: String) : </span><br><span class="line">    ViewModelProvider.Factory &#123;</span><br><span class="line">        override fun &lt;T : ViewModel?&gt; create(modelClass: Class&lt;T&gt;): T &#123;</span><br><span class="line">            return SharedViewModel(sharedName) as T</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实例化的代码需要改成：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">val viewModel = ViewModelProvider(this, SharedViewModel.SharedViewModelFactory(&quot;ocnyang&quot;)).get(SharedViewModel::class.java)</span><br></pre></td></tr></table></figure>
+
+<h3 id="AndroidViewModel"><a href="#AndroidViewModel" class="headerlink" title="AndroidViewModel"></a>AndroidViewModel</h3><p>如果您需要在 viewmodel 中使用上下文，可以选择使用 AndroidViewModel, 因为它包含应用程序上下文 (以检索上下文调用 <code>getApplication()</code>), 否则使用常规 ViewModel。</p>
+<p>因可以直接调用 <code>getAppLication()</code> ，所以你可以在 AndroidViewModel 中访问全局资源文件 <code>getApplication().getResources().getString(R.string.XXX);</code> 或通过 SharedPreferences 对数据进行持久化存储等等。</p>
+<p>数据库的实例化也需要 Context，ViewModel 是用于存放数据的，因此我们有时将数据库放在 ViewModel 中进行实例化，这时我们就可以选择使用 AndroidViewModel。</p>
+<h2 id="LiveData-相关"><a href="#LiveData-相关" class="headerlink" title="LiveData 相关"></a>LiveData 相关</h2><h3 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h3><p><strong>1.</strong> Fragment 与 Fragment 之间数据共享（同一个导航图，即同一个 Activity 下的两个页面） </p>
+<p>在两个 Fragment 之间共享数据是非常简单的，只需要在两个 Fragment 中实例化 ViewModel 时，通过 <code>getActivity()</code> 让它和 Activity 直接绑定。  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">val viewModel = ViewModelProvider(getActivity()).get(SharedViewModel::class.java)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.</strong> 两个 Activity 之间数据共享</p>
+<p>当然你可以直接将 ViewModel 中的 LiveData 数据静态化：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class ShareViewModel : ViewModel() &#123;</span><br><span class="line">    companion object &#123;</span><br><span class="line">        val shareData = MutableLiveData&lt;ShareBean&gt;()</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式虽然也能实现我们想要的功效，但是我们不提倡这样做。<br>我们常常是通过使 LiveData 作为单例的形式来实现的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单例 使用时才初始化</span><br><span class="line">class SingletonLiveData : MutableLiveData&lt;ShareBean&gt;() &#123;</span><br><span class="line">    companion object &#123;</span><br><span class="line">        private lateinit var sInstance: SingletonLiveData</span><br><span class="line"></span><br><span class="line">        @MainThread</span><br><span class="line">        fun get(): SingletonLiveData &#123;</span><br><span class="line">            sInstance = if (::sInstance.isInitialized) sInstance else SingletonLiveData()</span><br><span class="line">            return sInstance</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ShareViewModel : ViewModel() &#123;</span><br><span class="line">    val singletonLiveData = SingletonLiveData.get()</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的话，不同的 Activity 就算实例化多次 ViewModel，但使用的都是同一个 LiveData。</p>
+<h3 id="LiveData-observeForever"><a href="#LiveData-observeForever" class="headerlink" title="LiveData.observeForever()"></a>LiveData.observeForever()</h3><p>LiveData 还提供了一个名为 <code>observeForever()</code> 的方法，使用起来与 <code>observe()</code> 没有太大差别。它们的区别主要在于，当 LiveData 所包装的数据发生变化时，无论页面处于什么状态，<code>observeForever()</code> 都能收到通知。因此，在用完之后，一定要记得调用 <code>removeObserver()</code> 方法来停止对 LiveData 的观察，否则 LiveData 会一直处于激活状态，Activity 则永远不会被系统自动回收，这就造成了内存泄漏。</p>
+]]></content>
+      <categories>
+        <category>Android 教程系列</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ListView 特殊属性 &amp; 常见问题</title>
     <url>/2016/08/22/ListViewAttribute/</url>
     <content><![CDATA[<p>这里向大家介绍一些我个人认为比较特别的属性，通过设置这样的属性可以做出更加美观的列表</p>
@@ -4880,7 +5071,7 @@ public class Hello1024 &#123;
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2021/12/25/hello-world/</url>
+    <url>/2022/01/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -5237,6 +5428,237 @@ public class Hello1024 &#123;
 ]]></content>
       <categories>
         <category>Android教程系列</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android 注解知多少</title>
+    <url>/2021/06/18/Android%20%E6%B3%A8%E8%A7%A3%E7%9F%A5%E5%A4%9A%E5%B0%91/</url>
+    <content><![CDATA[<h2 id="注解的概念"><a href="#注解的概念" class="headerlink" title="注解的概念"></a>注解的概念</h2><h3 id="什么是注解？"><a href="#什么是注解？" class="headerlink" title="什么是注解？"></a>什么是注解？</h3><p>注解又称为标注，用于为代码提供元数据。<br>作为元数据，注解不直接影响你的代码执行，但也有一些类型的注解实际上可以用于这一目的。可以作用在类、方法、变量、参数和包等上。<br>你可以通俗的理解成“标签”，这个标签可以标记类、方法、变量、参数和包。</p>
+<span id="more"></span>
+
+<h3 id="什么用处？"><a href="#什么用处？" class="headerlink" title="什么用处？"></a>什么用处？</h3><ol>
+<li>生成文档；</li>
+<li>标识代码，便于查看；</li>
+<li>格式检查（编译时）；</li>
+<li>注解处理（编译期生成代码、xml文件等；运行期反射解析；常用于三方框架）。</li>
+</ol>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li>元注解<br>元注解是用于定义注解的注解，元注解也是 Java 自带的标准注解，只不过用于修饰注解，比较特殊。</li>
+<li>内置的标准注解<br>就是用在代码上的注解，不同的语言或环境提供有不同的注解（<code>Java</code> <code>Kotlin</code> <code>Android</code>）。使用这些注解后编译器就会进行检查。</li>
+<li>自定义注解<br>用户可以根据自己的需求定义注解。</li>
+</ol>
+<h2 id="标准的注解讲解"><a href="#标准的注解讲解" class="headerlink" title="标准的注解讲解"></a>标准的注解讲解</h2><h3 id="Java-的标准注解"><a href="#Java-的标准注解" class="headerlink" title="Java 的标准注解"></a>Java 的标准注解</h3><p>元注解在后面讲解自定义注解时再一起介绍，这里只先介绍标准注解。</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>@Override</code></strong></td>
+<td align="left">检查该方法是否正确地重写了父类的方法。如果重写错误，会报编译错误；</td>
+</tr>
+<tr>
+<td align="left"><strong><code>@Deprecated</code></strong></td>
+<td align="left">标记过时方法。如果使用该方法，会报编译警告；</td>
+</tr>
+<tr>
+<td align="left"><strong><code>@SuppressWarnings</code></strong></td>
+<td align="left">指示编译器去忽略注解中声明的警告；</td>
+</tr>
+<tr>
+<td align="left"><code>@SafeVarargs</code></td>
+<td align="left">忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告；（Java 7 开始支持）</td>
+</tr>
+<tr>
+<td align="left"><code>@FunctionalInterface</code></td>
+<td align="left">标识一个匿名函数或函数式接口（Java 8 开始支持）</td>
+</tr>
+</tbody></table>
+<h3 id="Android-注解库"><a href="#Android-注解库" class="headerlink" title="Android 注解库"></a>Android 注解库</h3><p><code>support.annotation</code> 是 Android 提供的注解库，与 Android Studio 内置的代码检查工具配合，注解可以帮助检测可能发生的问题，例如 null 指针异常和资源类型冲突等。</p>
+<p><strong>使用前配置</strong><br>在 Module 的 <code>build.gradle</code> 中添加配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">implementation &#x27;com.android.support:support-annotations:版本号&#x27;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果您使用 <code>appcompat</code> 库，则无需添加 <code>support-annotations</code> 依赖项。因为 <code>appcompat</code> 库已经依赖注解库。（一般创建项目时已自动导入）</p>
+</blockquote>
+<h4 id="Null-性注解"><a href="#Null-性注解" class="headerlink" title="Null 性注解"></a>Null 性注解</h4><ul>
+<li><code>@Nullable</code> 可以为 null</li>
+<li><code>@NonNull</code> 不可为 null</li>
+</ul>
+<p>用于给定变量、参数或返回值是否可以为 null 。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line">...</span><br><span class="line">    <span class="meta">@NonNull</span> <span class="comment">// 检查 onCreateView() 方法本身是否会返回 null。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(String name, <span class="meta">@NonNull</span> Context context,</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="meta">@NonNull</span> AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">      &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="资源注解"><a href="#资源注解" class="headerlink" title="资源注解"></a>资源注解</h4><p>验证资源类型时非常有用，因为 Android 对资源的引用以整型形式传递。如果代码需要一个参数来引用特定类型的资源，可以为该代码传递预期的引用类型 int，但它实际上会引用其他类型的资源，如 <code>R.string.xxx</code> 资源。</p>
+<p>Android 中的资源类型有很多，Android 注解为每种资源类型都提供了相对应的注解。</p>
+<ul>
+<li>AnimatorRes //动画资源（一般为属性动画）</li>
+<li>AnimRes //动画资源（一般为视图动画）</li>
+<li><strong>AnyRes</strong> //任何类型的资源引用，int 格式</li>
+<li>ArrayRes //数组资源 e.g. <code>android.R.array.phoneTypes</code></li>
+<li>AttrRes //属性资源 e.g. <code>android.R.attr.action</code></li>
+<li>BoolRes //布尔资源</li>
+<li><strong>ColorRes</strong> //颜色资源</li>
+<li>DimenRes //尺寸资源</li>
+<li><strong>DrawableRes</strong> //可绘制资源</li>
+<li>FontRes //字体资源</li>
+<li>FractionRes //百分比数字资源</li>
+<li><strong>IdRes</strong> //Id 引用</li>
+<li>IntegerRes //任意整数类型资源引用</li>
+<li>InterpolatorRes //插值器资源 e.g. <code>android.R.interpolator.cycle</code></li>
+<li><strong>LayoutRes</strong> //布局资源</li>
+<li>MenuRes //菜单资源</li>
+<li>NavigationRes //导航资源</li>
+<li>PluralsRes //字符串集合资源</li>
+<li>RawRes //Raw 资源</li>
+<li><strong>StringRes</strong> //字符串资源</li>
+<li>StyleableRes //样式资源</li>
+<li>StyleRes //样式资源</li>
+<li>TransitionRes //转场动画资源</li>
+<li>XmlRes //xml 资源</li>
+</ul>
+<blockquote>
+<ul>
+<li>使用 <code>@AnyRes</code> 可以指明添加了此类注解的参数可以是任何类型的 <code>R</code> 资源。</li>
+<li>尽管可以使用 <code>@ColorRes</code> 指定某个参数应为颜色资源，但系统不会将颜色整数（采用 RRGGBB 或 AARRGGBB 格式）识别为颜色资源。您可以改用 <code>@ColorInt</code> 注解来指明某个参数必须为颜色整数。</li>
+</ul>
+</blockquote>
+<h4 id="线程注解"><a href="#线程注解" class="headerlink" title="线程注解"></a>线程注解</h4><p>线程注解可以检查某个方法是否从特定类型的线程调用。支持以下线程注解：</p>
+<ul>
+<li>@MainThread</li>
+<li>@UiThread</li>
+<li>@WorkerThread</li>
+<li>@BinderThread</li>
+<li>@AnyThread</li>
+</ul>
+<blockquote>
+<p>注意：构建工具会将 <code>@MainThread</code> 和 <code>@UiThread</code> 注解视为可互换，因此您可以从 <code>@MainThread</code> 方法调用 <code>@UiThread</code> 方法，反之亦然。不过，如果系统应用有多个视图在不同的线程上，那么界面线程可能会与主线程不同。因此，您应使用 <code>@UiThread</code> 为与应用的视图层次结构关联的方法添加注解，并使用 <code>@MainThread</code> 仅为与应用生命周期关联的方法添加注解。</p>
+</blockquote>
+<p>如果某个类中的所有方法具有相同的线程要求，您可以为该类添加一个线程注解，以验证该类中的所有方法是否从同一类型的线程调用。</p>
+<h4 id="值约束注解"><a href="#值约束注解" class="headerlink" title="值约束注解"></a>值约束注解</h4><p>值约束注解可以验证所传递参数的值是否在指定范围内：</p>
+<ul>
+<li>@IntRange</li>
+<li>@FloatRange</li>
+<li>@Size </li>
+</ul>
+<p><code>@IntRange</code> 和 <code>@FloatRange</code> 在应用到用户可能会弄错范围的参数时最为有用。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 确保 alpha 参数是包含 0 到 255 之间的整数值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAlpha</span><span class="params">(<span class="meta">@IntRange(from=0,to=255)</span> <span class="keyword">int</span> alpha)</span> </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 确保 alpha 参数是包含 0.0 到 1.0 之间的浮点值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAlpha</span><span class="params">(<span class="meta">@FloatRange(from=0.0, to=1.0)</span> <span class="keyword">float</span> alpha)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@Size</code> 注解可以检查集合或数组的大小，以及字符串的长度。<code>@Size</code> 注解可用于验证以下特性：</p>
+<ul>
+<li>最小大小（例如 <code>@Size(min=2)</code>）</li>
+<li>最大大小（例如 <code>@Size(max=2)</code>）</li>
+<li>确切大小（例如 <code>@Size(2)</code>）</li>
+<li>大小必须是指定数字的倍数（例如 <code>@Size(multiple=2)</code>）</li>
+</ul>
+<p>例如，<code>@Size(min=1)</code> 可以检查某个集合是否不为空，<code>@Size(3)</code> 可以验证某个数组是否正好包含三个值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 确保 location 数组至少包含一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getLocation</span><span class="params">(View button, <span class="meta">@Size(min=1)</span> <span class="keyword">int</span>[] location)</span> </span>&#123;</span><br><span class="line">    button.getLocationOnScreen(location);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="权限注解"><a href="#权限注解" class="headerlink" title="权限注解"></a>权限注解</h4><p>使用 <code>@RequiresPermission</code> 注解可以验证方法调用方的权限。要检查有效权限列表中是否存在某个权限，请使用 <code>anyOf</code> 属性。要检查是否具有某组权限，请使用 <code>allOf</code> 属性。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以确保 setWallpaper() 方法调用方具有 permission.SET_WALLPAPERS 权限</span></span><br><span class="line"><span class="meta">@RequiresPermission(Manifest.permission.SET_WALLPAPER)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setWallpaper</span><span class="params">(Bitmap bitmap)</span> <span class="keyword">throws</span> IOException</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 要求 copyImageFile() 方法的调用方具有对外部存储空间的读取权限，以及对复制的映像中的位置元数据的读取权限</span></span><br><span class="line"><span class="meta">@RequiresPermission(allOf = &#123;</span></span><br><span class="line"><span class="meta">    Manifest.permission.READ_EXTERNAL_STORAGE,</span></span><br><span class="line"><span class="meta">    Manifest.permission.ACCESS_MEDIA_LOCATION&#125;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">copyImageFile</span><span class="params">(String dest, String source)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对于 intent 的权限，请在用来定义 intent 操作名称的字符串字段上添加权限要求：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequiresPermission(android.Manifest.permission.BLUETOOTH)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_REQUEST_DISCOVERABLE =</span><br><span class="line">            <span class="string">&quot;android.bluetooth.adapter.action.REQUEST_DISCOVERABLE&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果您需要对内容提供程序拥有单独的读取和写入访问权限，则需要将每个权限要求封装在 <code>@RequiresPermission.Read</code> 或 <code>@RequiresPermission.Write</code> 注解中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequiresPermission</span>.Read(<span class="meta">@RequiresPermission(READ_HISTORY_BOOKMARKS)</span>)</span><br><span class="line"><span class="meta">@RequiresPermission</span>.Write(<span class="meta">@RequiresPermission(WRITE_HISTORY_BOOKMARKS)</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Uri BOOKMARKS_URI = Uri.parse(<span class="string">&quot;content://browser/bookmarks&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="返回值注解"><a href="#返回值注解" class="headerlink" title="返回值注解"></a>返回值注解</h4><p>使用 @CheckResult 注解可检查是否对方法的返回值进行处理，验证是否实际使用了方法的结果或返回值。</p>
+<p>这个可能比较难理解，这里借助 <code>Java</code> <code>String.trim()</code> 举个例子解释一下（通过例子应该能够很直观的理解了，不需要过多解释了）：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String str = <span class="keyword">new</span> String(<span class="string">&quot;    www.ocnyang.com    &quot;</span>);</span><br><span class="line"><span class="comment">// 删除头尾空白</span></span><br><span class="line">System.out.println(<span class="string">&quot;网站：&quot;</span> + str.trim() + <span class="string">&quot;。&quot;</span>);</span><br><span class="line"><span class="comment">//打印结果：网站：www.ocnyang.com。</span></span><br><span class="line">System.out.println(<span class="string">&quot;网站：&quot;</span> + str + <span class="string">&quot;。&quot;</span>);</span><br><span class="line"><span class="comment">//打印结果：网站：    www.ocnyang.com    。</span></span><br></pre></td></tr></table></figure>
+
+<p>以下示例为 <code>checkPermissions()</code> 方法添加了注解，以确保会实际引用该方法的返回值。此外，这还会将 <code>enforcePermission()</code> 方法指定为要向开发者建议的替代方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CheckResult(suggest=&quot;#enforcePermission(String,int,int,String)&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">checkPermission</span></span></span><br><span class="line"><span class="function"><span class="params">(<span class="meta">@NonNull</span> String permission, <span class="keyword">int</span> pid, <span class="keyword">int</span> uid)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="CallSuper-注解"><a href="#CallSuper-注解" class="headerlink" title="CallSuper 注解"></a>CallSuper 注解</h4><p><code>@CallSuper</code> 注解主要是用来强调在覆盖父类方法的时候，在实现父类的方法时及时调用对应的 <code>super.xxx()</code> 方法，当使用 <code>@CallSuper</code> 修饰了某个方法，如果子类覆盖父类该方法后没有实现对父类方法的调用就会报错。</p>
+<h4 id="Keep-注解"><a href="#Keep-注解" class="headerlink" title="Keep 注解"></a>Keep 注解</h4><p>使用 <code>@Keep</code> 注解可以确保在构建混淆缩减代码大小时，不会移除带有该注解的类或方法。<br>该注解通常添加到通过反射访问的方法和类，以防止编译器将代码视为未使用。</p>
+<blockquote>
+<p>注意：使用 <code>@Keep</code> 添加注解的类和方法会始终包含在应用的 APK 中，即使您从未在应用逻辑中引用这些类和方法也是如此。</p>
+</blockquote>
+<h4 id="代码公开范围注解（了解）"><a href="#代码公开范围注解（了解）" class="headerlink" title="代码公开范围注解（了解）"></a>代码公开范围注解（了解）</h4><p>单元测试中可能要访问到一些不可见的类、函数或者变量，这时可以使用<code>@VisibleForTesting</code> 注解来对其可见。</p>
+<h4 id="Typedef-注解"><a href="#Typedef-注解" class="headerlink" title="Typedef 注解"></a>Typedef 注解</h4><p>枚举 Enum 在 Java 中是一个完整的类。而枚举中的每一个值在枚举类中都是一个对象。所以在我们使用时枚举的值将比整数常量消耗更多的内存。 那么我们最好使用常量来替代枚举。可是使用了常量代替后又不能限制取值了。上面这两个注解就是为了解决这个问题的。</p>
+<p><code>@IntDef</code> 和 <code>@StringDef</code> 注解是 Android 提供的魔术变量注解，您可以创建整数集和字符串集的枚举来代理 Java 的枚举类。<br>它将帮助我们在编译代码时期像 Enum 那样选择变量的功能。 <code>@IntDef</code> 和 <code>typedef</code> 作用非常类似，你可以创建另外一个注解，然后用 <code>@IntDef</code> 指定一个你期望的整型常量值列表，最后你就可以用这个定义好的注解修饰你的 API 了。接下来我们来使用 <code>@IntDef</code> 来替换 Enum 看一下.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SUNDAY = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MONDAY = <span class="number">1</span>;</span><br><span class="line">    &#123;...省略部分&#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IntDef(&#123;SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY&#125;)</span></span><br><span class="line">    <span class="meta">@Retention(RetentionPolicy.SOURCE)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@interface</span> WeekDays &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@WeekDays</span></span><br><span class="line">    <span class="keyword">int</span> currentDay = SUNDAY;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        setCurrentDay(WEDNESDAY);</span><br><span class="line"></span><br><span class="line">        <span class="meta">@WeekDays</span> <span class="keyword">int</span> today = getCurrentDay();</span><br><span class="line">        <span class="keyword">switch</span> (today) &#123;</span><br><span class="line">            <span class="keyword">case</span> SUNDAY:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> MONDAY:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#123;...省略部分&#125;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 参数只能传入在声明范围内的整型，不然编译通不过</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> currentDay</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCurrentDay</span><span class="params">(<span class="meta">@WeekDays</span> <span class="keyword">int</span> currentDay)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.currentDay = currentDay;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@WeekDays</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCurrentDay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currentDay;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<ol>
+<li>声明一些必要的 int 常量</li>
+<li>声明一个注解为 WeekDays</li>
+<li>使用 <code>@IntDef</code> 修饰 WeekDays,参数设置为待枚举的集合</li>
+<li>使用 <code>@Retention(RetentionPolicy.SOURCE)</code> 指定注解仅存在与源码中,不加入到 class 文件中</li>
+</ol>
+<p>需要在调用时只能传入指定类型，如果传入类型不对，编译不通过。</p>
+<p>我们也可以指定整型值作为标志位，也就是说这些整型值可以使用 ’｜’ 或者 ’&amp;’ 进行与或等操作。如果我们把上面代码中的注解定义为如下标志位：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@IntDef(flag = true, value = &#123;SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Flavour &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么可以如下调用：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">setCurrentDay(SUNDAY &amp; WEDNESDAY);</span><br></pre></td></tr></table></figure>
+<p><code>@StringDef</code> 同理。</p>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><h4 id="Java-元注解"><a href="#Java-元注解" class="headerlink" title="Java 元注解"></a>Java 元注解</h4><table>
+<thead>
+<tr>
+<th>名字</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Retention</td>
+<td>标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问</td>
+</tr>
+<tr>
+<td>@Documented</td>
+<td>标记这些注解是否包含在用户文档中，即包含到 Javadoc 中去</td>
+</tr>
+<tr>
+<td>@Target</td>
+<td>标记这个注解的作用目标</td>
+</tr>
+<tr>
+<td>@Inherited</td>
+<td>标记这个注解是继承于哪个注解类</td>
+</tr>
+<tr>
+<td>@Repeatable</td>
+<td>Java 8 开始支持，标识某注解可以在同一个声明上使用多次</td>
+</tr>
+</tbody></table>
+<p><strong>@Retention</strong><br>表示注解保留时间长短。可选的参数值在枚举类型 <code>java.lang.annotation.RetentionPolicy</code> 中，取值为：</p>
+<ul>
+<li><strong>RetentionPolicy.SOURCE</strong>：注解只在源码阶段保留，在编译器进行编译时它将被丢弃忽视，不会写入 class 文件；</li>
+<li><strong>RetentionPolicy.CLASS</strong>：注解只被保留到编译进行的时候，会写入 class 文件，它并不会被加载到 JVM 中；</li>
+<li><strong>RetentionPolicy.RUNTIME</strong>：注解可以保留到程序运行的时候，它会被加载进入到 JVM 中，所以在程序运行时可以反射获取到它们。</li>
+</ul>
+<p><strong>@Target</strong><br>用于指明被修饰的注解最终可以作用的目标是谁，也就是指明，你的注解到底是用来修饰方法的？修饰类的？还是用来修饰字段属性的。<br>可能的值在枚举类 <code>java.lang.annotation.ElementType</code> 中，包括：</p>
+<ul>
+<li><strong>ElementType.TYPE</strong>：允许被修饰的注解作用在类、接口和枚举上；</li>
+<li><strong>ElementType.FIELD</strong>：允许作用在属性字段上；</li>
+<li><strong>ElementType.METHOD</strong>：允许作用在方法上；</li>
+<li><strong>ElementType.PARAMETER</strong>：允许作用在方法参数上；</li>
+<li><strong>ElementType.CONSTRUCTOR</strong>：允许作用在构造器上；</li>
+<li><strong>ElementType.LOCAL_VARIABLE</strong>：允许作用在本地局部变量上；</li>
+<li><strong>ElementType.ANNOTATION_TYPE</strong>：允许作用在注解上；</li>
+<li><strong>ElementType.PACKAGE</strong>：允许作用在包上。</li>
+</ul>
+<blockquote>
+<p><code>@Target</code> 注解的参数也可以接收一个数组，表示可以作用在多种目标类型上，如：<br><code>@Target(&#123;ElementType.FIELD, ElementType.LOCAL_VARIABLE&#125;)</code></p>
+</blockquote>
+<h4 id="自定义注解-1"><a href="#自定义注解-1" class="headerlink" title="自定义注解"></a>自定义注解</h4><p>你可以根据需要自定义一些自己的注解，然后要在需要的地方加上自定义的注解。需要注意的是每当自定义注解时，相对应的一定要有处理这些自定义注解的流程，要不然可以说是没有实用价值的。注解真真的发挥作用，主要就在于注解处理方法。<br>注解的处理一般分为两种：</p>
+<ul>
+<li>保留注解信息到运行时，这时通过反射操作获取到类、方法和字段的注解信息，然后做相对应的处理</li>
+<li>保留到编译期，一般此方式是利用 APT 注释解释器，根据注解自动生成代码。简单来说，可以通过 APT，根据规则，帮我们生成代码、生成类文件。ButterKnife、Dagger、EventBus 等开源库都是利用注解实现的。</li>
+</ul>
+<p>因为自定义注解的涉及到的内容较多。本期先不对自定义注解详细展开介绍，后续找时间再对它进行单独的文章讲解。</p>
+<h3 id="附参考文章"><a href="#附参考文章" class="headerlink" title="附参考文章"></a>附参考文章</h3><ul>
+<li><a href="https://developer.android.com/studio/write/annotations?hl=zh-cn#java">利用注解改进代码检查</a></li>
+<li><a href="http://ocnyang.com/2016/12/28/SupportAnnotations/">在 Android 使用 Support Annotations 注解优化代码</a></li>
+<li>[Java 注解](<a href="http://www.imooc.com/wiki/javalesson/javaannotation.html%E8%A6%81%E8%8E%B7%E5%8F%96%E7%B1%BB%E3%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E5%AD%97%E6%AE%B5%E7%9A%84%E6%B3%A8%E8%A7%A3%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%BF%85%E9%A1%BB%E9%80%9A%E8%BF%87%E7%B1%BB%E7%9A%84Class%E5%AF%B9%E8%B1%A1%E6%9D%A5%E8%8E%B7%E5%8F%96">http://www.imooc.com/wiki/javalesson/javaannotation.html要获取类、方法和字段的注解信息，必须通过类的Class对象来获取</a> Annotation对象,除此之外没有别的获取注解对象的方法。)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Android 教程系列</category>
       </categories>
       <tags>
         <tag>Android</tag>
@@ -7115,6 +7537,264 @@ public class LevelMenu extends LinearLayout &#123;
         <tag>Android</tag>
         <tag>Android教程系列</tag>
         <tag>组合控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ConstraintLayout 全面总结</title>
+    <url>/2020/11/09/ConstraintLayout%20%E5%85%A8%E9%9D%A2%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>约束布局作为目前最强大的布局（没有之一），同时随着版本的更新它增添各种各样的新功能，在此梳理总结出一个详细的教程，为大家做个全面的导航。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>目录：</strong>  </p>
+<p>[TOC]</p>
+<h1 id="一：ConstraintLayout-基础讲解（官方-API-文档翻译）"><a href="#一：ConstraintLayout-基础讲解（官方-API-文档翻译）" class="headerlink" title="一：ConstraintLayout 基础讲解（官方 API 文档翻译）"></a>一：ConstraintLayout 基础讲解（官方 API 文档翻译）</h1><p>本文翻译自<a href="https://developer.android.google.cn/reference/android/support/constraint/ConstraintLayout">官方文档</a></p>
+<h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><p>相对定位，在水平以及垂直轴线的方向上，一个控件的一边受到另一个控件的一边的约束。<br>比如，Button B 受到 Button A 的约束：<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/relative-positioning.png?raw=true" alt="relative_positioning">  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--将按钮B的左边限制在按钮A的右边--&gt;</span><br><span class="line">&lt;Button android:id=&quot;@+id/buttonA&quot; ... /&gt;</span><br><span class="line">&lt;Button android:id=&quot;@+id/buttonB&quot; ...</span><br><span class="line">    app:layout_constraintLeft_toRightOf=&quot;@+id/buttonA&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>约束布局的坐标示意图：<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/relative-positioning-constraints.png?raw=true">  </p>
+<p>以下是可用的约束条件列表：  </p>
+<ul>
+<li>layout_constraintLeft_toLeftOf</li>
+<li>layout_constraintLeft_toRightOf</li>
+<li>layout_constraintRight_toLeftOf</li>
+<li>layout_constraintRight_toRightOf</li>
+<li>layout_constraintTop_toTopOf</li>
+<li>layout_constraintTop_toBottomOf</li>
+<li>layout_constraintBottom_toTopOf</li>
+<li>layout_constraintBottom_toBottomOf</li>
+<li>layout_constraintBaseline_toBaselineOf</li>
+<li>layout_constraintStart_toEndOf</li>
+<li>layout_constraintStart_toStartOf</li>
+<li>layout_constraintEnd_toStartOf</li>
+<li>layout_constraintEnd_toEndOf</li>
+</ul>
+<p>它们都通过 id 来和其他控件或父控件建立起约束关系。<br>相对于父控件创建约束，如下：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;Button android:id=&quot;@+id/buttonB&quot; ...</span><br><span class="line">    app:layout_constraintLeft_toLeftOf=&quot;parent&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="margin-外边距"><a href="#margin-外边距" class="headerlink" title="margin 外边距"></a>margin 外边距</h2><p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/relative-positioning-margin.png?raw=true" alt="Relative Positioning Margins">  </p>
+<p>关于 margin 主要有以下几个属性：  </p>
+<ul>
+<li>android:layout_marginStart</li>
+<li>android:layout_marginEnd</li>
+<li>android:layout_marginLeft</li>
+<li>android:layout_marginTop</li>
+<li>android:layout_marginRight</li>
+<li>android:layout_marginBottom</li>
+</ul>
+<blockquote>
+<p>注意，当如果使用了 <code>layout_constraintLeft_toRightOf = &quot;@id/buttonB&quot;</code> 这样的属性之后，只有 <code>layout_marginLeft</code> 这个属性才起作用，其他边，top，bottom 等等同理。<br>另外，在一个控件默认在左上角的时候，<code>layout_marginLeft</code> 或者 <code>layout_marginTop</code> 这样子的属性是没有用的，原因，没有被某一个控件约束到，如果使用了 <code>layout_constraintTop_toTopOf = “parent”</code> 这样子的属性的话，<code>layout_marginTop = &quot;10dp&quot;</code> 这样的属性就有用了。</p>
+</blockquote>
+<p>当约束目标的可见性为 View.GONE 时，你还可以使用以下属性指示不同的边距值：  </p>
+<ul>
+<li>layout_goneMarginStart</li>
+<li>layout_goneMarginEnd</li>
+<li>layout_goneMarginLeft</li>
+<li>layout_goneMarginTop</li>
+<li>layout_goneMarginRight</li>
+<li>layout_goneMarginBottom</li>
+</ul>
+<h2 id="“不可能的”约束（相反约束、双向拉力）"><a href="#“不可能的”约束（相反约束、双向拉力）" class="headerlink" title="“不可能的”约束（相反约束、双向拉力）"></a>“不可能的”约束（相反约束、双向拉力）</h2><p>ConstraintLayout 非常有用的一个方面是对“不可能”约束的处理。<br>比如：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;android.support.constraint.ConstraintLayout ...&gt;</span><br><span class="line">     &lt;Button android:id=&quot;@+id/button&quot; ...</span><br><span class="line">         android:layout_width=&quot;100dp&quot;</span><br><span class="line">         app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">         app:layout_constraintRight_toRightOf=&quot;parent/&gt;</span><br><span class="line">&lt;/&gt;</span><br></pre></td></tr></table></figure>
+<p>当约束遇到这种情况时，因为控件不可能同时满足这两个约束（<strong>宽度一定时</strong>，和父布局左边对齐的同时和父布局右边也对齐），这时，约束就像相反的力量一样将控件平均分开，这样控件最终会在父布局中居中。  </p>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/centering-positioning.png?raw=true" alt="Centering Positioning"></p>
+<p>上面这个例子中相反约束造成的置中，只是在控件的宽度（或高度）一定时形成的效果。而如果把上面例子中的宽度改为 <code>android:layout_width=&quot;0dp</code> 时，这个时候，控件 button 的宽度就会因为双向约束的存在而充满父布局，相当于 <code>android:layout_width=&quot;match_parent&quot;</code></p>
+<h2 id="Bias-偏移"><a href="#Bias-偏移" class="headerlink" title="Bias 偏移"></a>Bias 偏移</h2><p>上面讲到的“相反约束”时，默认的效果是控件被居中；但是此时你也可以通过使用偏移属性来调整定位，使其偏向一边。  </p>
+<ul>
+<li>layout_constraintHorizontal_bias</li>
+<li>layout_constraintVertical_bias</li>
+</ul>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/centering-positioning-bias.png?raw=true" alt="Centering Positioning with Bias"></p>
+<p>例如，将左侧的偏移值从默认的 50% 改为 30% ，这样左侧会更短，控件会更偏向左侧：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;android.support.constraint.ConstraintLayout ...&gt;</span><br><span class="line">     &lt;Button android:id=&quot;@+id/button&quot; ...</span><br><span class="line">         app:layout_constraintHorizontal_bias=&quot;0.3&quot;</span><br><span class="line">         app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">         app:layout_constraintRight_toRightOf=&quot;parent/&gt;</span><br><span class="line">     &lt;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用 bias ,可以更好的适应屏幕大小变化的用户界面。</p>
+<h2 id="环形定位"><a href="#环形定位" class="headerlink" title="环形定位"></a>环形定位</h2><p>您可以以一定的角度和距离约束一个控件中心相对于另一个控件中心。这允许你将一个控件放置在一个圆圈上。  </p>
+<ul>
+<li>layout_constraintCircle // 引用另一个小部件id</li>
+<li>layout_constraintCircleRadius // 到另一个小部件中心的距离</li>
+<li>layout_constraintCircleAngle //小部件应该处于哪个角度(角度，从0到360)</li>
+</ul>
+<p>如图：<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/circle1.png?raw=true" alt="Circular Positioning"><br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/circle2.png?raw=true" alt="Circular Positioning">  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;Button android:id=&quot;@+id/buttonA&quot; ... /&gt;</span><br><span class="line">&lt;Button android:id=&quot;@+id/buttonB&quot; ...</span><br><span class="line">  app:layout_constraintCircle=&quot;@+id/buttonA&quot;</span><br><span class="line">  app:layout_constraintCircleRadius=&quot;100dp&quot;</span><br><span class="line">  app:layout_constraintCircleAngle=&quot;45&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="尺寸约束"><a href="#尺寸约束" class="headerlink" title="尺寸约束"></a>尺寸约束</h2><h3 id="最大值最小值尺寸"><a href="#最大值最小值尺寸" class="headerlink" title="最大值最小值尺寸"></a>最大值最小值尺寸</h3><p>可以给 ConstraintLayout 设置最大高度宽度以及最小高度宽度，什么情况下可以这样设置呢，就是当高度宽度设置为 wrap_content 的时候可以用。<br>属性共四个如下：  </p>
+<ul>
+<li>android:minWidth</li>
+<li>android:minHeight</li>
+<li>android:maxWidth</li>
+<li>android:maxHeight</li>
+</ul>
+<h3 id="控件尺寸"><a href="#控件尺寸" class="headerlink" title="控件尺寸"></a>控件尺寸</h3><p>ConstraintLayout 下的子控件的尺寸，也就是 layout_height 和 layout_width，只能以下三种：  </p>
+<ol>
+<li>具体尺寸，比如 20dp，50dp 这样子</li>
+<li>wrap_content</li>
+<li>0dp</li>
+</ol>
+<blockquote>
+<p>如果使用 match_parent 属性，其实也是会有充满的效果的，但我们一般不提倡使用。但你可以使用 0dp 结合 反向约束，达到充满父布局的效果。</p>
+</blockquote>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/dimension-match-constraints.png?raw=true"></p>
+<h3 id="WRAP-CONTENT-尺寸"><a href="#WRAP-CONTENT-尺寸" class="headerlink" title="WRAP_CONTENT 尺寸"></a>WRAP_CONTENT 尺寸</h3><p>针对于 wrap_content，还有一种强制性约束，就是一般情况下 wrap_content 是无法约束它的结果尺寸的，一般情况下这样的控件的尺寸是跟着它的文字大小而进行改变。在 wrap_content 的情况下，为了限制最后它的尺寸 ConstraintLayout 提供了一下两个属性：  </p>
+<ul>
+<li>app:layout_constrainedWidth = “true | false”</li>
+<li>app:layout_constrainedHeight = “true | false”</li>
+</ul>
+<h3 id="MATCH-CONSTRAINT-尺寸（0dp）"><a href="#MATCH-CONSTRAINT-尺寸（0dp）" class="headerlink" title="MATCH_CONSTRAINT 尺寸（0dp）"></a>MATCH_CONSTRAINT 尺寸（0dp）</h3><p>当使用 match_constraint 这个值的时候，默认就是将剩下可用的空间全部当成自己最后的尺寸，几个额外的属性是这样子的：</p>
+<ul>
+<li>layout_constraintWidth_min 和 layout_constraintHeight_min // 给尺寸设置最小的值</li>
+<li>layout_constraintWidth_max 和 layout_constraintHeight_max // 给尺寸设置最大的值</li>
+<li>layout_constraintWidth_percent 和 layout_constraintHeight_percent // 给尺寸设置一个父容器的百分比的值</li>
+</ul>
+<p>当最大值最小值设置成一样时，那就相当于 wrap_content 的值这么大了</p>
+<h3 id="百分比尺寸"><a href="#百分比尺寸" class="headerlink" title="百分比尺寸"></a>百分比尺寸</h3><p>用百分比尺寸的话，遵循一下三个原则：</p>
+<ol>
+<li><code>layout_height</code> 或者 <code>layout_width</code> 要设置成 <code>match_constraint（0dp）</code></li>
+<li>默认情况下应该这么设置：<code>app:layout_constraintWidth_default = &quot;parent&quot;</code> 或者 <code>app_layout_constriantHeight_default = “parent”</code>（1.1 版本中需要这么做，后面的版本就不需要这么做了）</li>
+<li>最后设置百分比尺寸，也就是设置 <code>layout_constraintWidth_percent</code> 和 <code>layout_constraintHeight_percent</code> 值，值在 0-1 之间，是小数，比如，0.2、0.8 这样子</li>
+</ol>
+<h3 id="Ratio-比例尺寸"><a href="#Ratio-比例尺寸" class="headerlink" title="Ratio 比例尺寸"></a>Ratio 比例尺寸</h3><p>就是控件设置自身宽与高的一种比例，想使用比例尺寸的话，必须把 width 或者 height 一个设置为 <code>match_constriant（0dp）</code>，然后设置<code>layout_constraintDimensionRatio</code> 这个属性。<br>比如：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;Button </span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;0dp&quot;</span><br><span class="line">    app:layout_constraintDimensionRatio=&quot;1:1&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>然后，宽和高就是一样的值了，宽多少高就是多少。<br>关于这个比例的值的两个说明：</p>
+<ol>
+<li>它是一个 float 值，代表宽和高的一个比例</li>
+<li>1:1 是格式是 width:height</li>
+</ol>
+<p>当然这是一个尺寸是设置为 0dp 的情况，那么当两个尺寸都是 0dp 了呢，系统将会最大程度地满足这样一个比例值，在一个尺寸是 0dp 的基础上并且被约束了，怎么约束另一个呢，可以用 “H” 和 “ W” 这样的字眼来进行显示，当然是宽和高的首字母了，比如 “H，16：9”，“W，9：16” 这样子的，H 或者 W 代表的是前面那一个数字的尺寸，字母和尺寸之间用逗号 “,” 来进行分隔，像下面这样子用：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;Button </span><br><span class="line">    android:layout_width=&quot;0dp&quot;</span><br><span class="line">    android:layout_height=&quot;0dp&quot;</span><br><span class="line">    app:layout_constraintDimensionRatio=&quot;H,16:9&quot;</span><br><span class="line">    app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">    app:layout_constraintTop_toTopOf=&quot;parent&quot;/&gt;  </span><br></pre></td></tr></table></figure>
+<p>这样子设置的话，高满屏，宽也被比例设置为满屏了。</p>
+<h2 id="链式约束-Chains"><a href="#链式约束-Chains" class="headerlink" title="链式约束 Chains"></a>链式约束 Chains</h2><p>链式是指在单个方向上，为这个方向的几个不同控件链接成组，把组里的几个控件可以看成一个整体来进行约束。<br><strong>创建一个链</strong><br>如果一个组内不同的控件，通过双向连接链接在一起，则认为它们就是一个链。<br>如下图，有两个控件的最小的链：<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/chains.png?raw=true" alt="Chain"></p>
+<p><strong>链头</strong><br>在一个链组中，链中的第一个元素我们称为链头控件（对于水平链来说，头部是最左边的部件，对于垂直链来说，头部是最上面的部件）。我们可以在链头控件上设置一定属性来控制整条链。<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/chains-head.png?raw=true" alt="Chain Head"></p>
+<p><strong>链间隙</strong><br>如果在连接中指定了边距 margins ，则会将其考虑在内。在链扩展的情况下，将从分配的空间中扣除差额。<br>例如，在水平链上，如果一个元素定义右边框为10dp，下一个元素定义左边框为5dp，那么这两个元素之间的结果边框为15dp。<br>在计算链用于定位项的剩余空间时，要将项及其边距一起考虑。剩余空格不包含边距。</p>
+<p><strong>链的样式</strong><br>当我们在上面说的<strong>链头控件</strong>上设置属性 <code>layout_constraintHorizontal_chainStyle</code> 或<code>layout_constraintVertical_chainStyle</code> 时，整条链的展示效果将根据指定的样式值改变(默认为CHAIN_SPREAD)。</p>
+<ul>
+<li>CHAIN_SPREAD // 元素将展开(默认样式)</li>
+<li>权重链——在CHAIN_SPREAD模式中，如果某些小部件被设置为MATCH_CONSTRAINT（0dp），它们将分割可用空间</li>
+<li>CHAIN_SPREAD_INSIDE // 类似，但是链的端点不会散开</li>
+<li>CHAIN_PACKED // 链中的元素将被打包在一起。子元素的水平或垂直偏差属性将会影响包装元素的位置</li>
+</ul>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/chains-styles.png?raw=true" alt="Chains Styles">  </p>
+<p><strong>链的权重</strong></p>
+<p>链的默认行为是将元素平均分布在可用空间中。如果一个或多个元素使用 0dp ，它们将使用可用的空白空间(在它们之间平均分配)。<br>属性 <code>layout_constraintHorizontal_weight</code> 和 <code>layout_constraintVertical_weight</code> 可以控制分配的比例。<br>例如，在一个使用 MATCH_CONSTRAINT（0dp） 包含两个元素的链上，第一个控件的权重为2，第二个控件的权重为1，第一个控件所占的空间将是第二个控件的两倍。</p>
+<p><br/><br/><br/></p>
+<hr>
+<h1 id="二：ConstraintLayout-虚拟辅助类部件"><a href="#二：ConstraintLayout-虚拟辅助类部件" class="headerlink" title="二：ConstraintLayout 虚拟辅助类部件"></a>二：ConstraintLayout 虚拟辅助类部件</h1><h2 id="Guideline-参照线"><a href="#Guideline-参照线" class="headerlink" title="Guideline 参照线"></a>Guideline 参照线</h2><p>如果你熟悉 UI 设计软件你应该已经使用过参照线，并对它的作用熟悉了。参照线 guideline 提供了视觉上的参照用于 Views 的对齐，而且<strong>不会在运行的时候显示</strong>，只要你熟悉它的使用了就会发现它对你的对齐实现非常方便。</p>
+<p>由上面的简介我们可以知道 Guideline 有以下特点：</p>
+<ul>
+<li>种类：Guideline 引导线有：垂直引导线、水平引导线 两种；</li>
+<li>作用：这些引导线用于约束视图组件位置的对应参考;</li>
+<li>不可见：Guideline 引导线是不可见的，用户在界面中看不到引导线（实质上它是一个可见性一直为 View.GONE 的 View）；</li>
+<li>引导线自身位置定位方式：使用 dp 单位的尺寸值表示相对开始或结束的位置，或百分比值，基于布局的边缘，设定引导线的位置。</li>
+</ul>
+<p>Guideline 有以下属性：</p>
+<ul>
+<li>方向属性（纵向或横向）：<code>android:orientation=“horizontal”</code>; 取值 <code>horizontal /vertical</code>;</li>
+<li>自身位置定位（以始端为准）：<code>app:layout_constraintGuide_begin=“100dp”</code>；取值 dp 尺寸值；距离 顶部 (水平)，左侧 ( 垂直 ) 位置；</li>
+<li>自身位置定位（以尾端为准）：<code>app:layout_constraintGuide_end=“100dp”</code>；取值 dp 尺寸值；距离 底部 (水平)，右侧 ( 垂直 ) 位置；</li>
+<li>百分比自身位置定位：<code>app:layout_constraintGuide_percent=“0.5”</code>；取值 0 ~ 1.0 之间的小数，距始端的百分比位置。</li>
+</ul>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/guideline.png?raw=true" alt="Guideline"></p>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/guideline_demo.png?raw=true" alt="Guideline demo"></p>
+<h2 id="Barrier-阻碍线"><a href="#Barrier-阻碍线" class="headerlink" title="Barrier 阻碍线"></a>Barrier 阻碍线</h2><p>Barrier 和 Guideline 一样，都是自己不可见，只是用来定位的控件。<br>这个小部件不好用语言描述，这里直接通过例子介绍。</p>
+<p>一个例子<br>假如我们要实现这样一种效果，控件 C 以控件 A 和 B 的最右边缘对齐。如下图：</p>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/barrier_demo.png?raw=true" alt="Barrier 效果"></p>
+<p><strong>不用 Barrier 的实现方法</strong><br>因为 A 和 B 的宽度是动态变化的，所以控件 C 不能简单的依赖于具体的 A 或 B 的右边缘，只能把 A 和 B 放到一个 ViewGroup 里面，然后控件 C 依赖于这个新的 ViewGroup 的右边缘。如下图：</p>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/barrier_demo2.png?raw=true" alt="ViewGroup 实现"></p>
+<p>这样实现虽然可以解决问题，但是却引入了一层嵌套。而使用 Barrier 则可以不用嵌套就能实现这样的效果。</p>
+<p><strong>使用 Barrier 的解决方案</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--首先，我们先定义控件 A 和 B--&gt;</span><br><span class="line">&lt;Button</span><br><span class="line">    android:id=&quot;@+id/btn_a&quot;</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">    app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">    android:layout_marginTop=&quot;200dp&quot;</span><br><span class="line">    android:layout_marginLeft=&quot;30dp&quot;</span><br><span class="line">    android:text=&quot;这是控件A，我比较宽&quot;/&gt;</span><br><span class="line">&lt;Button</span><br><span class="line">    android:id=&quot;@+id/btn_b&quot;</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    app:layout_constraintLeft_toLeftOf=&quot;@id/btn_a&quot;</span><br><span class="line">    app:layout_constraintTop_toBottomOf=&quot;@id/btn_a&quot;</span><br><span class="line">    android:layout_marginTop=&quot;30dp&quot;</span><br><span class="line">    android:text=&quot;这是控件B&quot;/&gt;</span><br><span class="line">&lt;!--其后，定义一个 Barrier--&gt;</span><br><span class="line">&lt;android.support.constraint.Barrier</span><br><span class="line">    android:id=&quot;@+id/barrier&quot;</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    app:barrierDirection=&quot;end&quot;</span><br><span class="line">    app:constraint_referenced_ids=&quot;btn_a,btn_b&quot;/&gt;</span><br><span class="line">&lt;!--最后，定义一个控件其约束依赖于 Barrier--&gt;</span><br><span class="line">&lt;Button</span><br><span class="line">    android:id=&quot;@+id/btn_c&quot;</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    app:layout_constraintLeft_toLeftOf=&quot;@id/barrier&quot;</span><br><span class="line">    app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">    android:layout_marginTop=&quot;200dp&quot;</span><br><span class="line">    android:layout_marginLeft=&quot;30dp&quot;</span><br><span class="line">    android:text=&quot;这是控件C&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>app:constraint_referenced_ids=&quot;btn_a,btn_b&quot;</code> 这句指定这个 Barrier 是用来控制 id 为 btn_a 和 btn_b 的两个控件。而 <code>app:barrierDirection=&quot;end&quot;</code> 这句等于在这两个控件的右端设置一道 “屏障”。<br>最后，我们让控件 C 依赖于这个 Barrier。注意这句：<code>app:layout_constraintLeft_toLeftOf=&quot;@id/barrier&quot;</code></p>
+<h2 id="Layer"><a href="#Layer" class="headerlink" title="Layer"></a>Layer</h2><p>Layer 的用法很简单，它的主要作用是给 ConstraintLayout 布局下的多个 View 添加<strong>共同的背景</strong>，也可用于添加<strong>共同的动画</strong>。(另外它是 ConstraintHelper 的一个子类，以后我们会再介绍)</p>
+<p>例如添加共同背景：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br><span class="line">    &lt;androidx.constraintlayout.helper.widget.Layer</span><br><span class="line">        android:id=&quot;@+id/layer&quot;</span><br><span class="line">        android:layout_marginTop=&quot;50dp&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:background=&quot;@color/colorPrimary&quot;</span><br><span class="line">        app:constraint_referenced_ids=&quot;ivImage,tvName&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;@id/ivImage&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line">        android:padding=&quot;10dp&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:id=&quot;@+id/ivImage&quot;</span><br><span class="line">        ...</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@id/layer&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/tvName&quot;</span><br><span class="line">        ...</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@id/ivImage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/layer_demo.png?raw=true" alt="layer demo"></p>
+<p>如果你想实现共同的动画，只需要将动画作用到 Layer 上就行了，这样它绑定的多个 View 就会有共同的动画效果。</p>
+<h2 id="Flow-流布局"><a href="#Flow-流布局" class="headerlink" title="Flow 流布局"></a>Flow 流布局</h2><p>Flow 是 VirtualLayout 同样也是实现于 ContraintHelper，和其他子类一样，通过 <code>constraint_referenced_ids</code> 来引用 ConstraintLayout 下的子控件。可以水平或垂直定位引用的控件，类似于链。<br>通过 <code>flow_wrapMode</code> 可以指定具体的排列方式，有三种模式（后面还会详解）：</p>
+<ul>
+<li><strong>wrap none</strong> : 简单地把 constraint_referenced_ids 里面的元素组成 chain, 即使空间不够<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/flow_wrap_none.png?raw=true" alt="wrap none"></li>
+<li><strong>wrap chain</strong> : 根据空间的大小和元素的大小组成一条或者多条 chain<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/flow_wrap_chain.png?raw=true" alt="wrap chain"></li>
+<li><strong>wrap aligned</strong> : wrap chain 类似，但是会对齐<br><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/flow_wrap_aligned.png?raw=true" alt="wrap aligned"></li>
+</ul>
+<p>VirtualLayout 是 ConstraintHelper 的实现，它也是普通的视图 View，所以你可以像其他 View 一样使用它。比如在它上面设置约束、给它设置 View 的一些属性（背景、padding 等）。<br>VirtualLayout 和其他 ViewGroup 之间的主要区别有：</p>
+<ul>
+<li>VirtualLayout 能够保持当前视图层次，不会添加嵌套</li>
+<li>因为上面的特征，VirtualLayout 和它引用的控件是同一视图层，这样它自身和它引用的控件都可以被其他控件用于约束、引用等</li>
+<li>VirtualLayout 允许动态修改行为属性（比如 Flow，调整方向）</li>
+</ul>
+<p><strong>flow_wrapMode = “none”</strong></p>
+<p>将引用的多个控件创建一个水平/垂直的链，它是 Flow 默认的展示模式，有以下属性：  </p>
+<ul>
+<li>flow_horizontalStyle = “spread | spread_inside | packed”</li>
+<li>flow_verticalStyle = “spread | spread_inside | packed”</li>
+<li>flow_horizontalBias = “float”</li>
+<li>flow_verticalBias = “float”</li>
+<li>flow_horizontalGap = “dimension”</li>
+<li>flow_verticalGap = “dimension”</li>
+<li>flow_horizontalAlign = “start | end | center”</li>
+<li>flow_verticalAlign = “top | bottom | center | baseline</li>
+</ul>
+<p>虽然引用的控件按照定义的方向以链的形式展示，但在其他方向维度上的布局展示方式由 <code>flow_horizontalAlign</code> 和 <code>flow_verticalAlign</code> 控制。</p>
+<p><strong>flow_wrapMode = “chain”</strong><br>创建的链和默认 wrap:none 模式相似，只是当引用的控件较多，一行/列 的空间不够展示时，后面的控件就会新添 一行/列 来展示，效果如前面简介中的图。<br>它具有的属性和 wrap:none 中的相同。另外还添加了一些特有的属性来为第一个链指定链的样式和链的偏差，这样就可以为 第一个链 相比于 最终创建的其他链 指定一些不同的链行为。</p>
+<ul>
+<li>flow_firstHorizontalStyle = “spread|spread_inside|packed”</li>
+<li>flow_firstVerticalStyle = “spread|spread_inside|packed”</li>
+<li>flow_firstHorizontalBias = “float”</li>
+<li>flow_firstVerticalBias = “float”</li>
+</ul>
+<p>最后一个重要的属性是 <code>flow_maxElementsWrap</code>，它指定一行/列控件的最大数量。</p>
+<p><strong>flow_wrapMode = “aligned”</strong><br>它与 WRAP_CHAIN 相同的 XML 属性，不同之处在于引用的控件将以一组行和列而不是链来布局。因此，它没有指定链样式和偏差的属性。</p>
+<hr>
+<h1 id="三：ConstraintHelper"><a href="#三：ConstraintHelper" class="headerlink" title="三：ConstraintHelper"></a>三：ConstraintHelper</h1><p>其实通过上面的教程，大家应该很熟悉 ConstraintHelper 了，至少对它的使用形式很熟悉了。通过 <code>app:constraint_referenced_ids</code> 来指定要反映特定效果的控件集合，用逗号分隔的 ID 来指定。</p>
+<p>官方已提供实现的类有以下几个，基本上前面都已经介绍过了：</p>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/ConstraintHelpers.png?raw=true" alt="ConstraintHelper 实现类"> </p>
+<p>ConstraintLayout2.0 除了提供以上几个已经实现的 ConstraintHelper 外，现在也支持自定义 ConstraintHelper 的方式。</p>
+<h2 id="自定义-ConstraintHelper"><a href="#自定义-ConstraintHelper" class="headerlink" title="自定义 ConstraintHelper"></a>自定义 ConstraintHelper</h2><p><strong>为什么需要自定义：</strong></p>
+<ul>
+<li>保持 View 的层级不变，不会像 ViewGroup 会增加 view 的层级；</li>
+<li>封装一些特定的行为，方便使用</li>
+<li>同一个 View 可以被多个 Helper 引用，可以很方便组合出一些复杂的效果</li>
+</ul>
+<p><strong>如何自定义</strong>  </p>
+<ul>
+<li>Helper 继承了 View，所以它本身也是 View；</li>
+<li>Helper 持有绑定的 View 的引用，所以可以获取到 View（getViews） 然后操作 view；</li>
+<li>提供了 onLayout 前后的方法回调</li>
+</ul>
+<p>Helper 主要的方法如下，基本上看名字就知道干嘛的，可以根据自己的需要来实现对应方法，不必全部：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public abstract class ConstraintHelper extends View &#123;</span><br><span class="line">    // 初始化方法，可以通过 attrs 获取属性的内容</span><br><span class="line">    protected void init(AttributeSet attrs)</span><br><span class="line">    public void onDraw(Canvas canvas)</span><br><span class="line">    public void validateParams()</span><br><span class="line">    // 执行于 onMeasure 开始的时候</span><br><span class="line">    public void updatePreLayout(ConstraintLayout container)</span><br><span class="line">    // onLayout 被调用的时候执行</span><br><span class="line">    public void updatePostLayout(ConstraintLayout container)</span><br><span class="line">    // onMeasure 每次调用都会执行</span><br><span class="line">    public void updatePostMeasure(ConstraintLayout container)</span><br><span class="line">    // 每当有变化时都会调用</span><br><span class="line">    public void updatePostConstraints(ConstraintLayout constainer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="动手自定义一个"><a href="#动手自定义一个" class="headerlink" title="动手自定义一个"></a>动手自定义一个</h2><p>我们来实现一个简单的 Helper，当图片展示的时候，我们使它有揭露动画的效果：</p>
+<p><img src="https://github.com/OCNYang/ConstraintLayout_Guide/blob/master/docs/ConstraintHelperDemo.jpeg?raw=true" alt="实现效果"></p>
+<p>CircularReveal 的效果我们使用 ViewAnimationUtils 提供的 <code>createCircularReveal</code> 方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static Animator createCircularReveal(View view,</span><br><span class="line">            int centerX,  int centerY, float startRadius, float endRadius)</span><br></pre></td></tr></table></figure>
+
+<p>下面来看自定义 Helper 的具体代码，很简单：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class CircularRevealHelper @JvmOverloads constructor(</span><br><span class="line">    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0</span><br><span class="line">) : ConstraintHelper(context, attrs, defStyleAttr) &#123;</span><br><span class="line">    override fun updatePostLayout(container: ConstraintLayout) &#123;</span><br><span class="line">        super.updatePostLayout(container)</span><br><span class="line">        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">            val views = getViews(container)</span><br><span class="line">            for (view in views) &#123;</span><br><span class="line">                val anim = ViewAnimationUtils.createCircularReveal(</span><br><span class="line">                    view, view.width / 2,</span><br><span class="line">                    view.height / 2, 0f,</span><br><span class="line">                    // Math 的方法</span><br><span class="line">                    hypot((view.height / 2).toDouble(), (view.width / 2).toDouble()).toFloat()</span><br><span class="line">                )</span><br><span class="line">                anim.duration = 3000</span><br><span class="line">                anim.start()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以通过自定义属性，来控制动画执行的时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;declare-styleable name=&quot;CircularRevealHelper&quot;&gt;</span><br><span class="line">        &lt;attr name=&quot;duration&quot; format=&quot;integer&quot; /&gt;</span><br><span class="line">    &lt;/declare-styleable&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在 Helper 获取属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 同时修改上面 updatePostLayout 方法，将 mDuration 赋值给 anim.duration</span><br><span class="line">var mDuration = 3000L</span><br><span class="line">override fun init(attrs: AttributeSet?) &#123;</span><br><span class="line">    super.init(attrs)</span><br><span class="line">    val typedArray =</span><br><span class="line">        context.obtainStyledAttributes(attrs, R.styleable.CircularRevealHelper)</span><br><span class="line">    mDuration = typedArray.getInt(R.styleable.CircularRevealHelper_duration, 3000).toLong()</span><br><span class="line">    typedArray.recycle()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后，直接在布局中使用就行了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    tools:context=&quot;.constraint_helper.ConstraintHelperActivity&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:id=&quot;@+id/iv1&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        android:scaleType=&quot;centerCrop&quot;</span><br><span class="line">        android:src=&quot;@drawable/ocnyang&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@+id/iv2&quot;</span><br><span class="line">        app:layout_constraintHeight_percent=&quot;0.2&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:id=&quot;@+id/iv2&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        android:scaleType=&quot;centerCrop&quot;</span><br><span class="line">        android:src=&quot;@drawable/ocnyang&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintHeight_percent=&quot;0.5&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/iv1&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;com.ocnyang.constraintlayout_guide.constraint_helper.CircularRevealHelper</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        app:constraint_referenced_ids=&quot;iv1,iv2&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/751158/">ConstraintLayout2.0 新特性詳解及實戰</a>  </li>
+<li><a href="https://qiita.com/emusute1212/items/7b34ec4562309d183458">【Android】ConstraintHelper の使い方</a>  </li>
+<li><a href="https://www.polidea.com/blog/android-constraintlayout-the-guide-to-constrainthelpers/">ConstraintHelpers 指南</a>  </li>
+<li><a href="https://www.jianshu.com/p/ed5183e44128">Android ConstraintLayout 进阶：Barrier 的使用及实例</a></li>
+<li><a href="https://blog.csdn.net/shulianghan/article/details/105982860">ConstraintLayout 引导线 Guideline 约束 (简介 | 可视化操作 | 属性 | 水平引导线 | 垂直引导线 | 开始结束尺寸 | 百分比位置 | 约束组件)</a></li>
+<li><a href="https://blog.csdn.net/Android725/article/details/107721625">Constraintlayout 2.0：你们要的更新</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Android 教程系列</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
