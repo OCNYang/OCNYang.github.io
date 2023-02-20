@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,9 +31,9 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="英文原文 Introduction to Glide, Image Loader Library for Android, recommended by Google摘录来自：Google推荐的图片加载库Glide介绍    在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 Glide 的图片加载库，作者是bumptech。这个库被广泛的运用在google的开源项目中，包括2014年goo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/glide1.png">
-<meta property="og:image" content="http://img.shedoor.net/glide2.jpg">
-<meta property="og:image" content="http://img.shedoor.net/glide3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide2.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide3.png">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445294447874.jpg">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445294918728.png">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427445294433243.png">
@@ -44,14 +44,14 @@
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427453389115686.png">
 <meta property="og:image" content="http://jcodecraeer.com/uploads/20150327/1427453390188737.png">
 <meta property="article:published_time" content="2016-08-09T18:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.986Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.157Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Glide">
 <meta property="article:tag" content="图片加载">
 <meta property="article:tag" content="第三方框架">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/glide1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide1.png">
 
 <link rel="canonical" href="http://ocnyang.com/2016/08/09/GlideAbout/">
 
@@ -253,7 +253,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
         <blockquote>
 <p>英文原文 <a target="_blank" rel="noopener" href="https://inthecheesefactory.com/blog/get-to-know-glide-recommended-by-google/en">Introduction to Glide, Image Loader Library for Android, recommended by Google</a><br>摘录来自：<a target="_blank" rel="noopener" href="http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0327/2650.html">Google推荐的图片加载库Glide介绍</a>  </p>
 </blockquote>
-<p>在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 Glide 的图片加载库，作者是bumptech。这个库被广泛的运用在google的开源项目中，包括2014年google I/O大会上发布的官方app。<br>它的成功让我非常感兴趣。我花了一整晚的时间把玩，决定分享一些自己的经验。在开始之前我想说，Glide和Picasso有90%的相似度，准确的说，就是Picasso的克隆版本。但是在细节上还是有不少区别的。</p>
+<p>在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 Glide 的图片加载库，作者是bumptech。这个库被广泛的运用在google的开源项目中，包括2014年google I&#x2F;O大会上发布的官方app。<br>它的成功让我非常感兴趣。我花了一整晚的时间把玩，决定分享一些自己的经验。在开始之前我想说，Glide和Picasso有90%的相似度，准确的说，就是Picasso的克隆版本。但是在细节上还是有不少区别的。</p>
 <span id="more"></span>
 
 <h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><p>Picasso和Glide都在jcenter上。在项目中添加依赖非常简单：</p>
@@ -330,8 +330,8 @@
     .load(&quot;http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg&quot;)  
     .into(ivImg);  
 </code></pre>
-<p>虽然两者看起来一样，但是Glide更易用，因为Glide的with方法不光接受Context，还接受Activity 和 Fragment，Context会自动的从他们获取。<br><img src="http://img.shedoor.net/glide1.png"><br>同时将Activity/Fragment作为with()参数的好处是：图片加载会和Activity/Fragment的生命周期保持一致，比如Paused状态在暂停加载，在Resumed的时候又自动重新加载。所以我建议传参的时候传递Activity 和 Fragment给Glide，而不是Context。  </p>
-<h3 id="默认Bitmap格式是RGB-565"><a href="#默认Bitmap格式是RGB-565" class="headerlink" title="默认Bitmap格式是RGB_565"></a>默认Bitmap格式是RGB_565</h3><p>下面是加载图片时和Picasso的比较（1920x1080 像素的图片加载到768x432的ImageView中）<br><img src="http://img.shedoor.net/glide2.jpg"><br>可以看到Glide加载的图片质量要差于Picasso（ps：我看不出来哈），为什么？这是因为Glide默认的Bitmap格式是RGB_565 ，比ARGB_8888格式的内存开销要小一半。下面是Picasso在ARGB8888下与Glide在RGB565下的内存开销图（应用自身占用了8m，因此以8为基准线比较）：<br><img src="http://img.shedoor.net/glide3.png"><br>如果你对默认的RGB_565效果还比较满意，可以不做任何事，但是如果你觉得难以接受，可以创建一个新的GlideModule将Bitmap格式转换到ARGB_8888：  </p>
+<p>虽然两者看起来一样，但是Glide更易用，因为Glide的with方法不光接受Context，还接受Activity 和 Fragment，Context会自动的从他们获取。<br><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide1.png"><br>同时将Activity&#x2F;Fragment作为with()参数的好处是：图片加载会和Activity&#x2F;Fragment的生命周期保持一致，比如Paused状态在暂停加载，在Resumed的时候又自动重新加载。所以我建议传参的时候传递Activity 和 Fragment给Glide，而不是Context。  </p>
+<h3 id="默认Bitmap格式是RGB-565"><a href="#默认Bitmap格式是RGB-565" class="headerlink" title="默认Bitmap格式是RGB_565"></a>默认Bitmap格式是RGB_565</h3><p>下面是加载图片时和Picasso的比较（1920x1080 像素的图片加载到768x432的ImageView中）<br><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide2.jpg"><br>可以看到Glide加载的图片质量要差于Picasso（ps：我看不出来哈），为什么？这是因为Glide默认的Bitmap格式是RGB_565 ，比ARGB_8888格式的内存开销要小一半。下面是Picasso在ARGB8888下与Glide在RGB565下的内存开销图（应用自身占用了8m，因此以8为基准线比较）：<br><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/glide3.png"><br>如果你对默认的RGB_565效果还比较满意，可以不做任何事，但是如果你觉得难以接受，可以创建一个新的GlideModule将Bitmap格式转换到ARGB_8888：  </p>
 <pre><code>public class GlideConfiguration implements GlideModule &#123;  
 
     @Override  
@@ -477,9 +477,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">导入库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Picasso"><span class="nav-number">1.1.</span> <span class="nav-text">Picasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Glide"><span class="nav-number">1.2.</span> <span class="nav-text">Glide</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Picasso-1"><span class="nav-number">2.1.</span> <span class="nav-text">Picasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Glide-1"><span class="nav-number">2.2.</span> <span class="nav-text">Glide</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4Bitmap%E6%A0%BC%E5%BC%8F%E6%98%AFRGB-565"><span class="nav-number">2.3.</span> <span class="nav-text">默认Bitmap格式是RGB_565</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Image质量的细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">磁盘缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">特性
-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">有什么Glide可以做而Picasso做不到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">库的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">总结
-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">相关资源</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">导入库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Picasso"><span class="nav-number">1.1.</span> <span class="nav-text">Picasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Glide"><span class="nav-number">1.2.</span> <span class="nav-text">Glide</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Picasso-1"><span class="nav-number">2.1.</span> <span class="nav-text">Picasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Glide-1"><span class="nav-number">2.2.</span> <span class="nav-text">Glide</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4Bitmap%E6%A0%BC%E5%BC%8F%E6%98%AFRGB-565"><span class="nav-number">2.3.</span> <span class="nav-text">默认Bitmap格式是RGB_565</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Image质量的细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">磁盘缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">有什么Glide可以做而Picasso做不到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">库的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">相关资源</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -550,7 +548,7 @@
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -560,7 +558,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

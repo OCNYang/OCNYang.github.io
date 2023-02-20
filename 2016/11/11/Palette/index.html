@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,18 +31,18 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="一些Support库随着Android Lollipop的发布而诞生了，其中就有Palette。这个库可以让你很轻松地从一幅图中抽取特征颜色，这在你希望界面的颜色风格适应指定图片时非常有用，它还会提供与指定颜色相搭配的字体颜色。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/Palette/20150827183303088.png">
-<meta property="og:image" content="http://img.shedoor.net/Palette/20150827183359416.png">
-<meta property="og:image" content="http://img.shedoor.net/Palette/tmpdir__16_6_28_18_41_09.gif">
-<meta property="og:image" content="http://img.shedoor.net/Palette/cd389848270623564.png">
-<meta property="og:image" content="http://img.shedoor.net/Palette/cd389848270623565.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/20150827183303088.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/20150827183359416.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/tmpdir__16_6_28_18_41_09.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/cd389848270623564.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/cd389848270623565.png">
 <meta property="article:published_time" content="2016-11-11T17:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.986Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.157Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Palette">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/Palette/20150827183303088.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/20150827183303088.png">
 
 <link rel="canonical" href="http://ocnyang.com/2016/11/11/Palette/">
 
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -350,7 +350,7 @@ Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() &#123;
 <li>light muted(柔和色中的亮色)</li>
 </ul>
 <p>借一张别人的图，给大家一种更直观的感受。  </p>
-<p><img src="http://img.shedoor.net/Palette/20150827183303088.png" alt="Palette解析六个主颜色">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/20150827183303088.png" alt="Palette解析六个主颜色">  </p>
 <h3 id="获取提取的颜色"><a href="#获取提取的颜色" class="headerlink" title="获取提取的颜色"></a>获取提取的颜色</h3><p>你获取Palette对象之后，可以通过以下这些内置getter函数直接获取这六个颜色。你需要传入默认颜色防止Palette无法解析到指定颜色种类，返回的类型是24位RGB颜色数值。</p>
 <pre><code>Palette palette = Palette.generate(myBitmap);
 int vibrant = palette.getVibrantColor(0x000000);
@@ -391,19 +391,19 @@ getTitleTextColor(): 标题文本的颜色
 <pre><code>List&lt;Palette.Swatch&gt; swatches = palette.getSwatches();
 </code></pre>
 <p>这里是一个Palette获取所有Swatch的例子，里面展示了它们分别在图像中所占的比例：</p>
-<p><img src="http://img.shedoor.net/Palette/20150827183359416.png">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/20150827183359416.png">  </p>
 <h3 id="关于颜色种类的值size"><a href="#关于颜色种类的值size" class="headerlink" title="关于颜色种类的值size"></a>关于颜色种类的值size</h3><p>在上面生成Palette的时候，你可能注意到了可以设置Palette的size。size越大，花费的时间越长，而越小，可以选择的色彩也越小。最佳的选择是根据image的用途：  </p>
 <ul>
 <li>头像之类的，size最好在24-32之间；  </li>
 <li>风景大图之类的，size差不多在8-16；  </li>
-<li>默认是16.  </li>
+<li>默认是16.</li>
 </ul>
 <h2 id="Palette实例"><a href="#Palette实例" class="headerlink" title="Palette实例"></a>Palette实例</h2><p>Palette经常用于和ViewPager，Fragment搭配使用，当我们的Pager切换时伴随着Fragment的变化，而Fragment里的内容一般是不同的，所以每个Fragment里的一般视觉效果也是不同的，所以我们可以用Palette来去提取Fragment中的主色调，把这个主色调用于整体的UI风格。</p>
-<p><img src="http://img.shedoor.net/Palette/tmpdir__16_6_28_18_41_09.gif" alt="效果图">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/tmpdir__16_6_28_18_41_09.gif" alt="效果图">  </p>
 <p>这个例子可以参考这篇博客：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/9fcf316031ba">http://www.jianshu.com/p/9fcf316031ba</a><br>Demo的地址：<a target="_blank" rel="noopener" href="https://github.com/loonggg/MaterialDesignDemo">https://github.com/loonggg/MaterialDesignDemo</a>  </p>
 <p>另外一个例子：  </p>
-<p><img src="http://img.shedoor.net/Palette/cd389848270623564.png"> <img src="http://img.shedoor.net/Palette/cd389848270623565.png">  </p>
-<p>详情参考这篇博客：<a target="_blank" rel="noopener" href="http://www.itdadao.com/articles/c15a485862p0.html">http://www.itdadao.com/articles/c15a485862p0.html</a><br>Demo下载地址：<a target="_blank" rel="noopener" href="http://download.csdn.net/detail/breeze_wf/9273313">http://download.csdn.net/detail/breeze_wf/9273313</a>  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/cd389848270623564.png"> <img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/Palette/cd389848270623565.png">  </p>
+<p>详情参考这篇博客：<a target="_blank" rel="noopener" href="http://www.itdadao.com/articles/c15a485862p0.html">http://www.itdadao.com/articles/c15a485862p0.html</a><br>Demo下载地址：<a target="_blank" rel="noopener" href="http://download.csdn.net/detail/breeze_wf/9273313">http://download.csdn.net/detail/breeze_wf&#x2F;9273313</a>  </p>
 <blockquote>
 <p>关于更多Palette的详细用法，可以查看<a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html">官方API文档</a>。</p>
 </blockquote>
@@ -581,7 +581,7 @@ getTitleTextColor(): 标题文本的颜色
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -591,7 +591,7 @@ getTitleTextColor(): 标题文本的颜色
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,19 +31,19 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="Flexbox简介简单来说 Flexbox 是属于web前端领域CSS的一种布局方案，是2009年W3C提出了一种新的布局方案，可以简便、完整、响应式地实现各种页面布局，并且 React Native 也是使用的 Flex 布局。谷歌将其引入以提高复杂布局的能力。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/1.png">
-<meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/2.png">
-<meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/3.png">
-<meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/4.png">
-<meta property="og:image" content="http://img.shedoor.net/flexBoxLayoutAbout/5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/5.png">
 <meta property="article:published_time" content="2016-08-24T15:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.986Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.157Z">
 <meta property="article:author" content="OCNYang">
-<meta property="article:tag" content="Android控件">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="Android控件">
 <meta property="article:tag" content="FlexboxLayout">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/flexBoxLayoutAbout/1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/1.png">
 
 <link rel="canonical" href="http://ocnyang.com/2016/08/24/FlexboxLayoutAbout/">
 
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,7 +300,7 @@
 <span id="more"></span>
 
 <p><a target="_blank" rel="noopener" href="https://github.com/google/flexbox-layout">Github 源码传送门</a></p>
-<h2 id="Flexbox的布局和相关名称"><a href="#Flexbox的布局和相关名称" class="headerlink" title="Flexbox的布局和相关名称"></a>Flexbox的布局和相关名称</h2><p><img src="http://img.shedoor.net/flexBoxLayoutAbout/1.png">  </p>
+<h2 id="Flexbox的布局和相关名称"><a href="#Flexbox的布局和相关名称" class="headerlink" title="Flexbox的布局和相关名称"></a>Flexbox的布局和相关名称</h2><p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/1.png">  </p>
 <p>上图模型中包含以下概念</p>
 <ol>
 <li>flex container 父容器，用来包含子元素，对应于FlexboxLayout类。</li>
@@ -308,7 +308,7 @@
 <li>main axis 主轴，子元素通过主轴来排列，如上图是从左往右。</li>
 <li>corss axis 副轴，垂直于主轴的第二个轴</li>
 <li>main start,main end 父容器中主轴开始和结束的边界，子元素从main start往main end的方向排列（如果主轴是水平，起点在左端，main start,main end 用来控制子元素从左向右排列）</li>
-<li>cross start,corss end 父容器中副轴开始和结束的边界。子元素从cross start往cross end方向排列(如果主轴是水平的，那么副轴就是垂直的，假设如上图，cross start 在上，cross end 在下，那么子元素就是从上往下排列)  </li>
+<li>cross start,corss end 父容器中副轴开始和结束的边界。子元素从cross start往cross end方向排列(如果主轴是水平的，那么副轴就是垂直的，假设如上图，cross start 在上，cross end 在下，那么子元素就是从上往下排列)</li>
 </ol>
 <h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>使用方式很简单，只需要添加以下依赖：</p>
 <blockquote>
@@ -361,15 +361,15 @@ view.setLayoutParams(lp);
 <li>row（默认值）：主轴为水平方向，起点在左端。</li>
 <li>row-reverse：主轴为水平方向，起点在右端。</li>
 <li>column：主轴为垂直方向，起点在上沿。</li>
-<li>column-reverse：主轴为垂直方向，起点在下沿。  </li>
+<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
 </ul>
 <p>而副轴是和主轴垂直的方向，起点相同。  </p>
 <h4 id="flexWrap"><a href="#flexWrap" class="headerlink" title="flexWrap"></a>flexWrap</h4><p>控制单行和多行，以及副轴的方向。默认情况下 Flex 跟 LinearLayout 一样，都是不带换行排列的，但是flexWrap属性可以支持换行排列。这个也比 LinearLayout 吊啊有三个值：  </p>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/2.png">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/2.png">  </p>
 <ul>
 <li>nowrap (default) 不换行</li>
 <li>wrap 换行</li>
-<li>wrap_reverse 副轴方向置反  </li>
+<li>wrap_reverse 副轴方向置反</li>
 </ul>
 <h4 id="justifyContent"><a href="#justifyContent" class="headerlink" title="justifyContent"></a>justifyContent</h4><p>justifyContent属性定义了项目在主轴上的对齐方式。  </p>
 <ul>
@@ -377,7 +377,7 @@ view.setLayoutParams(lp);
 <li>flex-end：右对齐</li>
 <li>center： 居中</li>
 <li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。  </li>
+<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
 </ul>
 <h4 id="alignItems"><a href="#alignItems" class="headerlink" title="alignItems"></a>alignItems</h4><p>控制沿副轴对齐(单行起作用)</p>
 <ul>
@@ -387,7 +387,7 @@ view.setLayoutParams(lp);
 <li>center：交叉轴的中点对齐。</li>
 <li>baseline: 项目的第一行文字的基线对齐。</li>
 </ul>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/3.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/3.png"></p>
 <h4 id="alignContent"><a href="#alignContent" class="headerlink" title="alignContent"></a>alignContent</h4><p>alignContent属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。  </p>
 <ul>
 <li>stretch（default）：轴线占满整个交叉轴。</li>
@@ -395,12 +395,12 @@ view.setLayoutParams(lp);
 <li>flex-end：与交叉轴的终点对齐。</li>
 <li>center：与交叉轴的中点对齐。</li>
 <li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。  </li>
+<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
 </ul>
 <h3 id="子元素的属性"><a href="#子元素的属性" class="headerlink" title="子元素的属性"></a>子元素的属性</h3><h4 id="layout-order"><a href="#layout-order" class="headerlink" title="layout_order"></a>layout_order</h4><p>控制子元素布局的顺序，默认值为1，顺序为XML中元素的顺序.默认情况下子元素的排列方式按照文档流的顺序依次排序，而order属性可以控制排列的顺序，负值在前，正值灾后，按照从小到大的顺序依次排列。  </p>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/4.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/4.png"></p>
 <h4 id="layout-flexGrow"><a href="#layout-flexGrow" class="headerlink" title="layout_flexGrow"></a>layout_flexGrow</h4><p>layout_flexGrow 属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。一张图看懂。跟 LinearLayout 中的weight属性一样。  </p>
-<p><img src="http://img.shedoor.net/flexBoxLayoutAbout/5.png"><br>如果所有项目的 layout_flexGrow  属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的 layout_flexGrow  属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/flexBoxLayoutAbout/5.png"><br>如果所有项目的 layout_flexGrow  属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的 layout_flexGrow  属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。  </p>
 <h4 id="layout-flexShrink"><a href="#layout-flexShrink" class="headerlink" title="layout_flexShrink"></a>layout_flexShrink</h4><p>layout_flexShrink  属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。  </p>
 <h4 id="layout-alignSelf"><a href="#layout-alignSelf" class="headerlink" title="layout_alignSelf"></a>layout_alignSelf</h4><p>允许单个元素有不一样的对齐方式，会覆盖align-item,除auto外，其他取值都和align-item的含义一致。<br>默认值为auto，表示继承父元素的 alignItems 属性，如果没有父元素，则等同于stretch。  </p>
 <ul>
@@ -415,7 +415,7 @@ view.setLayoutParams(lp);
 <li>没有flex-flow属性 ：因为没必要</li>
 <li>没有flex属性：同样没必要</li>
 <li>layout_flexBasisPercent 替代了flexBasis。如果子元素宽高确定了，可以指定具体值或百分比，如果是包裹内容，那只能是百分比</li>
-<li>不支持min-width和min-height：因为谷歌还没实现  </li>
+<li>不支持min-width和min-height：因为谷歌还没实现</li>
 </ol>
 <blockquote>
 <p>相关链接：<br><a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a><br><a target="_blank" rel="noopener" href="https://github.com/google/flexbox-layout/wiki">https://github.com/google/flexbox-layout/wiki</a><br><a target="_blank" rel="noopener" href="https://blog.stylingandroid.com/flexboxlayout-part-1/">https://blog.stylingandroid.com/flexboxlayout-part-1/</a></p>
@@ -449,8 +449,8 @@ view.setLayoutParams(lp);
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Android%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> Android控件</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Android%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> Android控件</a>
               <a href="/tags/FlexboxLayout/" rel="tag"><i class="fa fa-tag"></i> FlexboxLayout</a>
           </div>
 
@@ -598,7 +598,7 @@ view.setLayoutParams(lp);
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -608,7 +608,7 @@ view.setLayoutParams(lp);
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

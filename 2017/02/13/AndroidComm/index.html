@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,17 +31,17 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="一文详尽 Android 通信：四大组件之间 &amp; 进程间 &amp; 线程间 &amp; 多个App间">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/androidcomm.jpg">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/intent-chooser.png">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android_comm/EventBus-Publish-Subscribe.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/androidcomm.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/intent-chooser.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/EventBus-Publish-Subscribe.png">
 <meta property="article:published_time" content="2017-02-13T22:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.982Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.153Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/ocnyang/android_comm/androidcomm.jpg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/androidcomm.jpg">
 
 <link rel="canonical" href="http://ocnyang.com/2017/02/13/AndroidComm/">
 
@@ -243,7 +243,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +275,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>19k</span>
+              <span>20k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -297,7 +297,7 @@
         <blockquote>
 <p>一文详尽 Android 通信：四大组件之间 &amp; 进程间 &amp; 线程间 &amp; 多个App间</p>
 </blockquote>
-<p><img src="http://img.shedoor.net/ocnyang/android_comm/androidcomm.jpg">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/androidcomm.jpg">  </p>
 <span id="more"></span>
 
 <h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><p><strong>看完本文能收获什么？按目录索引，你可以学习到：</strong></p>
@@ -334,7 +334,7 @@ startActivityForResult(new Intent(),FLAG,new Bundle());
 <p>从参数列表就可以总结出来，有Intent，和Bundle,可以传递8种基本数据类型和可序列化的数据类型，比如字符串和字节数组。提到可序列化，就引发 Intent和Bundle 的局限性了:</p>
 <ol>
 <li>Intent Bundle 无法传递“不可序列化”的数据，比如Bitmap，InputStream，解决办法有很多种，最简单的就是将“不可序列化”的对象，转换成字节数组，这里因为主要是讲解通信，所以不展开讲了。  </li>
-<li>Intent Bundle 能传递的数据大小在40K以内 。  </li>
+<li>Intent Bundle 能传递的数据大小在40K以内 。</li>
 </ol>
 <blockquote>
 <p>很多人不理解为什么把Intent和Bundle放在一起谈，因为Intent 底层存储信息的原理也是通过Bundle存储！</p>
@@ -540,10 +540,10 @@ public class HeadlinesFragment extends ListFragment &#123;
 </code></pre>
 <p>下面我写了一个实例来供大家理解：</p>
 <p>各个类的联系图：</p>
-<p><img src="http://img.shedoor.net/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/%E9%80%9A%E4%BF%A1fragment.jpg">  </p>
 <p>这里写图片描述</p>
 <p>效果如下：</p>
-<p><img src="http://img.shedoor.net/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/Fragment%E9%80%9A%E4%BF%A1_gif.gif">  </p>
 <p>这里写图片描述</p>
 <p><a target="_blank" rel="noopener" href="http://download.csdn.net/detail/chivalrousman/9545616">Fragment 通信 Demo 实例</a>  </p>
 <h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="Service-与-Activity-通信"><a href="#Service-与-Activity-通信" class="headerlink" title="Service 与 Activity 通信"></a>Service 与 Activity 通信</h3><p>主要是如何获得Service实例的问题<br>总结来说两步：</p>
@@ -553,91 +553,8 @@ public class HeadlinesFragment extends ListFragment &#123;
 <li><p>在Activity中实现ServiceConnection ，获取到Binder对象，再通过Binder获取Service</p>
 <blockquote>
 </blockquote>
-<p> public class LocalService extends Service {</p>
-<pre><code> // 传递给客户端的Binder
- private final IBinder mBinder = new LocalBinder();
- //构造Random对象
- private final Random mGenerator = new Random();
-
- /**
-  * 这个类提供给客户端  ，因为Service总是运行在同一个进程中的
-  */
- public class LocalBinder extends Binder &#123;
-     LocalService getService() &#123;
-         // 当客户端回调的时候，返回LoacalService实例
-         return LocalService.this;
-     &#125;
- &#125;
-
- @Override
- public IBinder onBind(Intent intent) &#123;
-     return mBinder;
- &#125;
-
- /**交给客户端回调的方法 */
- public int getRandomNumber() &#123;
-   return mGenerator.nextInt(100);
- &#125;
-</code></pre>
-<p> }</p>
-<p> public class BindingActivity extends Activity {</p>
-<pre><code> LocalService mService;
- boolean mBound = false;
-
- @Override
- protected void onCreate(Bundle savedInstanceState) &#123;
-     super.onCreate(savedInstanceState);
-     setContentView(R.layout.main);
- &#125;
-
- @Override
- protected void onStart() &#123;
-     super.onStart();
-     // 绑定 LocalService
-     Intent intent = new Intent(this, LocalService.class);
-     bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
- &#125;
-
- @Override
- protected void onStop() &#123;
-     super.onStop();
-     // 解绑 service
-     if (mBound) &#123;
-         unbindService(mConnection);
-         mBound = false;
-     &#125;
- &#125;
-
- /**button已经通过 android:onClick (attribute) 设置此方法响应用户click*/
- public void onButtonClick(View v) &#123;
-     if (mBound) &#123;
-         // 回调 LocalService的方法.
-         //因为在主线程中刷新UI，可能会造成线程阻塞，这里只是为了测试
-         int num = mService.getRandomNumber();
-         Toast.makeText(this, &quot;number: &quot; + num, Toast.LENGTH_SHORT).show();
-     &#125;
- &#125;
-
- /**定义通过bindService 回调的Binder */
- private ServiceConnection mConnection = new ServiceConnection() &#123;
-
-     @Override
-     public void onServiceConnected(ComponentName className,
-             IBinder service) &#123;
-        //先通过Binder获得Service的内部类 LoacalBinder
-         LocalBinder binder = (LocalBinder) service;
-          // 现在可以获得service对象了
-         mService = binder.getService();
-         mBound = true;
-     &#125;
-
-     @Override
-     public void onServiceDisconnected(ComponentName arg0) &#123;
-         mBound = false;
-     &#125;
- &#125;;
-</code></pre>
-<p> }</p>
+<p> public class LocalService extends Service {<br> &#x2F;&#x2F; 传递给客户端的Binder<br> private final IBinder mBinder &#x3D; new LocalBinder();<br> &#x2F;&#x2F;构造Random对象<br> private final Random mGenerator &#x3D; new Random();<br><br> &#x2F;**<br>  * 这个类提供给客户端  ，因为Service总是运行在同一个进程中的<br>  *&#x2F;<br> public class LocalBinder extends Binder {<br>     LocalService getService() {<br>         &#x2F;&#x2F; 当客户端回调的时候，返回LoacalService实例<br>         return LocalService.this;<br>     }<br> }<br><br> @Override<br> public IBinder onBind(Intent intent) {<br>     return mBinder;<br> }<br><br> &#x2F;**交给客户端回调的方法 *&#x2F;<br> public int getRandomNumber() {<br>   return mGenerator.nextInt(100);<br> }<br> }</p>
+<p> public class BindingActivity extends Activity {<br> LocalService mService;<br> boolean mBound &#x3D; false;<br><br> @Override<br> protected void onCreate(Bundle savedInstanceState) {<br>     super.onCreate(savedInstanceState);<br>     setContentView(R.layout.main);<br> }<br><br> @Override<br> protected void onStart() {<br>     super.onStart();<br>     &#x2F;&#x2F; 绑定 LocalService<br>     Intent intent &#x3D; new Intent(this, LocalService.class);<br>     bindService(intent, mConnection, Context.BIND_AUTO_CREATE);<br> }<br><br> @Override<br> protected void onStop() {<br>     super.onStop();<br>     &#x2F;&#x2F; 解绑 service<br>     if (mBound) {<br>         unbindService(mConnection);<br>         mBound &#x3D; false;<br>     }<br> }<br><br> &#x2F;*<em>button已经通过 android:onClick (attribute) 设置此方法响应用户click</em>&#x2F;<br> public void onButtonClick(View v) {<br>     if (mBound) {<br>         &#x2F;&#x2F; 回调 LocalService的方法.<br>         &#x2F;&#x2F;因为在主线程中刷新UI，可能会造成线程阻塞，这里只是为了测试<br>         int num &#x3D; mService.getRandomNumber();<br>         Toast.makeText(this, “number: “ + num, Toast.LENGTH_SHORT).show();<br>     }<br> }<br><br> &#x2F;**定义通过bindService 回调的Binder *&#x2F;<br> private ServiceConnection mConnection &#x3D; new ServiceConnection() {<br><br>     @Override<br>     public void onServiceConnected(ComponentName className,<br>             IBinder service) {<br>        &#x2F;&#x2F;先通过Binder获得Service的内部类 LoacalBinder<br>         LocalBinder binder &#x3D; (LocalBinder) service;<br>          &#x2F;&#x2F; 现在可以获得service对象了<br>         mService &#x3D; binder.getService();<br>         mBound &#x3D; true;<br>     }<br><br>     @Override<br>     public void onServiceDisconnected(ComponentName arg0) {<br>         mBound &#x3D; false;<br>     }<br> };<br> }</p>
 </li>
 </ol>
 <p>除了这种回调的方式外</p>
@@ -671,7 +588,7 @@ public class HeadlinesFragment extends ListFragment &#123;
 <li>创建工作队列，用于将一个 Intent 逐一传递给 onHandleIntent() 实现，这样我们就永远不必担心多线程问题。</li>
 <li>在处理完所有启动请求后停止服务，因此我们不必调用 stopSelf()。</li>
 <li>提供 onBind() 的默认实现（返回 null）。</li>
-<li>提供 onStartCommand() 的默认实现，可将 Intent 依次发送到工作队列和 onHandleIntent() 实现。<br>综上所述，您只需实现 onHandleIntent() 来完成客户端提供的工作即可。（不过，我们还需要为服务提供小型构造函数。）  </li>
+<li>提供 onStartCommand() 的默认实现，可将 Intent 依次发送到工作队列和 onHandleIntent() 实现。<br>综上所述，您只需实现 onHandleIntent() 来完成客户端提供的工作即可。（不过，我们还需要为服务提供小型构造函数。）</li>
 </ul>
 <p>以下是 IntentService 的实现示例：</p>
 <pre><code>public class HelloIntentService extends IntentService &#123;
@@ -772,7 +689,7 @@ public class HeadlinesFragment extends ListFragment &#123;
 <h2 id="多个App间的通信"><a href="#多个App间的通信" class="headerlink" title="多个App间的通信"></a>多个App间的通信</h2><p>首先我们要知道以下两点：</p>
 <ol>
 <li>Android 应用一般具有若干个Activity。每个Activity显示一个用户界面，用户可通过该界面执行特定任务（比如，查看地图或拍照）。要将用户从一个Activity转至另一Activity，应用必须使用 Intent 定义做某事的“意向”。 当我们使用诸如 startActivity() 的方法将 Intent 传递至系统时，系统会使用 Intent 识别和启动相应的应用组件。使用意向甚至可以让我们的应用开始另一个应用中包含的Activity。</li>
-<li>Intent 可以为 显式 以便启动特定组件（特定的 Activity 实例）或隐式 以便启动处理意向操作（比如“拍摄照片”）的任何组件。  </li>
+<li>Intent 可以为 显式 以便启动特定组件（特定的 Activity 实例）或隐式 以便启动处理意向操作（比如“拍摄照片”）的任何组件。</li>
 </ol>
 <h3 id="1-向另一个应用发送用户"><a href="#1-向另一个应用发送用户" class="headerlink" title="1. 向另一个应用发送用户"></a>1. 向另一个应用发送用户</h3><p>Android最重要的功能之一，是可以操作其他应用，比如在我们的应用中，需要使用地图显示公司地址，我们无序在地图应用程序中构建Activity，而是直接创建Intent查看 地址的请求，Android系统之后启动 可以在地图上显示 地址的应用。</p>
 <p><strong>1) 构建隐式的意图</strong></p>
@@ -826,7 +743,7 @@ if (isIntentSafe) &#123;
 </code></pre>
 <p><strong>4) 显示应用选择器</strong></p>
 <p>比如我们要完成 <strong>分享操作</strong>，用户可以使用多个App完成分享，我们应明确显示选择器对话框，如图</p>
-<p><img src="http://img.shedoor.net/ocnyang/android_comm/intent-chooser.png" alt="intent-chooser">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/intent-chooser.png" alt="intent-chooser">  </p>
 <p>要显示选择器，需要使用Intent的createChooser()方法 创建Intent，并将其传递至 startActivity()</p>
 <pre><code>Intent intent = new Intent(Intent.ACTION_SEND);
 ...
@@ -904,7 +821,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) &#
 &lt;/activity&gt;
 </code></pre>
 <p>定义操作，通常是系统定义的值之一，比如ACTION_SEND 或 ACTION_VIEW。</p>
-<p>定义与Intent关联的数据，只需通过 android:mimeType 指定我们接收的数据类型，比如text/plain 或 image/jpeg。</p>
+<p>定义与Intent关联的数据，只需通过 android:mimeType 指定我们接收的数据类型，比如text&#x2F;plain 或 image&#x2F;jpeg。</p>
 <p>所有的隐式Intent，都使用 CATEGORY_DEFAULT 进行定义</p>
 <h3 id="4-处理Activity中的Intent"><a href="#4-处理Activity中的Intent" class="headerlink" title="4. 处理Activity中的Intent"></a>4. 处理Activity中的Intent</h3><p>当Activity开始时，调用getIntent检索开始Activity的Intent，</p>
 <pre><code>@Override
@@ -935,7 +852,7 @@ finish();
 <p>启动 Activity 有 startActivity() 和 startActivityForResult() 两种启动方式，返回结果的形式id偶有 setResult() 吗？</p>
 <p>如果开启当前Activity的Intent可能需要结果，只需调用 setResult()。 如果原始 Activity 已调用 startActivityForResult()，则系统将向其传递您提供给 setResult() 的结果；否则，会忽略结果。</p>
 <h2 id="使用大型开源框架完成组件间的通信"><a href="#使用大型开源框架完成组件间的通信" class="headerlink" title="使用大型开源框架完成组件间的通信"></a>使用大型开源框架完成组件间的通信</h2><p>Github上非常火的两大通信组件EventBus和otto：</p>
-<h3 id="1-EventBus"><a href="#1-EventBus" class="headerlink" title="1. EventBus"></a>1. EventBus</h3><p>EventBus 是一个 Android 事件发布/订阅框架，通过解耦发布者和订阅者简化 Android 事件传递，这里的事件可以理解为消息，本文中统一称为事件。事件传递既可用于 Android 四大组件间通讯，也可以用户异步线程和主线程间通讯等等。</p>
+<h3 id="1-EventBus"><a href="#1-EventBus" class="headerlink" title="1. EventBus"></a>1. EventBus</h3><p>EventBus 是一个 Android 事件发布&#x2F;订阅框架，通过解耦发布者和订阅者简化 Android 事件传递，这里的事件可以理解为消息，本文中统一称为事件。事件传递既可用于 Android 四大组件间通讯，也可以用户异步线程和主线程间通讯等等。</p>
 <p>传统的事件传递方式包括：Handler、BroadCastReceiver、Interface 回调，相比之下 EventBus 的优点是代码简洁，使用简单，并将事件发布和订阅充分解耦。</p>
 <p><strong>1）概念：</strong></p>
 <p>事件(Event)：又可称为消息，本文中统一用事件表示。其实就是一个对象，可以是网络请求返回的字符串，也可以是某个开关状态等等。事件类型(EventType)指事件所属的 Class。</p>
@@ -943,7 +860,7 @@ finish();
 <p>订阅者(Subscriber)：订阅某种事件类型的对象。当有发布者发布这类事件后，EventBus 会执行订阅者的 onEvent 函数，这个函数叫事件响应函数。订阅者通过 register 接口订阅某个事件类型，unregister 接口退订。订阅者存在优先级，优先级高的订阅者可以取消事件继续向优先级低的订阅者分发，默认所有订阅者优先级都为 0。</p>
 <p>发布者(Publisher)：发布某事件的对象，通过 post 接口发布事件。</p>
 <p>本项目较为简单，总体设计和流程图：</p>
-<p><img src="http://img.shedoor.net/ocnyang/android_comm/EventBus-Publish-Subscribe.png" alt="EventBus-Publish-Subscribe">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android_comm/EventBus-Publish-Subscribe.png" alt="EventBus-Publish-Subscribe">  </p>
 <p>使用方式：</p>
 <p>build.gradle 中加入依赖</p>
 <pre><code>compile &#39;org.greenrobot:eventbus:3.0.0&#39;
@@ -1183,7 +1100,7 @@ public void onStop() &#123;
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1193,7 +1110,7 @@ public void onStop() &#123;
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

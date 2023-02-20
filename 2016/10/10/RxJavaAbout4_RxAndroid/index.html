@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -32,7 +32,7 @@
 <meta property="og:description" content="在第1，2，3篇中，我大概介绍了RxJava是怎么使用的。下面我会介绍如何在Android中使用RxJava.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-10-10T12:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.986Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.157Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="第三方框架">
@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -350,10 +350,10 @@ public Observable&lt;Object&gt; newMethod() &#123;
 <h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>我把最难的部分留在了最后。如何处理Activity的生命周期？主要就是两个问题：  </p>
 <ol>
 <li>在configuration改变（比如转屏）之后继续之前的Subscription。<br>比如你使用Retrofit发出了一个REST请求，接着想在listview中展示结果。如果在网络请求的时候用户旋转了屏幕怎么办？你当然想继续刚才的请求，但是怎么搞？  </li>
-<li>Observable持有Context导致的内存泄露<br>这个问题是因为创建subscription的时候，以某种方式持有了context的引用，尤其是当你和view交互的时候，这太容易发生！如果Observable没有及时结束，内存占用就会越来越大。   </li>
+<li>Observable持有Context导致的内存泄露<br>这个问题是因为创建subscription的时候，以某种方式持有了context的引用，尤其是当你和view交互的时候，这太容易发生！如果Observable没有及时结束，内存占用就会越来越大。</li>
 </ol>
 <p>不幸的是，没有银弹来解决这两个问题，但是这里有一些指导方案你可以参考。</p>
-<p><strong>第一个问题的解决方案</strong> 就是使用RxJava内置的缓存机制，这样你就可以对同一个Observable对象执行 unsubscribe/resubscribe，却不用重复运行得到Observable的代码。cache() (或者 replay())会继续执行网络请求（甚至你调用了unsubscribe也不会停止）。这就是说你可以在Activity重新创建的时候从 cache()的返回值中创建一个新的Observable对象。  </p>
+<p><strong>第一个问题的解决方案</strong> 就是使用RxJava内置的缓存机制，这样你就可以对同一个Observable对象执行 unsubscribe&#x2F;resubscribe，却不用重复运行得到Observable的代码。cache() (或者 replay())会继续执行网络请求（甚至你调用了unsubscribe也不会停止）。这就是说你可以在Activity重新创建的时候从 cache()的返回值中创建一个新的Observable对象。  </p>
 <pre><code>Observable&lt;Photo&gt; request = service.getUserPhoto(id).cache();
 Subscription sub = request.subscribe(photo -&gt; handleUserPhoto(photo));
 
@@ -381,7 +381,7 @@ protected void onDestroy() &#123;
     mCompositeSubscription.unsubscribe();
 &#125;  
 </code></pre>
-<p>你可以在Activity/Fragment的基类里创建一个CompositeSubscription对象，在子类中使用它。  </p>
+<p>你可以在Activity&#x2F;Fragment的基类里创建一个CompositeSubscription对象，在子类中使用它。  </p>
 <p>注意! 一旦你调用了 CompositeSubscription.unsubscribe()，这个CompositeSubscription对象就不可用了, 如果你还想使用CompositeSubscription，就必须在创建一个新的对象了。  </p>
 <p>两个问题的解决方案都需要添加额外的代码，如果谁有更好的方案，欢迎告诉我。  </p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>RxJava还是一个很新的项目，RxAndroid更是。RxAndroid目前还在活跃开发中，也没有多少好的例子。可能一年之后我的一些建议就会被看做过时了。</p>
@@ -563,7 +563,7 @@ protected void onDestroy() &#123;
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -573,7 +573,7 @@ protected void onDestroy() &#123;
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,18 +31,18 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="一、Shortcuts 介绍Android 7.1 允许 App 自定义 Shortcuts，类似 iOS 的 3D touch。通过在桌面长按 App 弹出 Shortcut 列表，点击某个 Shortcut 快速进入某项操作，同时 Shortcut 可以拖动到桌面进行固定，如下图：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts.jpg">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-3.jpg">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-4.jpg">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts-3.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts-4.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts-5.png">
 <meta property="article:published_time" content="2016-11-23T16:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.982Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.153Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Android教程系列">
 <meta property="article:tag" content="Android7新特性">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts.jpg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts.jpg">
 
 <link rel="canonical" href="http://ocnyang.com/2016/11/23/Android7Shortcuts/">
 
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,7 +296,7 @@
 
       
         <h2 id="一、Shortcuts-介绍"><a href="#一、Shortcuts-介绍" class="headerlink" title="一、Shortcuts 介绍"></a>一、Shortcuts 介绍</h2><p>Android 7.1 允许 App 自定义 Shortcuts，类似 iOS 的 3D touch。通过在桌面长按 App 弹出 Shortcut 列表，点击某个 Shortcut 快速进入某项操作，同时 Shortcut 可以拖动到桌面进行固定，如下图：  </p>
-<p><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts.jpg" alt="android-7.1-app-shortcuts">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts.jpg" alt="android-7.1-app-shortcuts">  </p>
 <span id="more"></span>
 
 <h3 id="1-Shortcuts-作用及分类"><a href="#1-Shortcuts-作用及分类" class="headerlink" title="1. Shortcuts 作用及分类"></a>1. Shortcuts 作用及分类</h3><p>Shortcuts 为 App 常用操作提供了快速访问的方式，如上面日历的新建提醒。  </p>
@@ -347,7 +347,7 @@
 <li>icon为 shortcut 的 icon，在列表展示和拖动到桌面时显示需要，可选字段。  </li>
 <li>enabled表示 shortcut 是否可用，false 表示禁用。xml 中这个属性几乎没有被设置为 false 的实际场景，具体原因可见<strong>6.7 如何更好的删除(废弃)老的 Shortcut</strong>中介绍。  </li>
 <li>shortcutDisabledMessage为已固定在桌面的 shortcut 被 Disabled 后点击时的 Toast 提示内容。可选字段。  </li>
-<li>intent为点击 shortcut 时响应的 Intent，必须字段。  </li>
+<li>intent为点击 shortcut 时响应的 Intent，必须字段。</li>
 </ol>
 <p>这里可以添加多个 Intent，但点击时不会启动所有 Intent，而是启动最后一个 Intent，在这个 Intent 回退时会启动它前面一个 Intent，相当于自动将所有 Intent 添加到了堆栈。<br>对于先跳转到某个页面，Back 键希望退回主页而不是结束 App 这类场景，多个 Intents 挺实用的。  </p>
 <blockquote>
@@ -373,14 +373,14 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 <li>setDynamicShortcuts(List)可以替换并添加所有 shortcut 列表；  </li>
 <li>addDynamicShortcuts(List)可以添加新的 shortcut 到列表，超过最大个数会报异常；  </li>
 <li>updateShortcuts(List)可以更新一组 shortcuts；  </li>
-<li>removeDynamicShortcuts(List)和removeAllDynamicShortcuts() 可以删除部分或所有 shortcuts。  </li>
+<li>removeDynamicShortcuts(List)和removeAllDynamicShortcuts() 可以删除部分或所有 shortcuts。</li>
 </ol>
 <p>ShortcutInfo的属性与 xml 中定义字段含义一致，shortcutId shortcutShortLabel intent 是必须设置的字段，并且intent必须设置Action。  </p>
 <h3 id="4-固定的-Shortcuts-Pinned-Shortcuts"><a href="#4-固定的-Shortcuts-Pinned-Shortcuts" class="headerlink" title="4. 固定的 Shortcuts(Pinned Shortcuts)"></a>4. 固定的 Shortcuts(Pinned Shortcuts)</h3><p>指通过拖动固定到桌面的 Shortcuts，App 不可以添加、修改、删除这些 Shortcuts，只能禁用他们。即便 App 内删除了某个 Shorcut，对应的已固定到桌面的 Shortcuts 也不会被删除。  </p>
 <p>可以通过：  </p>
 <ol>
 <li>getPinnedShortcuts()得到所有固定的 Shortcuts 的信息。  </li>
-<li>disableShortcuts(List)或disableShortcuts(List, CharSequence)禁用动态的 Shortcuts。  </li>
+<li>disableShortcuts(List)或disableShortcuts(List, CharSequence)禁用动态的 Shortcuts。</li>
 </ol>
 <p>对于静态的 Shortcuts 需要在资源文件中设置<code>android:enabled=&quot;false&quot;</code>进行禁用，不过没有必要，静态 Shortcuts 可直接通过删除达到禁用的效果，具体原因可见<strong>6.7 如何更好的删除(废弃)老的 Shortcut</strong>中介绍。</p>
 <p>静态 Shortcuts 和动态 Shortcuts 是有最大个数限制的，默认为 5，超过最大个数后添加会报异常。而固定的 Shortcuts 并没有个数限制，并且固定的 Shortcut 对应的 Shortcut 即便被动态删除了，依然可以通过 id 进行 Update 操作。  </p>
@@ -397,7 +397,7 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 </blockquote>
 <h4 id="5-4-应用备份"><a href="#5-4-应用备份" class="headerlink" title="5.4 应用备份"></a>5.4 应用备份</h4><p>如果应用通过备份恢复到另外一台机器上，固定的 Shortcuts 是可以直接恢复的，不过启动器不保存这些 Shortcut 的 icon，所以应用内需要存在这些 icon 对应的资源以便启动器能找到。  </p>
 <p>静态 Shortcuts 需要应用重新安装、升级才能生效。<br>动态 Shortcuts 需要相应代码被执行过才能生效。</p>
-<h2 id="二、Shortcuts-一些实践-amp-问题"><a href="#二、Shortcuts-一些实践-amp-问题" class="headerlink" title="二、Shortcuts 一些实践&amp;问题"></a>二、Shortcuts 一些实践&amp;问题</h2><p><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-3.jpg"><br><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-4.jpg"></p>
+<h2 id="二、Shortcuts-一些实践-amp-问题"><a href="#二、Shortcuts-一些实践-amp-问题" class="headerlink" title="二、Shortcuts 一些实践&amp;问题"></a>二、Shortcuts 一些实践&amp;问题</h2><p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts-3.jpg"><br><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts-4.jpg"></p>
 <h3 id="6-最佳实践"><a href="#6-最佳实践" class="headerlink" title="6. 最佳实践"></a>6. 最佳实践</h3><p>这块官网已经给出了一部分建议，包括：  </p>
 <ol>
 <li>设计上和系统 App 的 Shortcuts 保持一致。</li>
@@ -405,9 +405,11 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 <li>限制 Label 长度<br>其中shortcutShortLabel建议不超过 10 个字符，shortcutLongLabel 建议不超过 25 个字符。这块可能有些问题，可见<strong>7.1 LongLabel 和 ShortLabel</strong>中介绍。</li>
 <li>记录 Shortcut 及其对应操作使用记录。<br>这个在<strong>5.3 跟踪 Shorcut 使用情况</strong>中已经介绍了。</li>
 <li>只在 Shortcut 意义不变的情况下更新，否则新增。</li>
-<li>动态 Shortcuts 在 BackUp 恢复后不可以直接恢复，考虑适时新增或更新已有的 Shortcuts  </li>
+<li>动态 Shortcuts 在 BackUp 恢复后不可以直接恢复，考虑适时新增或更新已有的 Shortcuts<br><strong>除了以上这些外，个人觉得还有几点需要遵守：</strong></li>
+<li>如何更好的删除(废弃)老的 Shortcut<br>这里主要考虑到删除老的 Shortcut，可能会影响已经固定的 Shortcut。<br>对于静态 Shortcuts，直接删除配置文件中对应的 Shortcut 即可，系统桌面会将已固定的该 Shortcut 置灰，点击会提示 shortcutDisabledMessage。<br>对于动态 Shortcuts 建议通过禁用的方式而不是直接删除的方式，因为已经删除的动态 Shortcut 如果被固定了依然是可用的，所以希望该入口不可用最好的方式是禁用。</li>
+<li>始终设置shortcutDisabledMessage<br>根据上面的介绍废弃老的 Shortcut 较好的方式是禁用，通过自定义shortcutDisabledMessage去更友好的提示用户。</li>
+<li>动态添加 Shortcut 前需要判断 API 版本不小于 25<br>否则在低版本会报 ClassNotFoundException 异常。</li>
 </ol>
-<p><strong>除了以上这些外，个人觉得还有几点需要遵守：</strong><br>7. 如何更好的删除(废弃)老的 Shortcut<br>这里主要考虑到删除老的 Shortcut，可能会影响已经固定的 Shortcut。<br>对于静态 Shortcuts，直接删除配置文件中对应的 Shortcut 即可，系统桌面会将已固定的该 Shortcut 置灰，点击会提示 shortcutDisabledMessage。<br>对于动态 Shortcuts 建议通过禁用的方式而不是直接删除的方式，因为已经删除的动态 Shortcut 如果被固定了依然是可用的，所以希望该入口不可用最好的方式是禁用。<br>8. 始终设置shortcutDisabledMessage<br>根据上面的介绍废弃老的 Shortcut 较好的方式是禁用，通过自定义shortcutDisabledMessage去更友好的提示用户。<br>9. 动态添加 Shortcut 前需要判断 API 版本不小于 25<br>否则在低版本会报 ClassNotFoundException 异常。</p>
 <h3 id="7-一些问题"><a href="#7-一些问题" class="headerlink" title="7. 一些问题"></a>7. 一些问题</h3><h4 id="7-1-LongLabel-和-ShortLabel"><a href="#7-1-LongLabel-和-ShortLabel" class="headerlink" title="7.1 LongLabel 和 ShortLabel"></a>7.1 LongLabel 和 ShortLabel</h4><p>LongLabel和ShortLabel的含义，官方 API 文档解释的并不是很清楚。<br>在 Nexus 6 上测试，当 LongLabel 长度大于 17 个小写字符时，会显示 ShortLabel，而不是 LongLabel。这里的界限长度跟大小写、空格都有关，应该是受限于桌面 Shortcuts 列表 Item 的宽度！</p>
 <h4 id="7-2-Shortcut-添加、修改、点击无效"><a href="#7-2-Shortcut-添加、修改、点击无效" class="headerlink" title="7.2 Shortcut 添加、修改、点击无效"></a>7.2 Shortcut 添加、修改、点击无效</h4><p>可能原因：  </p>
 <ol>
@@ -416,7 +418,7 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 <li>后台 App 有频率限制<br>当应该完全退到后台(无 Activity 或 Service 在前台时)，其操作 Shortcut(包括添加、删除、修改) 的频率是受限的。可通过isRateLimitingActive()查询是否已受限，true表示已受限。<br>若已受限，可通过开发者选项中“重置 ShortcutManager 调用频率限制”或命令行<code>adb shell cmd shortcut reset-throttling [ --user USER-ID ]</code>解决。  </li>
 <li>Shortcut 个数限制<br>虽然官方文档介绍静态和动态 Shortcut 总和不能超过 5 个，通过getMaxShortcutCountPerActivity()得到的也是 5，但实际测试下来是不超过4个！即静态和动态shortcuts加起来总数最多是五个.<br>当我们尝试添加第六个shortcut时, 应用会抛出异常:<br> <code>java.lang.IllegalArgumentException: Max number of dynamic shortcuts exceeded.</code><br>虽然总数限制是5个, 但是当我正好有5个(2个静态 + 3个动态)的时候, 长按只显示了4个shortcuts.</li>
 </ol>
-<p><img src="http://img.shedoor.net/ocnyang/android-7.1-app-shortcuts-5.png" alt="android-7.1-app-shortcuts数量的限制">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/android-7.1-app-shortcuts-5.png" alt="android-7.1-app-shortcuts数量的限制">  </p>
 <h4 id="7-3-getIntents-有-Bug"><a href="#7-3-getIntents-有-Bug" class="headerlink" title="7.3 getIntents() 有 Bug"></a>7.3 getIntents() 有 Bug</h4><p>从 <a target="_blank" rel="noopener" href="https://android.googlesource.com/platform/frameworks/base/+/android-7.1.0_r7/core/java/android/content/pm/ShortcutInfo.java#1170">getIntents()</a> 实现 中可以看出未做mIntents是否为 null 及 empty 的判断，在 null 时会出现：  </p>
 <pre><code>java.lang.NullPointerException: Attempt to get length of null array
 </code></pre>
@@ -607,7 +609,7 @@ java.lang.SecurityException: Caller can&#39;t access shortcut information
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -617,7 +619,7 @@ java.lang.SecurityException: Caller can&#39;t access shortcut information
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

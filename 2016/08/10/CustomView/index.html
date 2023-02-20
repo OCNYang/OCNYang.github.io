@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,16 +31,16 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="摘录来源：伯乐在线专栏作者 - 邵辉|CRR    对于我这样一个Android初级开发者来说，自定义View一直是一个遥不可及的东西，每次看到别人做的特别漂亮的控件，自己心里那个痒痒啊，可是又生性懒惰，自己不肯努力去看书，只能望而兴叹，每次做需求用到自定义控件，就直接去Github上找，找到合适的就用，找不到合适的，凑合也用，反正从来没想过要自己来做这样的东西，可是毕业以后到了新公司，为了自己">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/myview1.png">
-<meta property="og:image" content="http://img.shedoor.net/myview2.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/myview1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/myview2.gif">
 <meta property="article:published_time" content="2016-08-10T13:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.982Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.153Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Android教程系列">
 <meta property="article:tag" content="自定义view">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/myview1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/myview1.png">
 
 <link rel="canonical" href="http://ocnyang.com/2016/08/10/CustomView/">
 
@@ -242,7 +242,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,7 +274,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.9k</span>
+              <span>8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,10 +302,10 @@
 <h3 id="从继承开始"><a href="#从继承开始" class="headerlink" title="从继承开始"></a>从继承开始</h3><p>懂点面向对象语言知识的都知道：封装，继承和多态，这是面向对象的三个基本特征，所以在自定义View的时候，最简单的方法就是继承现有的View   </p>
 <pre><code>public class SketchView extends View&#123;  
     public SketchView(Context context) &#123;
-        super(context);
+    	super(context);
     &#125;
     public SketchView(Context context, AttributeSet attrs) &#123;
-        super(context, attrs);
+    	super(context, attrs);
     &#125;
 
 
@@ -336,48 +336,47 @@
      android:layout_marginTop=&quot;16dp&quot; /&gt;
 </code></pre>
 </li>
-</ul>
-<ul>
-<li>这样，我们就把一个SketchView添加到布局文件里，并且加了一些布局属性，宽高属性以及margin属性，这些属性会存放在第二个构造函数的AttributeSet参数里</li>
-</ul>
-<ul>
-<li>第三个构造函数比第二个构造函数多了一个int型的值，名字叫defStyleAttr，从名称上判断，这是一个关于自定义属性的参数，实际上我们的猜测也是正确的，第三个构造函数不会被系统默认调用，而是需要我们自己去显式调用，比如在第二个构造函数里调用调用第三个函数，并将第三个参数设为0。</li>
+<li><p>这样，我们就把一个SketchView添加到布局文件里，并且加了一些布局属性，宽高属性以及margin属性，这些属性会存放在第二个构造函数的AttributeSet参数里</p>
+</li>
+<li><p>第三个构造函数比第二个构造函数多了一个int型的值，名字叫defStyleAttr，从名称上判断，这是一个关于自定义属性的参数，实际上我们的猜测也是正确的，第三个构造函数不会被系统默认调用，而是需要我们自己去显式调用，比如在第二个构造函数里调用调用第三个函数，并将第三个参数设为0。</p>
+</li>
 </ul>
 <blockquote>
 <p>关于第三个参数defStyleAttr,其实也可以拿出来说一整篇文章，有想详细了解的读者可以去看下本篇文章最后的第三个参考链接，我在这里只是简单的说一下：defStyleAttr指定的是在Theme style定义的一个attr，它的类型是reference,主要生效在obtainStyledAttributes方法里，obtainStyledAttributes方法有四个参数，第三个参数是defStyleAttr，第四个参数是自己指定的一个style，当且仅当defStyleAttr为0或者在Theme中找不到defStyleAttr指定的属性时，第四个参数才会生效，这些指的都是默认属性，当在xml里面定义的，就以在xml文件里指定的为准，所以优先级大概是：xml&gt;style&gt;defStyleAttr&gt;defStyleRes&gt;Theme指定，当defStyleAttr为0时，就跳过defStyleAttr指定的reference，所以一般用0就能满足一些基本开发。</p>
 </blockquote>
 <h3 id="Measure-gt-Layout-gt-Draw"><a href="#Measure-gt-Layout-gt-Draw" class="headerlink" title="Measure-&gt;Layout-&gt;Draw"></a>Measure-&gt;Layout-&gt;Draw</h3><p>在学会如何写一个自定义控件之前，了解一个控件的绘制流程是必要的，在Android里，一个view的绘制流程包括：Measure，Layout和Draw，通过onMeasure知道一个view要占界面的大小，然后通过onLayout知道这个控件应该放在哪个位置，最后通过onDraw方法将这个控件绘制出来，然后才能展现在用户面前，下面我将挨个分析一下这三个方法的作用。</p>
 <ul>
-<li>onMeasure 测量，通过测量知道一个一个view要占的大小，方法参数是两个int型的值，我们都知道，在java中，int型由4个字节（32bit）组成，在MeasureSpce中，用前两位表示mode，用后30位表示size</li>
-</ul>
-<pre><code>    @Override  
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) &#123;
+<li><p>onMeasure 测量，通过测量知道一个一个view要占的大小，方法参数是两个int型的值，我们都知道，在java中，int型由4个字节（32bit）组成，在MeasureSpce中，用前两位表示mode，用后30位表示size</p>
+<pre><code>  @Override  
+  protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) &#123;
 
-    int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-    int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-    int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-    int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-    int measuredHeight, measuredWidth;
-    if (widthMode == MeasureSpec.EXACTLY) &#123;
-        measuredWidth = widthSize;
-    &#125; else &#123;
-        measuredWidth = SIZE;
-    &#125;
-    if (heightMode == MeasureSpec.EXACTLY) &#123;
+  int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+  int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+  int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+  int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+  int measuredHeight, measuredWidth;
+  if (widthMode == MeasureSpec.EXACTLY) &#123;
+      measuredWidth = widthSize;
+  &#125; else &#123;
+      measuredWidth = SIZE;
+  &#125;
+  if (heightMode == MeasureSpec.EXACTLY) &#123;
 
-        measuredHeight = heightSize;
+      measuredHeight = heightSize;
 
-    &#125; else &#123;
+  &#125; else &#123;
 
-        measuredHeight = SIZE;
+      measuredHeight = SIZE;
 
-    &#125;
-    setMeasuredDimension(measuredWidth, measuredHeight);
+  &#125;
+  setMeasuredDimension(measuredWidth, measuredHeight);
 
-    &#125;
+  &#125;
 </code></pre>
+</li>
+</ul>
 <p>MeasureSpce的mode有三种：EXACTLY, AT_MOST，UNSPECIFIED，除却UNSPECIFIED不谈，其他两种mode：当父布局是EXACTLY时，子控件确定大小或者match_parent，mode都是EXACTLY，子控件是wrap_content时，mode为AT_MOST；当父布局是AT_MOST时，子控件确定大小，mode为EXACTLY，子控件wrap_content或者match_parent时，mode为AT_MOST。所以在确定控件大小时，需要判断MeasureSpec的mode，不能直接用MeasureSpec的size。在进行一些逻辑处理以后，调用setMeasureDimension()方法，将测量得到的宽高传进去供layout使用。  </p>
-<p><img src="http://img.shedoor.net/myview1.png">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/myview1.png">  </p>
 <blockquote>
 <p>需要明白的一点是 ,测量所得的宽高不一定是最后展示的宽高，最后宽高确定是在onLayout方法里，layou（left，top，right，bottom），不过一般都是一样的。</p>
 </blockquote>
@@ -399,7 +398,7 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) &#123;
    &#125;
 </code></pre>
 <p>不仔细观察是看不出来其中的奥妙的，虽然这里复写了view的onMeasure，但是貌似没有做任何处理，直接调用了super方法，但是仔细观察的话就会发现，在调用super方法的时候，第二个参数变了，本来应该是heightMeasureSpec却换成了widthMeasureSpec，这样view的高度就是view的宽度，一个SquareView就实现了，甚至如果通过自定义属性实现一个自定义比例view。</p>
-<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><p>自定义view没有自定义属性怎么得了，要给view支持自定义属性，需要在values/attrs.xml 文件里定义一个name为自己定义view名字的declare-styleable</p>
+<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><p>自定义view没有自定义属性怎么得了，要给view支持自定义属性，需要在values&#x2F;attrs.xml 文件里定义一个name为自己定义view名字的declare-styleable</p>
 <pre><code>&lt;resources&gt;
 
     &lt;declare-styleable name=&quot;SketchView&quot;&gt;
@@ -465,7 +464,7 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) &#123;
 </code></pre>
 <p>(只贴了核心代码，完整代码会在文章最后给链接)</p>
 <p>可以看到在onDraw()方法里，我调用了canvas的drawCircle方法画了一个圆，圆心的位置是又画布的位置决定的，位于画布的中心，width和height参数是在onLayout()方法里拿到的，在此之前取到的height和width都是不准确的，这点要注意。圆的半径是xml文件中定义的size*scale，而这个scale是通过一个ValueAnimator确定的，变化范围是从1到2，ValueAnimator的值发生改变会赋给scale同时调用postInvalidate()方法，这个方法的作用就是重绘，然后圆的半径就会发生改变，这样刷新就会实现动画的效果。  </p>
-<p><img src="http://img.shedoor.net/myview2.gif">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/myview2.gif">  </p>
 <h3 id="requstLayout和invidious"><a href="#requstLayout和invidious" class="headerlink" title="requstLayout和invidious"></a>requstLayout和invidious</h3><p>在自定义view时，时常用到刷新view的方法，这时候就会有三个方法供我们选择：requestLayout()、invalidate()、postInvalidate()，其实invalidate和postInvalidate这两个方法作用是一样的，唯一不同的是invalidate用在主线程，而postInvalidate用在异步线程，下面对比一下requestLayout和invalidate的内部实现：</p>
 <pre><code>@Override
 public void requestLayout() &#123;
@@ -485,10 +484,10 @@ void invalidate() &#123;
 </code></pre>
 <p>从代码可以看出，其实这两个方法内部都是调用的scheduleTraversals()方法，不同的是，requestLayout方法将mLayoutRequested标示置为true，scheduleTraversals这个方法以后找机会再细分析，现在只简单说下结论，</p>
 <ul>
-<li>requestLayout会调用measure和layout 等一系列操作，然后根据布局是否发生改变，surface是否被销毁，来决定是否调用draw，也就是说requestlayout肯定会调用measure和layout，但不一定调用draw，读者可以试着改下我上面写的那个小程序，将postInvalidate改成requestlayout，动画效果就消失了，因为布局没有发生改变。</li>
-</ul>
-<ul>
-<li>invalidate 只会调用draw，而且肯定会调，即使什么都没有发生改变，它也会重新绘制。</li>
+<li><p>requestLayout会调用measure和layout 等一系列操作，然后根据布局是否发生改变，surface是否被销毁，来决定是否调用draw，也就是说requestlayout肯定会调用measure和layout，但不一定调用draw，读者可以试着改下我上面写的那个小程序，将postInvalidate改成requestlayout，动画效果就消失了，因为布局没有发生改变。</p>
+</li>
+<li><p>invalidate 只会调用draw，而且肯定会调，即使什么都没有发生改变，它也会重新绘制。</p>
+</li>
 </ul>
 <p>所以如果有布局需要发生改变，需要调用requestlayout方法，如果只是刷新动画，则只需要调用invalidate方法。</p>
 <h3 id="自定义view的状态保存"><a href="#自定义view的状态保存" class="headerlink" title="自定义view的状态保存"></a>自定义view的状态保存</h3><p>自定义view的状态保存和Activity的状态保存是类似的，都是在onSaveInstanceState()保存，然后在onRestoreInstanceState将数据安全取出，之所以在这是还是多说一嘴，主要是怕自己忘，给自己提个醒，也顺便给各位看客叨扰几句，还有一个就是，如果一个view没有id，这个view的状态是不会保存的。</p>
@@ -499,7 +498,7 @@ void invalidate() &#123;
 <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://ghui.me/post/2015/10/view-measure/">http://ghui.me/post/2015/10/view-measure/</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/wzy_1988/article/details/49619773">http://blog.csdn.net/wzy_1988/article/details/49619773</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/wzy_1988/article/details/49619773">http://blog.csdn.net/wzy_1988&#x2F;article&#x2F;details&#x2F;49619773</a></li>
 <li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/angeldevil/p/3479431.html">http://www.cnblogs.com/angeldevil/p/3479431.html</a></li>
 </ul>
 </blockquote>
@@ -678,7 +677,7 @@ void invalidate() &#123;
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -688,7 +687,7 @@ void invalidate() &#123;
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

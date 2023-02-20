@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -31,19 +31,19 @@
 <meta property="og:site_name" content="OCNYang の 博客">
 <meta property="og:description" content="今天我们来介绍一种用TextView代替并显示图片，以达到App优化及图标自适应的效果。当然，我们先来看一下效果：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_.png">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont.png">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_all.png">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_setect.png">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_cart.png">
-<meta property="og:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_ttf.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_all.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_setect.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_cart.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_ttf.png">
 <meta property="article:published_time" content="2016-12-06T16:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.986Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.157Z">
 <meta property="article:author" content="OCNYang">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Android教程系列">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.shedoor.net/ocnyang/iconfont/iconfont_.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_.png">
 
 <link rel="canonical" href="http://ocnyang.com/2016/12/06/IconFont/">
 
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,7 +297,7 @@
 
       
         <p>今天我们来介绍一种用TextView代替并显示图片，以达到App优化及图标自适应的效果。当然，我们先来看一下效果：  </p>
-<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_.png" alt="这些真的只是TextView文本">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_.png" alt="这些真的只是TextView文本">  </p>
 <span id="more"></span>
 
 <blockquote>
@@ -342,7 +342,7 @@
 <pre><code>public static final void injectFont(View rootView, Typeface tf)
 </code></pre>
 <blockquote>
-<p>这个方法中，首先我们去判断我们给的rootView是不是ViewGroup，如果是ViewGroup，则遍历他的所有子view，然后递归去调用这个方法，直到全部完成，如果发现某个view是TextView，则我们调用setTypeface方法来设置字体。<br>ok，从这个工具类中我们还可以看到，我们的字体是放在assets/fonts目录下的。</p>
+<p>这个方法中，首先我们去判断我们给的rootView是不是ViewGroup，如果是ViewGroup，则遍历他的所有子view，然后递归去调用这个方法，直到全部完成，如果发现某个view是TextView，则我们调用setTypeface方法来设置字体。<br>ok，从这个工具类中我们还可以看到，我们的字体是放在assets&#x2F;fonts目录下的。</p>
 </blockquote>
 <p>最后是在activity中使用字体库，正式利用了上面的工具类，所以我们的代码将会很简单。  </p>
 <pre><code>@Override
@@ -401,7 +401,7 @@ protected void onCreate(Bundle savedInstanceState) &#123;
 <p>这里提供是两种全局设置的方式。<br>有时候我们只是需要给部分 TextView 设置，这时候大家可以选择手动单独给特定的 TextView 设置，也可以通过自定义 View 的方案来实现（<strong>在构造方法中去设置 TypeFace</strong>，我个人也比较提倡这种方式，使用上相对灵活，也很简单这里就啰嗦了，详细代码可以到这里下载 <a target="_blank" rel="noopener" href="https://github.com/OCNYang/FontTest">本文源码</a> 内查看）。  </p>
 </blockquote>
 <p>那上面这些只是如何设置字体的方法，可能你也早就知道了，字体是字体，也不是图片呀，大兄弟莫慌，下面就给你如何介绍一种酷炫的字体库和制作自己独特的图片字体库的方法。  </p>
-<h2 id="fontawesome-字体库的使用"><a href="#fontawesome-字体库的使用" class="headerlink" title="fontawesome 字体库的使用"></a>fontawesome 字体库的使用</h2><p>在开始使用之前，我们我们需要到<br><strong><a target="_blank" rel="noopener" href="https://github.com/FortAwesome/Font-Awesome/">https://github.com/FortAwesome/Font-Awesome/</a></strong><br>下载这个字体库（不想麻烦，本文 <a target="_blank" rel="noopener" href="https://github.com/OCNYang/FontTest">源代码</a> 也包含有）。下载下来以后，你会看到有很多目录和文件，没关系，我们只需要一个文件-fontawesome-webfont.ttf，这个文件位于/fonts/目录下。将这个ttf文件copy到你项目的assets目录下，按照惯例或者说是共识，我们可能是将它放到assets/fonts这个目录下(注意，没有这个目录的话，创建它！)。  </p>
+<h2 id="fontawesome-字体库的使用"><a href="#fontawesome-字体库的使用" class="headerlink" title="fontawesome 字体库的使用"></a>fontawesome 字体库的使用</h2><p>在开始使用之前，我们我们需要到<br><strong><a target="_blank" rel="noopener" href="https://github.com/FortAwesome/Font-Awesome/">https://github.com/FortAwesome/Font-Awesome/</a></strong><br>下载这个字体库（不想麻烦，本文 <a target="_blank" rel="noopener" href="https://github.com/OCNYang/FontTest">源代码</a> 也包含有）。下载下来以后，你会看到有很多目录和文件，没关系，我们只需要一个文件-fontawesome-webfont.ttf，这个文件位于&#x2F;fonts&#x2F;目录下。将这个ttf文件copy到你项目的assets目录下，按照惯例或者说是共识，我们可能是将它放到assets&#x2F;fonts这个目录下(注意，没有这个目录的话，创建它！)。  </p>
 <p>ok， 准备工作都做好了，那我们就开始使用它吧，看我的xml布局文件：  </p>
 <pre><code>&lt;LinearLayout
     //...
@@ -441,18 +441,18 @@ protected void onCreate(Bundle savedInstanceState) &#123;
 <h3 id="图标干货"><a href="#图标干货" class="headerlink" title="图标干货"></a>图标干货</h3><p>对于使用，最主要就是找到一些靠谱的素材站点了</p>
 <p><a target="_blank" rel="noopener" href="http://www.iconfont.cn/">http://www.iconfont.cn/</a><br><a target="_blank" rel="noopener" href="https://icomoon.io/app/#/select">https://icomoon.io/app/#/select</a><br><a target="_blank" rel="noopener" href="https://github.com/mikepenz/Android-Iconics">https://github.com/mikepenz/Android-Iconics</a>  </p>
 <p>第一个站点是阿里提供的图标库，基本上可以搜索到需要的任何图标，非常方便，也支持颜色和大小的设置，足够满足我们的需求：</p>
-<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont.png" alt="阿里 iconfont 图标库">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont.png" alt="阿里 iconfont 图标库">  </p>
 <h3 id="自定义图标"><a href="#自定义图标" class="headerlink" title="自定义图标"></a>自定义图标</h3><p>无论上面这些网站提供的图标是多么的全，可能都无法满足贪心的你或者你们家追求完美（矫情）到极致的UI，那么如果App内的图标部分是自己制作的，再混杂着网络上已有的图标能打包到一个字体库么？<br>答案当然是肯定的，我们本来就是要制作属于自己的字体库嘛！比如你就可以依赖 <code>iconfont.com</code> 这个网站，自行上传svg图标，然后就可以自由选择了。  </p>
 <blockquote>
 <p>关于 iconfont 网站的用法可以参考官方手册(也可以跳过，直接跟着我学习怎么生成自己的字体库)：<br><a target="_blank" rel="noopener" href="http://www.iconfont.cn/help/platform.html">http://www.iconfont.cn/help/platform.html</a>  </p>
 </blockquote>
 <h3 id="按需生成自己的图标字体库"><a href="#按需生成自己的图标字体库" class="headerlink" title="按需生成自己的图标字体库"></a>按需生成自己的图标字体库</h3><p>我们以 iconfont 库为例，教大家<a href="http://ocnyang.com/">生成自己图片字体库的整个流程</a>（下面所有步骤，大家都无需注册账号，就可以直接使用）。  </p>
 <p>首先在 iconfont 网站上选择自己要生成到字体库的图标，可以选择网站字体库中选择，也可以在我的图标库中选择自己上传的图标。把这些图标添加到库（即添加到购物车）：  </p>
-<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_all.png" alt="选择喜欢的图标">  </p>
-<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_setect.png" alt="添加到购物车">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_all.png" alt="选择喜欢的图标">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_setect.png" alt="添加到购物车">  </p>
 <p>当你想要生成的字体库的图标选择完成后，在网站右上角点击打开库（购物车），在库里可以看到自己选择的所有图标，确定后点击下载代码：  </p>
-<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_cart.png" alt="打开库，下载代码会得到一个压缩包">  </p>
-<p><img src="http://img.shedoor.net/ocnyang/iconfont/iconfont_ttf.png" alt="解压缩后，可以看到生成的库">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_cart.png" alt="打开库，下载代码会得到一个压缩包">  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/ocnyang/iconfont/iconfont_ttf.png" alt="解压缩后，可以看到生成的库">  </p>
 <p>在解压后的文件夹中，我们看到许多文件。其中以 <code>.ttf</code> 结尾的文件就是我们生成的自己的字体库，而 3 个 <code>.html</code> 文件对应的是不同平台使用时对应的编码。而我们在 Android 开发中要使用的编码是 <code>demo_unicode.html</code> 文件里对应的 <code>&amp;#xxxxx;</code> 形式的编码。  </p>
 <p>细心的你一定会发现，生成的字体库里虽然包含了很多图标，却只有小小的几 KB 的大小，更难能可贵的是无论设置多大的尺寸它依旧能够保存一样的清晰度，当然，你也可以把该方案看成apk瘦身的可选手段之一。</p>
 <p>本文Demo源代码下载地址：**<a target="_blank" rel="noopener" href="https://github.com/OCNYang/FontTest">https://github.com/OCNYang/FontTest</a>**  </p>
@@ -633,7 +633,7 @@ protected void onCreate(Bundle savedInstanceState) &#123;
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -643,7 +643,7 @@ protected void onCreate(Bundle savedInstanceState) &#123;
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.3.0">
 <meta name="referrer" content="no-referrer" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
@@ -32,10 +32,10 @@
 <meta property="og:description" content="这里向大家介绍一些我个人认为比较特别的属性，通过设置这样的属性可以做出更加美观的列表">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-08-22T16:03:15.000Z">
-<meta property="article:modified_time" content="2022-03-15T07:02:36.986Z">
+<meta property="article:modified_time" content="2023-02-20T10:02:53.157Z">
 <meta property="article:author" content="OCNYang">
-<meta property="article:tag" content="Android控件">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="Android控件">
 <meta property="article:tag" content="ListView">
 <meta name="twitter:card" content="summary">
 
@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 07:02:36" itemprop="dateModified" datetime="2022-03-15T07:02:36+00:00">2022-03-15</time>
+                <time title="修改时间：2023-02-20 10:02:53" itemprop="dateModified" datetime="2023-02-20T10:02:53+00:00">2023-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,7 +271,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,19 +293,19 @@
         <p>这里向大家介绍一些我个人认为比较特别的属性，通过设置这样的属性可以做出更加美观的列表</p>
 <span id="more"></span>
 
-<h2 id="一-ListView的一些特殊属性"><a href="#一-ListView的一些特殊属性" class="headerlink" title="一.  ListView的一些特殊属性"></a>一.  ListView的一些特殊属性</h2><h3 id="1-stackFromBottom属性"><a href="#1-stackFromBottom属性" class="headerlink" title="1. stackFromBottom属性"></a>1. stackFromBottom属性</h3><p>**android:stackFromBottom=”true”**。设置该属性后你做好的列表就会显示你列表的最下面，值为true和false</p>
-<h3 id="2-transciptMode属性"><a href="#2-transciptMode属性" class="headerlink" title="2. transciptMode属性"></a>2. transciptMode属性</h3><p>需要用ListView或者其它显示大量Items的控件实时跟踪或者查看信息，并且希望最新的条目可以自动滚动到可视范围内。通过设置的控件transcriptMode属性可以将Android平台的控件（支持ScrollBar）自动滑动到最底部。<br><strong>android:transcriptMode=”alwaysScroll”</strong>   </p>
-<h3 id="3-cacheColorHint属性"><a href="#3-cacheColorHint属性" class="headerlink" title="3. cacheColorHint属性"></a>3. cacheColorHint属性</h3><p>很多人希望能够改变一下它的背景，使他能够符合整体的UI设计，改变背景背很简单只需要准备一张图片然后指定属性 **android:background=”@drawable/bg”**，不过不要高兴地太早，当你这么做以后，发现背景是变了，但是当你拖动，或者点击list空白位置的时候发现ListItem都变成黑色的了，破坏了整体效果。<br>如果你只是换背景的颜色的话，可以直接指定 <strong>android:cacheColorHint</strong> 为你所要的颜色，如果你是用图片做背景的话，那也只要将android:cacheColorHint指定为透明（#00000000）就可以了</p>
-<h3 id="4-divider属性"><a href="#4-divider属性" class="headerlink" title="4. divider属性"></a>4. divider属性</h3><p>该属性作用是每一项之间需要设置一个图片做为间隔，或是去掉item之间的分割线<br><strong>android:divider=”@drawable/list_driver”</strong>  其中  @drawable/list_driver 是一个图片资源，如果不想显示分割线则只要设置为__android:divider=”@drawable/@null”__ 就可以了。<strong>android:dividerHeight=”2dip”</strong> 设置两个item之间的距离</p>
-<h3 id="5-headerDividersEnabled属性"><a href="#5-headerDividersEnabled属性" class="headerlink" title="5. headerDividersEnabled属性"></a>5. headerDividersEnabled属性</h3><p>__android:headerDividersEnabled=”false”__设成flase时，此ListView将不会在页眉视图前画分隔符。缺省值为true<br><strong>android:footerDividersEnabled</strong> 设成flase时，此ListView将不会在页脚视图前画分隔符。此属性缺省值为true</p>
-<h3 id="6-fadingEdge属性"><a href="#6-fadingEdge属性" class="headerlink" title="6. fadingEdge属性"></a>6. fadingEdge属性</h3><p>上边和下边有黑色的阴影(类似边框的东西)<br><strong>android:fadingEdge=”none”</strong> 设置后没有阴影了~</p>
-<h3 id="7-scrollbars属性"><a href="#7-scrollbars属性" class="headerlink" title="7. scrollbars属性"></a>7. scrollbars属性</h3><p>作用是隐藏listView的滚动条，<br>__android:scrollbars=”none”<strong>与__setVerticalScrollBarEnabled(true)</strong>;的效果是一样的，不活动的时候隐藏，活动的时候也隐藏</p>
-<h3 id="8-fadeScrollbars属性"><a href="#8-fadeScrollbars属性" class="headerlink" title="8. fadeScrollbars属性"></a>8. fadeScrollbars属性</h3><p><strong>android:fadeScrollbars=”true”</strong>  配置ListView布局的时候，设置这个属性为true就可以实现滚动条的自动隐藏和显示。</p>
-<h3 id="9-fastScrollEnabled属性"><a href="#9-fastScrollEnabled属性" class="headerlink" title="9. fastScrollEnabled属性"></a>9. fastScrollEnabled属性</h3><p>很多开发者不知道ListView列表控件的快速滚动滑块是如何启用的，这里告诉大家，辅助滚动滑块只需要一行代码就可以搞定，如果你使用XML布局只需要在ListView节点中加入  <strong>android:fastScrollEnabled=”true”</strong> 这个属性即可，而对于Java代码可以通过__myListView.setFastScrollEnabled(true)__来控制启用，参数false为隐藏。 还有一点就是当你的滚动内容较小，不到当前ListView的3个屏幕高度时则不会出现这个快速滚动滑块，同时该方法仍然是AbsListView的基础方法，可以在ListView或GridView等子类中使用快速滚动辅助。</p>
-<h3 id="10-drawSelectorOnTop属性"><a href="#10-drawSelectorOnTop属性" class="headerlink" title="10. drawSelectorOnTop属性"></a>10. drawSelectorOnTop属性</h3><p><strong>android:drawSelectorOnTop=”true”</strong> 点击某一条记录，颜色会显示在最上面，记录上的文字被遮住，所以点击文字不放，文字就看不到<br>__android:drawSelectorOnTop=”false”__点击某条记录不放，颜色会在记录的后面，成为背景色，但是记录内容的文字是可见的</p>
-<h3 id="11-listSelector属性"><a href="#11-listSelector属性" class="headerlink" title="11. listSelector属性"></a>11. listSelector属性</h3><p><strong>android:listSelector=”#00000000 “</strong> 改变选中item时的颜色。默认为橙黄底色（依手机系统而定）</p>
-<h3 id="12-scrollingCache属性"><a href="#12-scrollingCache属性" class="headerlink" title="12. scrollingCache属性"></a>12. scrollingCache属性</h3><p>__android:scrollingCache=”false”__去除拖动时ListView背景为黑色</p>
-<h3 id="13-soundEffectsEnabled属性"><a href="#13-soundEffectsEnabled属性" class="headerlink" title="13. soundEffectsEnabled属性"></a>13. soundEffectsEnabled属性</h3><p><strong>android:soundEffectsEnabled=”false”</strong>  点击和触摸时是否有声音效果,缺省值为true(只有系统设置中开启了触摸提示音才有效)</p>
+<h2 id="一-ListView的一些特殊属性"><a href="#一-ListView的一些特殊属性" class="headerlink" title="一.  ListView的一些特殊属性"></a>一.  ListView的一些特殊属性</h2><h3 id="1-stackFromBottom属性"><a href="#1-stackFromBottom属性" class="headerlink" title="1. stackFromBottom属性"></a>1. stackFromBottom属性</h3><p>**android:stackFromBottom&#x3D;”true”**。设置该属性后你做好的列表就会显示你列表的最下面，值为true和false</p>
+<h3 id="2-transciptMode属性"><a href="#2-transciptMode属性" class="headerlink" title="2. transciptMode属性"></a>2. transciptMode属性</h3><p>需要用ListView或者其它显示大量Items的控件实时跟踪或者查看信息，并且希望最新的条目可以自动滚动到可视范围内。通过设置的控件transcriptMode属性可以将Android平台的控件（支持ScrollBar）自动滑动到最底部。<br><strong>android:transcriptMode&#x3D;”alwaysScroll”</strong>   </p>
+<h3 id="3-cacheColorHint属性"><a href="#3-cacheColorHint属性" class="headerlink" title="3. cacheColorHint属性"></a>3. cacheColorHint属性</h3><p>很多人希望能够改变一下它的背景，使他能够符合整体的UI设计，改变背景背很简单只需要准备一张图片然后指定属性 **android:background&#x3D;”@drawable&#x2F;bg”**，不过不要高兴地太早，当你这么做以后，发现背景是变了，但是当你拖动，或者点击list空白位置的时候发现ListItem都变成黑色的了，破坏了整体效果。<br>如果你只是换背景的颜色的话，可以直接指定 <strong>android:cacheColorHint</strong> 为你所要的颜色，如果你是用图片做背景的话，那也只要将android:cacheColorHint指定为透明（#00000000）就可以了</p>
+<h3 id="4-divider属性"><a href="#4-divider属性" class="headerlink" title="4. divider属性"></a>4. divider属性</h3><p>该属性作用是每一项之间需要设置一个图片做为间隔，或是去掉item之间的分割线<br><strong>android:divider&#x3D;”@drawable&#x2F;list_driver”</strong>  其中  @drawable&#x2F;list_driver 是一个图片资源，如果不想显示分割线则只要设置为__android:divider&#x3D;”@drawable&#x2F;@null”__ 就可以了。<strong>android:dividerHeight&#x3D;”2dip”</strong> 设置两个item之间的距离</p>
+<h3 id="5-headerDividersEnabled属性"><a href="#5-headerDividersEnabled属性" class="headerlink" title="5. headerDividersEnabled属性"></a>5. headerDividersEnabled属性</h3><p>__android:headerDividersEnabled&#x3D;”false”__设成flase时，此ListView将不会在页眉视图前画分隔符。缺省值为true<br><strong>android:footerDividersEnabled</strong> 设成flase时，此ListView将不会在页脚视图前画分隔符。此属性缺省值为true</p>
+<h3 id="6-fadingEdge属性"><a href="#6-fadingEdge属性" class="headerlink" title="6. fadingEdge属性"></a>6. fadingEdge属性</h3><p>上边和下边有黑色的阴影(类似边框的东西)<br><strong>android:fadingEdge&#x3D;”none”</strong> 设置后没有阴影了~</p>
+<h3 id="7-scrollbars属性"><a href="#7-scrollbars属性" class="headerlink" title="7. scrollbars属性"></a>7. scrollbars属性</h3><p>作用是隐藏listView的滚动条，<br>__android:scrollbars&#x3D;”none”<strong>与__setVerticalScrollBarEnabled(true)</strong>;的效果是一样的，不活动的时候隐藏，活动的时候也隐藏</p>
+<h3 id="8-fadeScrollbars属性"><a href="#8-fadeScrollbars属性" class="headerlink" title="8. fadeScrollbars属性"></a>8. fadeScrollbars属性</h3><p><strong>android:fadeScrollbars&#x3D;”true”</strong>  配置ListView布局的时候，设置这个属性为true就可以实现滚动条的自动隐藏和显示。</p>
+<h3 id="9-fastScrollEnabled属性"><a href="#9-fastScrollEnabled属性" class="headerlink" title="9. fastScrollEnabled属性"></a>9. fastScrollEnabled属性</h3><p>很多开发者不知道ListView列表控件的快速滚动滑块是如何启用的，这里告诉大家，辅助滚动滑块只需要一行代码就可以搞定，如果你使用XML布局只需要在ListView节点中加入  <strong>android:fastScrollEnabled&#x3D;”true”</strong> 这个属性即可，而对于Java代码可以通过__myListView.setFastScrollEnabled(true)__来控制启用，参数false为隐藏。 还有一点就是当你的滚动内容较小，不到当前ListView的3个屏幕高度时则不会出现这个快速滚动滑块，同时该方法仍然是AbsListView的基础方法，可以在ListView或GridView等子类中使用快速滚动辅助。</p>
+<h3 id="10-drawSelectorOnTop属性"><a href="#10-drawSelectorOnTop属性" class="headerlink" title="10. drawSelectorOnTop属性"></a>10. drawSelectorOnTop属性</h3><p><strong>android:drawSelectorOnTop&#x3D;”true”</strong> 点击某一条记录，颜色会显示在最上面，记录上的文字被遮住，所以点击文字不放，文字就看不到<br>__android:drawSelectorOnTop&#x3D;”false”__点击某条记录不放，颜色会在记录的后面，成为背景色，但是记录内容的文字是可见的</p>
+<h3 id="11-listSelector属性"><a href="#11-listSelector属性" class="headerlink" title="11. listSelector属性"></a>11. listSelector属性</h3><p><strong>android:listSelector&#x3D;”#00000000 “</strong> 改变选中item时的颜色。默认为橙黄底色（依手机系统而定）</p>
+<h3 id="12-scrollingCache属性"><a href="#12-scrollingCache属性" class="headerlink" title="12. scrollingCache属性"></a>12. scrollingCache属性</h3><p>__android:scrollingCache&#x3D;”false”__去除拖动时ListView背景为黑色</p>
+<h3 id="13-soundEffectsEnabled属性"><a href="#13-soundEffectsEnabled属性" class="headerlink" title="13. soundEffectsEnabled属性"></a>13. soundEffectsEnabled属性</h3><p><strong>android:soundEffectsEnabled&#x3D;”false”</strong>  点击和触摸时是否有声音效果,缺省值为true(只有系统设置中开启了触摸提示音才有效)</p>
 <h2 id="二-解决ListView-item中含有Button或者Checkable的子类控件点击时冲突"><a href="#二-解决ListView-item中含有Button或者Checkable的子类控件点击时冲突" class="headerlink" title="二.   解决ListView item中含有Button或者Checkable的子类控件点击时冲突"></a>二.   解决ListView item中含有Button或者Checkable的子类控件点击时冲突</h2><p>由于在你自己定义的Item中存在诸如Button或者Checkable的子类控件，此时这些子控件会将焦点获取到，所以常常当点击item时变化的是子控件，item本身的点击没有响应。这时候就可以使用descendantFocusability来解决啦，API描述如下：</p>
 <blockquote>
 <p>android:descendantFocusability<br>Defines the relationship between the ViewGroup and its descendants when looking for a View to take focus.<br>Must be one of the following constant values.</p>
@@ -318,13 +318,13 @@
 </ul>
 <p>所以解决办法：</p>
 <ol>
-<li>在Item布局的根布局加上__android:descendantFocusability=”blocksDescendants”__的属性。</li>
-<li>在当前ListView的xml里添加__android:descendantFocusability=”blocksDescendants”__ 在item的xml里的Button添加__android:focusable=”false”__的属性。</li>
+<li>在Item布局的根布局加上__android:descendantFocusability&#x3D;”blocksDescendants”__的属性。</li>
+<li>在当前ListView的xml里添加__android:descendantFocusability&#x3D;”blocksDescendants”__ 在item的xml里的Button添加__android:focusable&#x3D;”false”__的属性。</li>
 </ol>
 <h2 id="三-listview的item点击事件会使里面的Button也出现按压的效果"><a href="#三-listview的item点击事件会使里面的Button也出现按压的效果" class="headerlink" title="三.  listview的item点击事件会使里面的Button也出现按压的效果"></a>三.  listview的item点击事件会使里面的Button也出现按压的效果</h2><p>两个方案：  </p>
 <ol>
 <li>放弃listview的onItemClickedListener()。listview.setOnItemClickedListener(null);</li>
-<li>使用自定义的Button，判断他的父控件是否press，如果是就把这个事件消耗掉，不向下传递即可；  </li>
+<li>使用自定义的Button，判断他的父控件是否press，如果是就把这个事件消耗掉，不向下传递即可；</li>
 </ol>
 <blockquote>
 </blockquote>
@@ -385,8 +385,8 @@ public class CustomButton extends Button &#123;
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Android%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> Android控件</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Android%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> Android控件</a>
               <a href="/tags/ListView/" rel="tag"><i class="fa fa-tag"></i> ListView</a>
           </div>
 
@@ -534,7 +534,7 @@ public class CustomButton extends Button &#123;
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -544,7 +544,7 @@ public class CustomButton extends Button &#123;
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">425k</span>
+    <span title="站点总字数">427k</span>
 </div>
 
 <!---->
